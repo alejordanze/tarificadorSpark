@@ -56,30 +56,79 @@ public class Main {
 		}
 		CDRregister.saveRegistry();
 		
-		return "<label> Registro de la tarificacion de CDRS exportado exitosamente</label>";
-	}
+		return "<html>"
+				+ "<head>"
+				+ "<style>"
+				+ "body,.buttom {background-color: powderblue;}"
+				+ "h1,h3 {color: blue;}" 
+				+ "label {color: black;}"
+				+ ".box {background-color: #f1f1f1; padding: 20px; text-align: center;}"
+				+ "</style>" 
+				+ "</head>"
+				+ "<body>"
+				+ "<div class=\"box\">"
+				+ "<h1>Tarificador</h1>"
+				+ "</div>"
+				+ "</br>"
+				+ "<div class=\"box\">"
+				+ "<label> Registro de la tarificacion de CDRS exportado exitosamente</label>"
+				+ "</div>"
+				+ "</body>"
+				+ "</html>";
+		}
 	
 	private static String home() {
 		return "<html>"
+				+ "<head>"
+				+ "<style>"
+				+ "body,.buttom {background-color: powderblue;}"
+				+ "h1,h3 {color: blue;}" 
+				+ "label {color: black;}"
+				+ ".box {background-color: #f1f1f1; padding: 20px; text-align: center;}"
+				+ "</style>" 
+				+ "</head>"
 				+ "<body>"
-				+ "<form method='post' action='/welcome'>" 
+				+ "<div class=\"box\">"
 				+ "<h1>Bienvenido a tarificador</h1>"
+				+ "</div>"
+				+"</br>"
+				+ "<div class=\"box\">"
+				+ "<form method='post' action='/welcome'>" 
 				+ "<h3>Ingrese su nombre</h3>"
 				+ "<label>Nombre:</label>"
 				+ "<input type='text' name='name'>"
-				+ "<input type='submit' value='Entrar'>"
+				+ "<input type='submit' value='Entrar' class=\"buttom\">"
 				+ "</form"
+				+ "</div>"
 				+ "</body>"
 				+ "</html>";
 
 	}
 	
 	private static String welcome(String name) {
-		return "<h1>Bienvenido "
+		return "<html>"
+				+ "<head>"
+				+ "<style>"
+				+ "body,.buttom {background-color: powderblue;}"
+				+ "h1,h3 {color: blue;}" 
+				+ "label {color: black;}"
+				+ ".box {background-color: #f1f1f1; padding: 20px; text-align: center;}"
+				+ "</style>" 
+				+ "</head>"
+				+ "<body>"
+				+ "<div class=\"box\">"
+				+ "<h1>Tarificador</h1>"
+				+ "</div>"
+				+ "</br>"
+				+ "<div class=\"box\">"
+				+ "<h1>Bienvenido "
 				+ name
 				+ "</h1>"
 				+ "<h3>Presione el boton si desea realizar la tarificacion de CDRS</h3>"
-			    + "<button onclick=\"window.location.href='/export';\">Realizar</button>";
+			    + "<button onclick=\"window.location.href='/export';\" class=\"buttom\">Realizar</button>"
+				+ "</div>"
+				+ "</body>"
+				+ "</html>";
 
 	}
 	
