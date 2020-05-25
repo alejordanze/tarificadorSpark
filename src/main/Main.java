@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 	
@@ -55,25 +56,36 @@ public class Main {
 		}
 		CDRregister.saveRegistry();
 		
-		return "<label> Registro exportado exitosamente</label>";
+		return "<label> Registro de la tarificacion de CDRS exportado exitosamente</label>";
 	}
 	
 	private static String home() {
 		return "<html>"
 				+ "<body>"
 				+ "<form method='post' action='/welcome'>" 
-				+ "<h1>Ingrese su nombre</h1>"
+				+ "<h1>Bienvenido a tarificador</h1>"
+				+ "<h3>Ingrese su nombre</h3>"
 				+ "<label>Nombre:</label>"
-				+ "<input type='text' name='nombre_saludo'>"
-				+ "<input type='submit' value='Saluda'"
+				+ "<input type='text' name='name'>"
+				+ "<input type='submit' value='Entrar'>"
+				+ "</form"
 				+ "</body>"
 				+ "</html>";
 
 	}
 	
+	private static String welcome(String name) {
+		return "<h1>Bienvenido "
+				+ name
+				+ "</h1>"
+				+ "<h3>Presione el boton si desea realizar la tarificacion de CDRS</h3>"
+			    + "<button onclick=\"window.location.href='/export';\">Realizar</button>";
+
+	}
+	
 	public static void main(String[] args) {
 		get("/", (req, res) -> home());
-		
+		post("/welcome", (request, response)-> welcome(request.queryParams("name")));
 		post("/export", (request, response) -> export());
 
 	}
