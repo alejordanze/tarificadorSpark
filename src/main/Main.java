@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 	
@@ -55,17 +56,79 @@ public class Main {
 		}
 		CDRregister.saveRegistry();
 		
-		return "<label> Registro exportado exitosamente</label>";
-	}
+		return "<html>"
+				+ "<head>"
+				+ "<style>"
+				+ "body,.buttom {background-color: powderblue;}"
+				+ "h1,h3 {color: #00074e;}" 
+				+ "label {color: black;}"
+				+ ".box {background-color: #f1f1f1; padding: 20px; text-align: center;}"
+				+ "</style>" 
+				+ "</head>"
+				+ "<body>"
+				+ "<div class=\"box\">"
+				+ "<h1>Tarificador</h1>"
+				+ "</div>"
+				+ "</br>"
+				+ "<div class=\"box\">"
+				+ "<label> Registro de la tarificacion de CDRS exportado exitosamente</label>"
+				+ "</div>"
+				+ "</body>"
+				+ "</html>";
+		}
 	
 	private static String home() {
 		return "<html>"
+				+ "<head>"
+				+ "<style>"
+				+ "body,.buttom {background-color: powderblue;}"
+				+ "h1,h3 {color: #00074e;}" 
+				+ "label {color: black;}"
+				+ ".box {background-color: #f1f1f1; padding: 20px; text-align: center;}"
+				+ "</style>" 
+				+ "</head>"
 				+ "<body>"
+				+ "<div class=\"box\">"
+				+ "<h1>Bienvenido a tarificador</h1>"
+				+ "</div>"
+				+"</br>"
+				+ "<div class=\"box\">"
 				+ "<form method='post' action='/welcome'>" 
-				+ "<h1>Ingrese su nombre</h1>"
+				+ "<h3>Ingrese su nombre</h3>"
 				+ "<label>Nombre:</label>"
-				+ "<input type='text' name='nombre_saludo'>"
-				+ "<input type='submit' value='Saluda'"
+				+ "<input type='text' name='name'>"
+				+ "<input type='submit' value='Entrar' class=\"buttom\">"
+				+ "</form>"
+				+ "</div>"
+				+ "</body>"
+				+ "</html>";
+
+	}
+	
+	private static String welcome(String name) {
+		return "<html>"
+				+ "<head>"
+				+ "<style>"
+				+ "body,.buttom {background-color: powderblue;}"
+				+ "h1,h3 {color: #00074e;}" 
+				+ "label {color: black;}"
+				+ ".box {background-color: #f1f1f1; padding: 20px; text-align: center;}"
+				+ "</style>" 
+				+ "</head>"
+				+ "<body>"
+				+ "<div class=\"box\">"
+				+ "<h1>Tarificador</h1>"
+				+ "</div>"
+				+ "</br>"
+				+ "<div class=\"box\">"
+				+ "<h1>Bienvenido "
+				+ name
+				+ "</h1>"
+				+ "<h3>Presione el boton si desea realizar la tarificacion de CDRS</h3>"
+				+ "<form method='post' action='/export'>" 
+			    + "<button type='submit' class=\"buttom\">Realizar</button>"
+				+ "</form>"
+				+ "</div>"
 				+ "</body>"
 				+ "</html>";
 
@@ -73,7 +136,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		get("/", (req, res) -> home());
-		
+		post("/welcome", (request, response)-> welcome(request.queryParams("name")));
 		post("/export", (request, response) -> export());
 
 	}
