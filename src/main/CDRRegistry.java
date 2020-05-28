@@ -48,5 +48,4 @@ public class CDRRegistry {
 	public void saveRegistry(){
 		this.repository.exportRegistry(registry);  
 	}
-
 }
