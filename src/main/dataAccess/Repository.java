@@ -1,7 +1,9 @@
-package main;
+package main.dataAccess;
 
 
 import java.util.*;
+
+import main.entities.CDR;
 
 public interface Repository {
 

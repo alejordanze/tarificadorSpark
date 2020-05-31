@@ -1,5 +1,4 @@
-package main;
-
+package main.useCases;
 
 public class NormalFare extends Fare {
 	

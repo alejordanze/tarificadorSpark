@@ -1,8 +1,12 @@
-package main;
+package main.interactor;
 
 
 import java.util.ArrayList;
 import java.util.List;
+
+import main.dataAccess.Repository;
+import main.entities.CDR;
+import main.entities.ClientRegistry;
 
 public class CDRRegistry {
 

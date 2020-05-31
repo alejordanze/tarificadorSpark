@@ -9,6 +9,13 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import main.*;
+import main.entities.CDR;
+import main.entities.Client;
+import main.entities.ClientRegistry;
+import main.useCases.Fare;
+import main.useCases.FareByHour;
+import main.useCases.NormalFare;
+import main.useCases.Prepaid;
 
 class PrepaidTest {
 

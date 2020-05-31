@@ -1,5 +1,6 @@
-package main;
+package main.entities;
 
+import main.useCases.Plan;
 
 public class Client{
 

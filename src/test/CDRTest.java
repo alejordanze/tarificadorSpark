@@ -8,6 +8,8 @@ import java.util.Date;
 import org.junit.jupiter.api.Test;
 
 import main.*;
+import main.entities.*;
+import main.useCases.*;
 
 class CDRTest {
 

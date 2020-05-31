@@ -1,4 +1,4 @@
-package main;
+package main.useCases;
 
 
 import java.util.List;

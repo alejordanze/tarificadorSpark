@@ -1,8 +1,10 @@
-package main;
+package main.dataAccess;
 
 
 import java.sql.*;
 import java.util.List;
+
+import main.entities.CDR;
 
 public class SqlRepository implements Repository{
 

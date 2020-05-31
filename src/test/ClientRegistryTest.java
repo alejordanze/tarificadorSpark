@@ -8,6 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import main.*;
+import main.entities.Client;
+import main.entities.ClientRegistry;
+import main.useCases.Prepaid;
 
 class ClientRegistryTest {
 

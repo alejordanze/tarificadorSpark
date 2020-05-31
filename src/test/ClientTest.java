@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.Client;
-import main.Plan;
-import main.Prepaid;
+import main.entities.Client;
+import main.useCases.Plan;
+import main.useCases.Prepaid;
 
 class ClientTest {
 

@@ -1,8 +1,10 @@
-package main;
+package main.useCases;
 
 
 import java.util.ArrayList;
 import java.util.List;
+
+import main.entities.CDR;
 
 
 public class Wow extends Plan {

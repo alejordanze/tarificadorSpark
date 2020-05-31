@@ -1,7 +1,10 @@
-package main;
+package main.dataAccess;
 
 
 import java.util.*;
+
+import main.entities.CDR;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

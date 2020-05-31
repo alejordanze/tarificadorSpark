@@ -13,6 +13,19 @@ import org.junit.*;
 import org.junit.jupiter.api.Test;
 
 import main.*;
+import main.dataAccess.FileRepository;
+import main.dataAccess.Repository;
+import main.dataAccess.SqlRepository;
+import main.entities.CDR;
+import main.entities.Client;
+import main.entities.ClientRegistry;
+import main.interactor.CDRRegistry;
+import main.useCases.FareByHour;
+import main.useCases.NormalFare;
+import main.useCases.Plan;
+import main.useCases.Postpaid;
+import main.useCases.Prepaid;
+import main.useCases.Wow;
 
 public class CDRRegistryTest {
 

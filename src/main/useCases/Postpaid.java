@@ -1,39 +1,39 @@
-package main;
+package main.useCases;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class Prepaid extends Plan {
+import main.entities.CDR;
+
+public class Postpaid extends Plan{
 	
-	public Prepaid(double fare){
+	public Postpaid(double fare) {
 		setNormalFare(new NormalFare(fare));
 	}
 	
-	public Prepaid(Fare fare){
+	public Postpaid(Fare fare) {
 		setNormalFare(fare);
 	}
 	
-	public Prepaid(Fare fare, List<Fare> fareList){
+	public Postpaid(Fare fare, List<Fare> fareList) {
 		setFareList(fareList);
 		setNormalFare(fare);
 	}
 	
 	public double getFare(CDR cdr) {
+		
 		List<Double> findedFares = new ArrayList<>();
 		double findedFare = -1;
 		
 		for( Fare fare: this.fareList) {
 			MatchFare matcher = fare.createMatch();
-			findedFare = matcher.getMatchingFare(cdr, fare); 
+			findedFare = matcher.getMatchingFare(cdr, fare);
 			if(findedFare != -1) {
 				findedFares.add(findedFare);
 			}
 		}
 		if(!findedFares.isEmpty()) {
-			findedFare = getLowerFare(findedFares);
-			if(findedFare != -1)
-				return findedFare;
+			return getLowerFare(findedFares);
 		}
 		
 		findedFare = normalFare.getFare();
