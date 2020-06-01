@@ -13,6 +13,7 @@ import org.junit.*;
 import org.junit.jupiter.api.Test;
 
 import main.*;
+import main.dataAccess.CDRFileRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.dataAccess.SqlRepository;
@@ -29,7 +30,7 @@ import main.useCases.Wow;
 
 public class CDRRegistryTest {
 
-	Repository repository = new FileRepository();
+	Repository repository = new CDRFileRepository();
 	private CDRRegistry reg = new CDRRegistry(repository);
 	private Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 	private Plan postpago = new Postpaid(1);
@@ -95,7 +96,7 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
-		Repository repository = new FileRepository();
+		Repository repository = new CDRFileRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);

@@ -5,7 +5,7 @@ import java.util.*;
 
 import main.entities.CDR;
 
-public interface Repository {
+public interface Repository<T> {
 
-	public void exportRegistry(List<CDR> registry);
+	public void exportRegistry(List<T> registry);
 }
