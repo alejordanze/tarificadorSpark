@@ -41,10 +41,10 @@ public class CDRRegistryTest {
 	private CDR llamada5 = new CDR(8888888, 6666665, 34, 1925, new Date());
 	
 	private ClientRegistry clientsRegister = new ClientRegistry();
-	private Client cliente = new Client(prepago, 7777777);
-	private Client cliente2 = new Client(postpago, 6666666);
-	private Client cliente3 = new Client(wow, 8888888);
-	
+	private Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+	private Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+	private Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+
 	@Test
 	public void testAddingCalls() throws IOException {
 		clientsRegister.addClient(cliente);
@@ -92,9 +92,9 @@ public class CDRRegistryTest {
 	@Test
 	void principalTest() throws IOException {
 		wow.addFriend(6666666);
-		Client cliente = new Client(prepago, 7777777);
-		Client cliente2 = new Client(postpago, 6666666);
-		Client cliente3 = new Client(wow, 8888888);
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
 		Repository repository = new FileRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
@@ -114,9 +114,9 @@ public class CDRRegistryTest {
 	@Test
 	void testSqlSave() throws IOException {
 		wow.addFriend(6666666);
-		Client cliente = new Client(prepago, 7777777);
-		Client cliente2 = new Client(postpago, 6666666);
-		Client cliente3 = new Client(wow, 8888888);
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
 		Repository repository = new SqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
@@ -136,9 +136,9 @@ public class CDRRegistryTest {
 	@Test
 	void testSqlSaveConstructor() throws IOException {
 		wow.addFriend(6666666);
-		Client cliente = new Client(prepago, 7777777);
-		Client cliente2 = new Client(postpago, 6666666);
-		Client cliente3 = new Client(wow, 8888888);
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
 		Repository repository = new SqlRepository(8889, "tarificador", "root", "root");
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		

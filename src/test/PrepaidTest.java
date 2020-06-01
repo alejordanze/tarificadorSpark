@@ -53,7 +53,7 @@ class PrepaidTest {
 	@Test
 	void testingCall() {
 		Prepaid plan = new Prepaid(fare, fares);
-		Client cliente = new Client(plan,8888888);
+		Client cliente = new Client(plan,8888888, "Saskia Sejas");
 		ClientRegistry clientList = new ClientRegistry();
 		clientList.addClient(cliente);
 		llamada2.calculateCostCall(clientList);

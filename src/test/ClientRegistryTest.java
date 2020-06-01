@@ -17,7 +17,7 @@ class ClientRegistryTest {
 	@Test
 	void getClientsTest() {
 		Prepaid prepaid= new Prepaid(1.45);
-		Client client = new Client(prepaid, 7777777);
+		Client client = new Client(prepaid, 7777777, "Ivy Rocabado");
 		ClientRegistry clientRegistry = new ClientRegistry();
 		List<Client> clients = new ArrayList<>();
 		clients.add(client);

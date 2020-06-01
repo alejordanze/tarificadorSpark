@@ -106,9 +106,9 @@ public class Main {
 		Wow wow = new Wow(0.99);
 		
 		return asList(
-				new Client(prepago, 7777777),
-				new Client(postpago, 6666666),
-				new Client(wow, 8888888)
+				new Client(prepago, 7777777, "Ivy Rocabado"),
+				new Client(postpago, 6666666, "Brayan Sejas"),
+				new Client(wow, 8888888, "Saskia Sejas")
 				);
 	}
 	
