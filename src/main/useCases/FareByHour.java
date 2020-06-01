@@ -1,5 +1,7 @@
 package main.useCases;
 
+import main.FareNames;
+
 public class FareByHour extends Fare {
 		
 		private int initHour;
@@ -35,8 +37,8 @@ public class FareByHour extends Fare {
 			this.endHour = endHour;
 		}
 
-		public String getType() {
-			return this.getClass().getName();
+		public FareNames getType() {
+			return FareNames.FARE_BY_HOUR;
 		}
 		
 		public MatchFare createMatch() {

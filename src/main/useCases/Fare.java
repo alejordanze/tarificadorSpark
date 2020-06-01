@@ -3,6 +3,8 @@ package main.useCases;
 
 import java.util.List;
 
+import main.FareNames;
+
 public abstract class Fare {
 	
 	protected double fare;
@@ -18,7 +20,7 @@ public abstract class Fare {
 	public double getFare() {
 		return this.fare;
 	}
-	public abstract String getType();
+	public abstract FareNames getType();
 
 	public void setFare(float fare) {
 		this.fare = fare;

@@ -1,5 +1,7 @@
 package main.useCases;
 
+import main.FareNames;
+
 public class NormalFare extends Fare {
 	
 	public NormalFare(double fare) {
@@ -12,8 +14,8 @@ public class NormalFare extends Fare {
 	}
 
 	@Override
-	public String getType() {
-		return this.getClass().getName();
+	public FareNames getType() {
+		return FareNames.NORMAL_FARE;
 	}
 
 	@Override

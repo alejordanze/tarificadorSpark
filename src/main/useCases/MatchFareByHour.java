@@ -1,6 +1,7 @@
 package main.useCases;
 
 import main.entities.CDR;
+import main.FareNames;
 
 public class MatchFareByHour implements MatchFare {
 	
@@ -11,7 +12,7 @@ public class MatchFareByHour implements MatchFare {
 	@Override
 	public double getMatchingFare(CDR cdr, Fare fare){
 		double faree = -1;
-		if(fare.getType() == "main.useCases.FareByHour" && isValidHour((FareByHour)fare, cdr.getHour())) {
+		if(fare.getType() == FareNames.FARE_BY_HOUR && isValidHour((FareByHour)fare, cdr.getHour())) {
 			faree = fare.getFare();
 		}
 		return faree;
