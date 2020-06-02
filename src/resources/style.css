@@ -1,0 +1,186 @@
+@font-face {
+  font-family: montserrat;
+  src: url("http://localhost:4567/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: montserrat-medium;
+  src: url("http://localhost:4567/fonts/Montserrat-Medium.ttf");
+}
+
+
+@font-face {
+  font-family: montserrat-bold;
+  src: url("http://localhost:4567/fonts/Montserrat-Bold.ttf");
+}
+
+
+h2 {
+	color: red;
+}
+
+body{
+	margin: 0px !important;
+}
+
+.buttom {
+	background-color: powderblue;
+} 
+
+h1,h3 {
+	color: #00074e;
+} 
+
+label {
+	color: black;
+}
+
+.box {
+	background-color: #f1f1f1; 
+	padding: 20px; 
+	text-align: center;
+}
+
+.menu{
+	background-color:#233858;
+	color: white;
+	width: 100%;
+	height: 60px;
+}
+
+.body{
+	margin: 30px 40px 40px 40px;
+	font-family: montserrat;
+}
+
+.title{
+	font-family: montserrat-medium;
+	color:  #233858;	
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.file{	
+	font-family: montserrat;
+   	background-color: red;
+    color: white;
+    display: inline-block;
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.input-file{
+	background-color: #a6d9dc; 
+	font-size: 12px;
+	padding: 8px;
+}
+
+.input-file:hover{
+	cursor: pointer;
+	background-color: #233858;
+	color: white;
+}
+
+.submit{
+	margin-top: 20px;
+	background-color: #e63c49;
+	color: white;
+	padding: 10px;
+	border: none;
+	font-size: 14px;
+}
+
+
+.submit-config{
+	background-color: #a6d9dc; 
+	font-size: 12px;
+	padding: 8px;
+	border: none;
+}
+
+.submit-config:hover{
+	cursor: pointer;
+	background-color: #233858;
+	color: white;
+}
+
+.submit:hover{
+	cursor: pointer;
+}
+
+.item{
+	float: left;
+}
+
+.item .item-text:hover{
+	background-color: #46799c;
+}
+
+.item.active{
+	background-color: #162438;
+}
+
+.item-text{
+	color: white;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	padding: 20px;
+	font-family: montserrat-bold;
+}
+
+.input-label{
+	font-size: 14px;
+}
+.table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td{
+	border: solid;
+	border-color: #233858; 
+	border-width: 1px;
+	padding: 10px;
+	color: #233858;
+}
+
+th{
+	background-color: #a6d9dc;
+}
+td{
+	background-color: #f2faee;
+}
+
+.save-type{
+	
+}
+
+.option{
+	background-color: white;
+	color: #e63c49;
+	border:1px solid #e63c49;
+	padding: 15px;
+	font-size: 16px;
+}
+
+.option:hover{
+	cursor: pointer;
+}
+
+.option.active{
+	background-color: #e63c49;
+	color: white;
+}
+
+.saved{
+	color: #233858;
+}
