@@ -31,7 +31,7 @@ import main.useCases.Wow;
 
 public class CDRRegistryTest {
 
-	Repository repository = new CDRFileRepository();
+	Repository<CDR> repository = new CDRFileRepository();
 	private CDRRegistry reg = new CDRRegistry(repository);
 	private Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 	private Plan postpago = new Postpaid(1);
@@ -97,7 +97,7 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
-		Repository repository = new CDRFileRepository();
+		Repository<CDR> repository = new CDRFileRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
@@ -119,7 +119,7 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
-		Repository repository = new CDRSqlRepository();
+		Repository<CDR> repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
@@ -141,7 +141,7 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
-		Repository repository = new CDRSqlRepository();
+		Repository<CDR> repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);

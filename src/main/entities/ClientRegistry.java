@@ -10,9 +10,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.dataAccess.Repository;
+
 public class ClientRegistry{
 
 	public List<Client> clients = new ArrayList<>();
+	Repository<Client> repository;
 
 	
 
@@ -39,4 +42,12 @@ public class ClientRegistry{
 	}
 	
 	public ClientRegistry() {}
+	
+	public ClientRegistry(Repository<Client> repository) {
+		this.repository = repository;
+	}
+	
+	public void saveRegistry(){
+		this.repository.exportRegistry(clients);  
+	}
 }

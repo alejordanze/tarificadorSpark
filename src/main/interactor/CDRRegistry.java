@@ -11,9 +11,9 @@ import main.entities.ClientRegistry;
 public class CDRRegistry {
 
 	List<CDR> registry = new ArrayList<>();
-	Repository repository;
+	Repository<CDR> repository;
 	
-	public CDRRegistry(Repository repository) {
+	public CDRRegistry(Repository<CDR> repository) {
 		this.repository = repository;
 	}
 	
@@ -29,11 +29,11 @@ public class CDRRegistry {
 		return registry;
 	}
 	
-	public Repository getRepository() {
+	public Repository<CDR> getRepository() {
 		return repository;
 	}
 
-	public void setRepository(Repository repository) {
+	public void setRepository(Repository<CDR> repository) {
 		this.repository = repository;
 	}
 
