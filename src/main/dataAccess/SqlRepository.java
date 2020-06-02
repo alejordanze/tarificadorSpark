@@ -1,7 +1,7 @@
 package main.dataAccess;
 
-
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import main.entities.CDR;
@@ -20,7 +20,7 @@ public class SqlRepository implements Repository{
 		this.password = "root";
 		this.database = "tarificador";
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}  
@@ -39,7 +39,7 @@ public class SqlRepository implements Repository{
 		this.database = database;
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}  
@@ -61,8 +61,8 @@ public class SqlRepository implements Repository{
 			for(CDR cdr: registry) {
 				preparedStatement.setLong(1, cdr.getOriginPhoneNumber());
 		        preparedStatement.setLong(2, cdr.getDestinationPhoneNumber());
-		        preparedStatement.setDate(3, new java.sql.Date(10102020));
-		        preparedStatement.setInt(4, cdr.getDuration());
+		        preparedStatement.setDate(3, cdr.getSqlDate());
+		        preparedStatement.setDouble(4, cdr.getDuration());
 		        preparedStatement.setInt(5, cdr.getHour());
 		        preparedStatement.setDouble(6, cdr.getCost());
 		        preparedStatement.executeUpdate();
@@ -71,5 +71,27 @@ public class SqlRepository implements Repository{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public List<CDR> getRegistry() {
+		List<CDR> CDRList = new ArrayList<>();
+		try {
+			Statement statement = this.connect.createStatement();
+			ResultSet rs = 	statement.executeQuery("SELECT * FROM CDR");
+			
+			while (rs.next()) {
+		        int originPhoneNumber = rs.getInt("originPhoneNumber");
+		        int destinationPhoneNumber = rs.getInt("destinationPhoneNumber");
+		        double duration = rs.getDouble("duration");
+		        int hour = rs.getInt("hour");
+		        double cost = rs.getDouble("cost");
+		        Date date = rs.getDate("date");
+		        CDRList.add(new CDR(originPhoneNumber, destinationPhoneNumber, duration, hour, date, cost));
+		        System.out.format("%s %s %s %s %s %s\n",originPhoneNumber, destinationPhoneNumber, duration, hour, cost, date);
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return CDRList;
 	}
 }
