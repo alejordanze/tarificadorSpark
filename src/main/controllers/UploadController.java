@@ -63,6 +63,7 @@ public class UploadController extends Controller {
 				new Client(wow, 8888888)
 				);
 	}
+	
 	public static void getMethod() {
 		get("/upload", (req,res) -> {
 			Map<String, Object> model = new HashMap<>();

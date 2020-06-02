@@ -5,35 +5,13 @@ import static java.util.Arrays.asList;
 import java.io.*;
 import java.util.*;
 
-import javax.servlet.MultipartConfigElement;
-import javax.servlet.http.Part;
 
 import freemarker.template.*;
 import main.controllers.*;
-import main.dataAccess.*;
-
 import main.entities.*;
 
-import main.interactor.CDRRegistry;
-import main.useCases.*;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import java.io.StringWriter;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.SimpleDateFormat;
-
-import javax.servlet.ServletException;
-import spark.utils.IOUtils;
-
 public class Main {
-	
-	static Repository repository = new SqlRepository();
-	static CDRRegistry CDRregister = new CDRRegistry(repository);
-	static String option = "Archivo";
-	static int numberCdr;
-	
+
 	static List<CDR> getSampleCalls(){
 		List<CDR> callsList = new ArrayList<>();
 		
@@ -68,7 +46,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws Exception   {
-		
+
 		staticFiles.location("/resources");
 		
 		final Configuration conf = new Configuration(new Version(2, 3, 0));

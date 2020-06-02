@@ -8,13 +8,12 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.Version;
 import main.Main;
-import main.dataAccess.Repository;
-import main.dataAccess.SqlRepository;
+import main.dataAccess.*;
 import main.interactor.CDRRegistry;
 
 public abstract class Controller {
 	
-	static Repository repository = new SqlRepository();
+	static Repository repository = new CDRSqlRepository();
 	static CDRRegistry CDRregister = new CDRRegistry(repository);
 	static String option = "Archivo";
 	static int numberCdr;

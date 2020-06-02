@@ -15,7 +15,7 @@ class ClientTest {
 
 	@Test
 	void setClientTest() {
-		Client client2 = new Client(plan,77777777);
+		Client client2 = new Client(plan,77777777, "Ivy Rocabado");
 		client.setPhoneNumber(77777777);
 		client.setPlan(plan);
 		assertEquals(client2.getPhoneNumber(), client.getPhoneNumber());
@@ -30,13 +30,13 @@ class ClientTest {
 	
 	@Test
 	void isSamePhoneNumberTest() {
-		Client client2 = new Client(plan,77777777);
+		Client client2 = new Client(plan,77777777, "Ivy Rocabado");
 		assertEquals(true, client2.isSamePhoneNumber(77777777));
 	}
 	
 	@Test
 	void isNotSamePhoneNumberTest() {
-		Client client2 = new Client(plan,77777778);
+		Client client2 = new Client(plan,77777778, "Ivy Rocabado");
 		assertEquals(false, client2.isSamePhoneNumber(77777777));
 	}
 

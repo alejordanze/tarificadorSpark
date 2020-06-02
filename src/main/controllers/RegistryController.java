@@ -4,13 +4,12 @@ import static spark.Spark.get;
 
 import java.util.*;
 
-import main.dataAccess.Repository;
-import main.dataAccess.SqlRepository;
+import main.dataAccess.*;
 import main.entities.CDR;
 
 public class RegistryController extends Controller{
 	
-	static Repository repository2 = new SqlRepository();
+	static Repository repository2 = new CDRSqlRepository();
 	static List<CDR> sqlList = repository2.getRegistry();
 	
 	public static void getMethod() {

@@ -13,6 +13,8 @@ import org.junit.*;
 import org.junit.jupiter.api.Test;
 
 import main.*;
+import main.dataAccess.CDRFileRepository;
+import main.dataAccess.CDRSqlRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.dataAccess.SqlRepository;
@@ -29,7 +31,7 @@ import main.useCases.Wow;
 
 public class CDRRegistryTest {
 
-	Repository repository = new FileRepository();
+	Repository<CDR> repository = new CDRFileRepository();
 	private CDRRegistry reg = new CDRRegistry(repository);
 	private Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 	private Plan postpago = new Postpaid(1);
@@ -41,10 +43,10 @@ public class CDRRegistryTest {
 	private CDR llamada5 = new CDR(8888888, 6666665, 34, 1925, new Date());
 	
 	private ClientRegistry clientsRegister = new ClientRegistry();
-	private Client cliente = new Client(prepago, 7777777);
-	private Client cliente2 = new Client(postpago, 6666666);
-	private Client cliente3 = new Client(wow, 8888888);
-	
+	private Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+	private Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+	private Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+
 	@Test
 	public void testAddingCalls() throws IOException {
 		clientsRegister.addClient(cliente);
@@ -92,10 +94,10 @@ public class CDRRegistryTest {
 	@Test
 	void principalTest() throws IOException {
 		wow.addFriend(6666666);
-		Client cliente = new Client(prepago, 7777777);
-		Client cliente2 = new Client(postpago, 6666666);
-		Client cliente3 = new Client(wow, 8888888);
-		Repository repository = new FileRepository();
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+		Repository<CDR> repository = new CDRFileRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
@@ -114,10 +116,10 @@ public class CDRRegistryTest {
 	@Test
 	void testSqlSave() throws IOException {
 		wow.addFriend(6666666);
-		Client cliente = new Client(prepago, 7777777);
-		Client cliente2 = new Client(postpago, 6666666);
-		Client cliente3 = new Client(wow, 8888888);
-		Repository repository = new SqlRepository();
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+		Repository<CDR> repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
@@ -136,10 +138,10 @@ public class CDRRegistryTest {
 	@Test
 	void testSqlSaveConstructor() throws IOException {
 		wow.addFriend(6666666);
-		Client cliente = new Client(prepago, 7777777);
-		Client cliente2 = new Client(postpago, 6666666);
-		Client cliente3 = new Client(wow, 8888888);
-		Repository repository = new SqlRepository(8889, "tarificador", "root", "root");
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+		Repository<CDR> repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);

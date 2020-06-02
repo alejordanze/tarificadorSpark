@@ -22,9 +22,9 @@ class CDRTest {
 	
 	private ClientRegistry reg2 = new ClientRegistry();
 	
-	private Client cliente = new Client(new Prepaid(2), 7777777);
-	private Client cliente2 = new Client(new Postpaid(1), 6666666);
-	private Client cliente3 = new Client(new Postpaid(1), 8888888);
+	private Client cliente = new Client(new Prepaid(2), 7777777, "Ivy Rocabado");
+	private Client cliente2 = new Client(new Postpaid(1), 6666666, "Brayan Sejas");
+	private Client cliente3 = new Client(new Postpaid(1), 8888888, "Saskia Sejas");
 	
 	Wow plan = new Wow(new NormalFare(3), asList( new FareByHour(5, 1500, 1759), new FareByHour(4, 1800, 2200)));
 	
@@ -38,7 +38,7 @@ class CDRTest {
 	@Test
 	void testFirstCall() {
 		plan.addFriend(6666666);
-		Client cliente3 = new Client(plan, 8888888);
+		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
@@ -49,7 +49,7 @@ class CDRTest {
 	@Test
 	void testSecondCall() {
 		plan.addFriend(6666666);
-		Client cliente3 = new Client(plan, 8888888);
+		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
@@ -60,7 +60,7 @@ class CDRTest {
 	@Test
 	void testThirdCall() {
 		plan.addFriend(6666666);
-		Client cliente3 = new Client(plan, 8888888);
+		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
@@ -71,7 +71,7 @@ class CDRTest {
 	@Test
 	void testFourthCall() {
 		plan.addFriend(6666666);
-		Client cliente3 = new Client(plan, 8888888);
+		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
@@ -82,7 +82,7 @@ class CDRTest {
 	@Test
 	void testFifthCall() {
 		plan.addFriend(6666666);
-		Client cliente3 = new Client(plan, 8888888);
+		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
 		reg2.addClient(cliente3);
