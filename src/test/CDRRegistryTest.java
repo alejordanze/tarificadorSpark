@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import main.*;
 import main.dataAccess.CDRFileRepository;
+import main.dataAccess.CDRSqlRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.dataAccess.SqlRepository;
@@ -118,7 +119,7 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
-		Repository repository = new SqlRepository();
+		Repository repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
@@ -140,7 +141,7 @@ public class CDRRegistryTest {
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
-		Repository repository = new SqlRepository(8889, "tarificador", "root", "root");
+		Repository repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		
 		clientsRegister.addClient(cliente);
