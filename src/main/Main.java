@@ -16,6 +16,8 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import main.dataAccess.CDRFileRepository;
+import main.dataAccess.CDRSqlRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.dataAccess.SqlRepository;
@@ -62,7 +64,7 @@ public class Main {
 	}
 	
 	public static void uploadRegistry(String file) throws Exception  {
-		Repository repository = new FileRepository();
+		Repository repository = new CDRFileRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		ClientRegistry clientsRegister = new ClientRegistry();
 		clientsRegister.setClientes(getSampleClients());
@@ -106,15 +108,15 @@ public class Main {
 		Wow wow = new Wow(0.99);
 		
 		return asList(
-				new Client(prepago, 7777777),
-				new Client(postpago, 6666666),
-				new Client(wow, 8888888)
+				new Client(prepago, 7777777, "Ivy Rocabado"),
+				new Client(postpago, 6666666, "Brayan Sejas"),
+				new Client(wow, 8888888, "Saskia Sejas")
 				);
 	}
 	
 	private static String export() {
-		Repository repository = new FileRepository();
-		Repository repository2 = new SqlRepository();
+		Repository repository = new CDRFileRepository();
+		Repository repository2 = new CDRSqlRepository();
 		ClientRegistry clientsRegister = new ClientRegistry();
 		CDRRegistry CDRregister = new CDRRegistry(repository2);
 		clientsRegister.setClientes(getSampleClients());
