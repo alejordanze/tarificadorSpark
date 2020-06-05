@@ -1,6 +1,6 @@
 <#import "menu.ftl" as menu />
 
-<@menu.menu options={"home": "", "upload":"active","fare":"", "registry": "", "conf":""} title="Cargar Archivo">
+<@menu.menu options={"home": "", "uploadCdr":"active","fare":"", "registry": "", "conf":"", "uploadClient": "", "clientRegistry":""} title="Cargar archivo de CDR">
 	<div>
 	    <form action="/upload" method="post" enctype="multipart/form-data">
 	        <label for="myfile">Selecciona un archivo: </label>

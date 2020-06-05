@@ -184,3 +184,20 @@ td{
 .saved{
 	color: #233858;
 }
+
+.home-options{
+	list-style-type: disc !important;
+	padding-left: 20px;
+	margin-left: 15px;
+	color: #233858;
+}
+
+.li-option{
+	margin-bottom: 20px !important;
+	line-height: 22px;
+}
+
+.item-home{
+	font-family: montserrat-medium;
+	color: #233858;
+}

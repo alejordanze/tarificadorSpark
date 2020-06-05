@@ -1,6 +1,6 @@
 <#import "menu.ftl" as menu />
 
-<@menu.menu options={"home": "", "upload":"","fare":"active", "registry": "", "conf":""} title="Tarificación">
+<@menu.menu options={"home": "", "uploadCdr":"","fare":"active", "registry": "", "conf":"", "uploadClient": "", "clientRegistry":""} title="Tarificación">
 	<#if saved == true >
 		<label class="saved">Registro guardado correctamente</label>
 		<br><br>

@@ -1,7 +1,8 @@
 <#import "menu.ftl" as menu />
 
-<@menu.menu options={"home": "", "upload":"","fare":"", "registry": "active", "conf":""} title="Registro de CDR's">
-	<#if 0 < cdrs?size >
+<@menu.menu options={"home": "", "uploadCdr":"","fare":"", "registry": "active", "conf":"", "uploadClient": "", "clientRegistry":""} title="Registro de CDR's">
+	<#list cdrs as key, cdr>
+		<label>Fecha de guardado: ${key?number_to_datetime}</label>
 		<table class="table">
 	    	<thead>
 	    		<tr>
@@ -13,18 +14,20 @@
 		    		<th>Costo</th>
 	    		</tr>
 	    	</thead>
-	    	<#list cdrs as cdr>
+	    	<#list cdr as item>
 	    		<tbody>
 	    			<#setting number_format="0" />
-	    			<td>${cdr.getOriginPhoneNumber()}</td>
-	    			<td>${cdr.getDestinationPhoneNumber()}</td>
+	    			<td>${item.getOriginPhoneNumber()}</td>
+	    			<td>${item.getDestinationPhoneNumber()}</td>
 	    			<#setting number_format="" />
-	    			<td>${cdr.getStringDate()}</td>
-	    			<td>${cdr.getStringHour()}</td>
-	    			<td>${cdr.getStringDuration()}</td>
-	    			<td>${cdr.getCost()}</td>
+	    			<td>${item.getStringDate()}</td>
+	    			<td>${item.getStringHour()}</td>
+	    			<td>${item.getStringDuration()}</td>
+	    			<td>${item.getCost()}</td>
 	    		</tbody>
 			</#list>	
 		</table>
-	</#if>
+		<br><br>
+	</#list>
+	
 </@menu.menu>
