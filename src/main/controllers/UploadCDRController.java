@@ -17,6 +17,7 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import main.dataAccess.*;
 import main.entities.CDR;
 import main.entities.Client;
 import main.entities.ClientRegistry;
@@ -28,27 +29,12 @@ import main.useCases.Prepaid;
 import main.useCases.Wow;
 import spark.utils.IOUtils;
 
-public class UploadController extends Controller {
+public class UploadCDRController extends Controller {
 
 	public static int uploadRegistry(String file) throws Exception  {
 		
-		ClientRegistry clientsRegister = new ClientRegistry();
-		clientsRegister.setClientes(getSampleClients());
-
-        String line = "";
-        String cvsSplitBy = ", ";
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd-MM-yyyy");  
-        BufferedReader br = new BufferedReader(new FileReader(file));
-		line = br.readLine();
-		numberCdr = 0;
-		
-		while((line = br.readLine()) != null) {
-			numberCdr++;
-            String[] cdrString = line.split(cvsSplitBy);
-            CDR cdr = new CDR(Long.valueOf(cdrString[0]), Long.valueOf(cdrString[1]), cdrString[2],cdrString[3], cdrString[4]);
-            System.out.println(cdr.join());
-			CDRregister.addCDR(cdr, clientsRegister);
-		}
+		FileRepository<CDR> fileRepo = new CDRFileRepository(file);
+		CDRregister.setRegistry(fileRepo.getRegistry(), clientRegister);
 		return CDRregister.getRegistry().size();
 	}
 	
@@ -75,7 +61,7 @@ public class UploadController extends Controller {
 		post("/upload", (req, response) -> {
 			Map<String, Object> model = new HashMap<>();
 			int size = 0;
-			String path = "/Users/miguelalejandrojordan/Documents/";
+			String path = "/Users/miguelalejandrojordan/";
 			req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement(path));
             Part filePart = req.raw().getPart("myfile");
 
@@ -84,10 +70,11 @@ public class UploadController extends Controller {
                 OutputStream outputStream = new FileOutputStream(fileName);
                 IOUtils.copy(inputStream, outputStream);
                 outputStream.close();
-                size = uploadRegistry(fileName);
+                numberCdr = uploadRegistry(fileName);
             }
-            model.put("length",size);
             model.put("quantity", numberCdr);
+            model.put("type", "CDR's");
+            model.put("redirect", "upload");
             return getTemplate(model, "uploadConfirm.ftl");
         });
 	}

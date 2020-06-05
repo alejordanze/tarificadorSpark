@@ -6,35 +6,51 @@ import static spark.Spark.post;
 import java.util.HashMap;
 import java.util.Map;
 
+import main.dataAccess.*;
+
 public class ConfigurationController extends Controller{
 
+	static Map<String, String> options = new HashMap<>();
+	
+	public static Map<String, Object> getModel() {
+		Map<String, Object> model = new HashMap<>();
+		model.put("config", getOption());
+		return model;
+	}
+	
 	public static Map<String, String> getOption(){
-		Map<String, String> options = new HashMap<>();
-		options.put("file","");
-		options.put("sql","");
-		if(option == "Archivo") {
+		if(option.equalsIgnoreCase("Archivo")) {
 			options.put("file","active");
+			options.put("sql","");
 		}
 		else {
+			options.put("file","");
 			options.put("sql","active");
 		}
 		return options;
 	}
 	
+	public static void setOption() {
+		if(option == "Archivo") {
+			repository = new CDRFileRepository();
+		}
+		else {
+			repository = new CDRSqlRepository();
+		}
+		CDRregister.setRepository(repository);
+	}
+	
 	public static void getMethod() {
 		get("/configuration", (request, response) -> {
-			Map<String, Object> model = new HashMap<>();
-			model.put("option", getOption());
-			return getTemplate(model, "config.ftl");
+			return getTemplate(getModel(), "config.ftl");
 		});
 	}
 	
 	public static void postMethod() {
-		post("configuration", (req, res) -> {
-			Map<String, Object> model = new HashMap<>();
+		post("/configuration", (req, res) -> {
 			option = req.queryParams("option");
-			model.put("option", getOption());
-			return getTemplate(model, "config.ftl");
+			setOption();
+			return getTemplate(getModel(), "config.ftl");
 		});
 	}
 

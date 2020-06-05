@@ -7,6 +7,10 @@ import main.entities.CDR;
 
 public class Postpaid extends Plan{
 	
+	public Postpaid() {
+		setNormalFare(new NormalFare(1));
+	}
+	
 	public Postpaid(double fare) {
 		setNormalFare(new NormalFare(fare));
 	}
@@ -39,4 +43,10 @@ public class Postpaid extends Plan{
 		findedFare = normalFare.getFare();
 		return findedFare;
 	}
+
+	@Override
+	public String getStringPlan() {
+		return "postpago";
+	}
+
 }

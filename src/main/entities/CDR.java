@@ -17,6 +17,7 @@ public class CDR {
 	double duration;
 	int hour;
 	double cost;
+	Date dateAdded;
 
 	public CDR(){
 		
@@ -39,13 +40,14 @@ public class CDR {
 	}
 	
 
-	public CDR(long originPhoneNumber, long destinationPhoneNumber, double duration, int hour, java.sql.Date date, double cost) {
+	public CDR(long originPhoneNumber, long destinationPhoneNumber, double duration, int hour, java.sql.Date date, double cost, Date dateAdded) {
 		this.originPhoneNumber = originPhoneNumber;
 		this.destinationPhoneNumber = destinationPhoneNumber;
 		this.duration = duration;
 		this.hour = hour;
 		this.date = getDateFromMySqlDate(date);
 		this.cost = cost;
+		this.dateAdded = dateAdded;
 	}
 	
 	public long getOriginPhoneNumber() {
@@ -192,6 +194,14 @@ public class CDR {
 	}
 	
 	public String join() {
-		return this.originPhoneNumber + ", " + this.destinationPhoneNumber + ", " + this.duration + ", " + this.hour + ", " + this.date.toString() + ", " + this.cost;
+		return this.originPhoneNumber + ", " + this.destinationPhoneNumber + ", " + getStringDate() + ", " + getStringHour() + ", " + getStringDuration() + ", " + this.cost;
+	}
+	
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(Date dateAdded) {
+		this.dateAdded = dateAdded;
 	}
 }

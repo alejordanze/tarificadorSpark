@@ -8,7 +8,6 @@ import java.util.Map;
 
 public class FareController extends Controller {
 
-	
 	private static void export() {
 		CDRregister.saveRegistry();
 	}

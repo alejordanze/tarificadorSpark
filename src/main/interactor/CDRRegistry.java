@@ -15,6 +15,7 @@ public class CDRRegistry {
 	
 	public CDRRegistry(Repository<CDR> repository) {
 		this.repository = repository;
+//		this.registry = repository.getRegistry();
 	}
 	
 	public CDRRegistry() {

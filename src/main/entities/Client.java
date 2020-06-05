@@ -1,6 +1,9 @@
 package main.entities;
 
-import main.useCases.Plan;
+import java.util.ArrayList;
+import java.util.List;
+
+import main.useCases.*;
 
 public class Client{
 
@@ -15,7 +18,6 @@ public class Client{
 	public Client(Plan plan, long phoneNumber){
 		this.plan = plan;
 		this.phoneNumber = phoneNumber;
-		this.fullName = fullName;
 	}
 	
 	public Client(Plan plan, long phoneNumber, String fullName){
@@ -24,6 +26,27 @@ public class Client{
 		this.fullName = fullName;
 	}
 	
+	public Client(Long phoneNumber, String fullName, String plan, String friends){
+		this.plan = getPlanFromString(plan, friends);
+		this.phoneNumber = phoneNumber;
+		this.fullName = fullName;
+	}
+	
+	private Plan getPlanFromString(String stringPlan, String friends){
+		Plan plan = null;
+		if(stringPlan.equalsIgnoreCase("wow")) {
+			plan = new Wow(friends);
+		}
+		if(stringPlan.equalsIgnoreCase("postpago")) {
+			plan = new Postpaid();
+		}
+		if(stringPlan.equalsIgnoreCase("prepago")) {
+			plan = new Prepaid();
+		}
+		return plan;
+	}
+
+
 	public Plan getPlan() {
 		return plan;
 	}
@@ -46,6 +69,6 @@ public class Client{
 		this.fullName = fullName;
 	}
 	public String join() {
-		return this.phoneNumber + ", " + this.fullName + ", " + this.plan;
+		return this.phoneNumber + ", " + this.fullName + ", " + this.plan.getStringPlan();
 	}
 }

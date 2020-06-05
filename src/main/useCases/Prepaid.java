@@ -8,6 +8,11 @@ import main.entities.CDR;
 
 public class Prepaid extends Plan {
 	
+	public Prepaid(){
+		setNormalFare(new NormalFare(1.45));
+		addFare(new FareByHour(0.95, 2200, 2359));
+	}
+	
 	public Prepaid(double fare){
 		setNormalFare(new NormalFare(fare));
 	}
@@ -40,5 +45,9 @@ public class Prepaid extends Plan {
 		
 		findedFare = normalFare.getFare();
 		return findedFare;
+	}
+	@Override
+	public String getStringPlan() {
+		return "prepago";
 	}
 }

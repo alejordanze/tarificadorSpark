@@ -9,6 +9,7 @@ import java.util.*;
 import freemarker.template.*;
 import main.controllers.*;
 import main.entities.*;
+import main.useCases.Wow;
 
 public class Main {
 
@@ -48,19 +49,13 @@ public class Main {
 	public static void main(String[] args) throws Exception   {
 
 		staticFiles.location("/resources");
-		
-		final Configuration conf = new Configuration(new Version(2, 3, 0));
-		conf.setClassForTemplateLoading(Main.class, "/");
-		
-		get("/", (req, res) -> {
-			Map<String, Object> model = new HashMap<>();
-			return getTemplate(model, "index.ftl", conf);
-		});
-		
-		UploadController.init();
+		HomeController.init();
+		UploadCDRController.init();
 		ConfigurationController.init();
 		FareController.init();
 		RegistryController.init();
+		UploadClientController.init();
+		ClientRegistryController.init();
 
 	}
 }

@@ -45,6 +45,7 @@ public class ClientRegistry{
 	
 	public ClientRegistry(Repository<Client> repository) {
 		this.repository = repository;
+		this.clients = repository.getRegistry();
 	}
 	
 	public void saveRegistry(){

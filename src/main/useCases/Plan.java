@@ -55,6 +55,8 @@ public abstract class Plan{
 		}
 		return lowerFare;
 	}
-
-		
+	public abstract String getStringPlan();
+	public String getStringFriends(){
+		return "No tiene numeros amigos";
+	}
 }
