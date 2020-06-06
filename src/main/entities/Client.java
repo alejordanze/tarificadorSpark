@@ -13,13 +13,7 @@ public class Client{
 	
 	public Client(){
 	}
-	
-	
-	public Client(Plan plan, long phoneNumber){
-		this.plan = plan;
-		this.phoneNumber = phoneNumber;
-	}
-	
+		
 	public Client(Plan plan, long phoneNumber, String fullName){
 		this.plan = plan;
 		this.phoneNumber = phoneNumber;

@@ -18,8 +18,11 @@ class ClientTest {
 		Client client2 = new Client(plan,77777777, "Ivy Rocabado");
 		client.setPhoneNumber(77777777);
 		client.setPlan(plan);
+		client.setFullName("Ivy Rocabado");
 		assertEquals(client2.getPhoneNumber(), client.getPhoneNumber());
 		assertEquals(client2.getPlan(), client.getPlan());
+		assertEquals(client2.getFullName(), client.getFullName());
+
 	}
 	
 	@Test
