@@ -22,6 +22,7 @@ class CDRTest {
 	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(20-04-2020));
 	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(21-04-2020));
 	CDR cdr7 = new CDR(8888888, 6666666, "21-04-2020", "18:30", "10:10");
+	CDR cdr8 = new CDR(8888888, 6666666, 20, 2030, new java.sql.Date(21-04-2020), 15, new Date(30-05-2020));
 	
 	private ClientRegistry reg2 = new ClientRegistry();
 	
@@ -117,5 +118,16 @@ class CDRTest {
 		assertEquals(10.17, cdr7.getDuration());
 		assertEquals(1830, cdr7.getHour());
 		assertEquals(new SimpleDateFormat("dd-MM-yyyy").parse("21-04-2020"), cdr7.getDate());
+	}
+	
+	@Test
+	void testEightCall() {
+		assertEquals(8888888, cdr8.getOriginPhoneNumber());
+		assertEquals(6666666, cdr8.getDestinationPhoneNumber());
+		assertEquals(20, cdr8.getDuration());
+		assertEquals(2030, cdr8.getHour());
+		assertEquals(new java.sql.Date(21-04-2020), cdr8.getDate());
+		assertEquals(15, cdr8.getCost());
+		assertEquals(new Date(30-05-2020), cdr8.getDateAdded());
 	}
 }
