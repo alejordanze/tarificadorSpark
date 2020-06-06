@@ -113,11 +113,13 @@ class CDRTest {
 	
 	@Test
 	void testSevenCall() throws ParseException {
+		cdr7.setDateAdded(new Date(05-05-2020));
 		assertEquals(8888888, cdr7.getOriginPhoneNumber());
 		assertEquals(6666666, cdr7.getDestinationPhoneNumber());
 		assertEquals(10.17, cdr7.getDuration());
 		assertEquals(1830, cdr7.getHour());
 		assertEquals(new SimpleDateFormat("dd-MM-yyyy").parse("21-04-2020"), cdr7.getDate());
+		assertEquals(new Date(05-05-2020), cdr7.getDateAdded());
 	}
 	
 	@Test
