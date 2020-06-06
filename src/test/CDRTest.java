@@ -3,6 +3,8 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,7 @@ class CDRTest {
 	CDR cdr4 = new CDR(8888888, 7777777, 5, 1400, new Date(20-04-2020));
 	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(20-04-2020));
 	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(21-04-2020));
+	CDR cdr7 = new CDR(8888888, 6666666, "21-04-2020", "18:30", "10:10");
 	
 	private ClientRegistry reg2 = new ClientRegistry();
 	
@@ -105,5 +108,14 @@ class CDRTest {
 		assertEquals(6666666, cdr.getOriginPhoneNumber());
 		assertEquals(8888888, cdr.getDestinationPhoneNumber());
 		assertEquals(0, cdr.getCost());
+	}
+	
+	@Test
+	void testSevenCall() throws ParseException {
+		assertEquals(8888888, cdr7.getOriginPhoneNumber());
+		assertEquals(6666666, cdr7.getDestinationPhoneNumber());
+		assertEquals(10.17, cdr7.getDuration());
+		assertEquals(1830, cdr7.getHour());
+		assertEquals(new SimpleDateFormat("dd-MM-yyyy").parse("21-04-2020"), cdr7.getDate());
 	}
 }
