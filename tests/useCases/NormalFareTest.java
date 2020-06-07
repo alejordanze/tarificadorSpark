@@ -1,4 +1,4 @@
-package test;
+package useCases;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,14 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import main.FareNames;
 import main.useCases.Fare;
-import main.useCases.FareByHour;
+import main.useCases.NormalFare;
 
-class FareByHourTest {
+class NormalFareTest {
 
-	Fare fareByHour = new FareByHour(1,1000,1400);
+	Fare normalFare = new NormalFare(0.85);
 
 	@Test
 	void getTypeTest() {
-		assertEquals(FareNames.FARE_BY_HOUR,fareByHour.getType());
+		assertEquals(FareNames.NORMAL_FARE,normalFare.getType());
 	}
+
 }

@@ -1,4 +1,4 @@
-package test;
+package entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.*;
