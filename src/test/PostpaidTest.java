@@ -1,5 +1,6 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.*;
 import java.util.Date;
@@ -46,5 +47,10 @@ class PostpaidTest {
 	void testingGetFare() {
 		Postpaid plan = new Postpaid(fare, fares);
 		assertEquals(2, plan.getFare(llamada));
+	}
+	
+	@Test 
+	void getStringPlanTest() {
+		assertEquals("postpago",plan.getStringPlan());
 	}
 }
