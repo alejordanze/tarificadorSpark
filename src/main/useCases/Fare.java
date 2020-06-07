@@ -22,7 +22,7 @@ public abstract class Fare {
 	}
 	public abstract FareNames getType();
 
-	public void setFare(float fare) {
+	public void setFare(double fare) {
 		this.fare = fare;
 	}
 
