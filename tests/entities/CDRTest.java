@@ -121,7 +121,6 @@ class CDRTest {
 		assertEquals(new SimpleDateFormat("dd-MM-yyyy").parse("21-04-2020"), cdr7.getDate());
 		assertEquals(new Date(05-05-2020), cdr7.getDateAdded());
 		assertEquals("8888888, 6666666, 21-04-2020, 18:30, 5:10, 0.0",cdr7.join());
-		System.out.println(cdr7.join());
 	}
 	
 	@Test
