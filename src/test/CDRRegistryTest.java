@@ -156,5 +156,30 @@ public class CDRRegistryTest {
 		
 		assertThat(CDRregister.getRegistry(), is(list));
 	}
+	
+	
+	@Test
+	void getAndSetRepositoryTest() throws IOException {
+		wow.addFriend(6666666);
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+		Repository<CDR> repository = new CDRFileRepository();
+		CDRRegistry CDRregister = new CDRRegistry();
+		CDRregister.setRepository(repository);
+		
+		clientsRegister.addClient(cliente);
+		clientsRegister.addClient(cliente2);
+		clientsRegister.addClient(cliente3);
+		
+		List<CDR> list = addCallsToList();
+		for(CDR cdr: list) {
+			CDRregister.addCDR(cdr, clientsRegister);
+		}
+		CDRregister.saveRegistry();
+		
+		assertThat(CDRregister.getRegistry(), is(list));
+		assertThat(CDRregister.getRepository(), is(repository));
+	}
 
 }
