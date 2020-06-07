@@ -20,7 +20,7 @@ public class Client{
 		this.fullName = fullName;
 	}
 	
-	public Client(Long phoneNumber, String fullName, String plan, String friends){
+	public Client(long phoneNumber, String fullName, String plan, String friends){
 		this.plan = getPlanFromString(plan, friends);
 		this.phoneNumber = phoneNumber;
 		this.fullName = fullName;

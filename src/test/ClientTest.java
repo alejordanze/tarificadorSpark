@@ -22,7 +22,7 @@ class ClientTest {
 		assertEquals(client2.getPhoneNumber(), client.getPhoneNumber());
 		assertEquals(client2.getPlan(), client.getPlan());
 		assertEquals(client2.getFullName(), client.getFullName());
-
+		assertEquals("77777777, Ivy Rocabado, prepago", client.join());
 	}
 	
 	@Test
@@ -41,6 +41,34 @@ class ClientTest {
 	void isNotSamePhoneNumberTest() {
 		Client client2 = new Client(plan,77777778, "Ivy Rocabado");
 		assertEquals(false, client2.isSamePhoneNumber(77777777));
+	}
+	
+	
+	@Test
+	void setClientPrepaidTest() {
+		Client client3 = new Client(77777777, "Ivy Rocabado", "prepago","");
+		client.setPhoneNumber(77777777);
+		client.setFullName("Ivy Rocabado");
+		assertEquals(client3.getPhoneNumber(), client.getPhoneNumber());
+		assertEquals(client3.getFullName(), client.getFullName());
+	}
+	
+	@Test
+	void setClientPostPaidTest() {
+		Client client3 = new Client(77777777, "Ivy Rocabado", "postpago","");
+		client.setPhoneNumber(77777777);
+		client.setFullName("Ivy Rocabado");
+		assertEquals(client3.getPhoneNumber(), client.getPhoneNumber());
+		assertEquals(client3.getFullName(), client.getFullName());
+	}
+	
+	@Test
+	void setClientWowWithFriendsTest() {
+		Client client3 = new Client(77777777, "Ivy Rocabado", "wow","99999999,88888888");
+		client.setPhoneNumber(77777777);
+		client.setFullName("Ivy Rocabado");
+		assertEquals(client3.getPhoneNumber(), client.getPhoneNumber());
+		assertEquals(client3.getFullName(), client.getFullName());
 	}
 
 }
