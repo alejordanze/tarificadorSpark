@@ -29,6 +29,7 @@ class WowTest {
 	Wow plan = new Wow(0.99);
 	Wow plan2 = new Wow(normalFare);
 	Plan plan3 = new Wow(normalFare);
+	Wow plan4 = new Wow();
 	CDR llamada = new CDR(70209102, 66666666, 2, 1830, new Date(25-04-2020));
 	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130, new Date(25-04-2020));
 	
@@ -70,6 +71,7 @@ class WowTest {
 	void testSetFriendsList() {
 		plan.setFriends(asList((long)70999948, (long)70209102));
 		assertThat(plan.getFriends(), is(asList((long)70999948, (long)70209102)));
+		assertEquals("70999948,70209102",plan.getStringFriends());
 	}
 	
 	@Test 
@@ -81,4 +83,13 @@ class WowTest {
 	}
 	
 
+	@Test 
+	void getStringPlanTest() {
+		assertEquals("wow",plan.getStringPlan());
+	}
+	
+	@Test 
+	void secondConstructorWithoutParametersTest() {
+		assertEquals(0.99,plan4.getFare(llamada),0.99);
+	}
 }
