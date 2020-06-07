@@ -21,8 +21,8 @@ class CDRTest {
 	CDR cdr4 = new CDR(8888888, 7777777, 5, 1400, new Date(20-04-2020));
 	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(20-04-2020));
 	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(21-04-2020));
-	CDR cdr7 = new CDR(8888888, 6666666, "21-04-2020", "18:30", "10:10");
-	CDR cdr8 = new CDR(8888888, 6666666, 20, 2030, new java.sql.Date(21-04-2020), 15, new Date(30-05-2020));
+	CDR cdr7 = new CDR(8888888, 6666666, "21-04-2020", "18:30", "5:10");
+	CDR cdr8 = new CDR(8888888, 6666666, 550, 530, new java.sql.Date(21-04-2020), 15, new Date(30-05-2020));
 	
 	private ClientRegistry reg2 = new ClientRegistry();
 	
@@ -116,20 +116,23 @@ class CDRTest {
 		cdr7.setDateAdded(new Date(05-05-2020));
 		assertEquals(8888888, cdr7.getOriginPhoneNumber());
 		assertEquals(6666666, cdr7.getDestinationPhoneNumber());
-		assertEquals(10.17, cdr7.getDuration());
+		assertEquals(5.17, cdr7.getDuration());
 		assertEquals(1830, cdr7.getHour());
 		assertEquals(new SimpleDateFormat("dd-MM-yyyy").parse("21-04-2020"), cdr7.getDate());
 		assertEquals(new Date(05-05-2020), cdr7.getDateAdded());
+		assertEquals("8888888, 6666666, 21-04-2020, 18:30, 5:10, 0.0",cdr7.join());
+		System.out.println(cdr7.join());
 	}
 	
 	@Test
 	void testEightCall() {
 		assertEquals(8888888, cdr8.getOriginPhoneNumber());
 		assertEquals(6666666, cdr8.getDestinationPhoneNumber());
-		assertEquals(20, cdr8.getDuration());
-		assertEquals(2030, cdr8.getHour());
+		assertEquals(550, cdr8.getDuration());
+		assertEquals(530, cdr8.getHour());
 		assertEquals(new java.sql.Date(21-04-2020), cdr8.getDate());
 		assertEquals(15, cdr8.getCost());
 		assertEquals(new Date(30-05-2020), cdr8.getDateAdded());
+		assertEquals("8888888, 6666666, 31-12-1969, 5:30, 55:00, 15.0",cdr8.join());
 	}
 }
