@@ -13,7 +13,7 @@ import main.entities.FriendRegistry;
 class FriendRegistryTest {
 
 	@Test
-	void test() {
+	void setAndGetfriendRegistryTest() {
 		FriendRegistry friendRegistry = FriendRegistry.getInstance();
 		Long owner = (long) 77777777;
 		Long friend1 = (long) 88888888;
