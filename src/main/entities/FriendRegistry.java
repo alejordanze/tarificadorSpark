@@ -41,7 +41,8 @@ public class FriendRegistry {
     }
     
 	public void removeFriend(long ownerPhoneNumber, long friendPhoneNumber) {
-		friendList.get(ownerPhoneNumber).remove(friendPhoneNumber);
+		int index = friendList.get(ownerPhoneNumber).indexOf(friendPhoneNumber);
+		friendList.get(ownerPhoneNumber).remove(index);		
 	}
 	
 	public boolean isNumberFriend(long ownerPhoneNumber, long friendPhoneNumber) {

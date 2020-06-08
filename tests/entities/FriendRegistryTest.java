@@ -42,7 +42,7 @@ class FriendRegistryTest {
 	void removeFriendTest() {		
 		friendRegistry.setFriends(owner, asList(friend1,friend2));
 		friendRegistry.removeFriend(owner, friend1);
-		assertEquals(asList(friend1,friend2),friendRegistry.getFriends(owner));
+		assertEquals(asList(friend2),friendRegistry.getFriends(owner));
 	}
 
 	@Test
