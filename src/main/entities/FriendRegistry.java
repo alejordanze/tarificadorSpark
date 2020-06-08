@@ -1,5 +1,7 @@
 package main.entities;
 
+import static java.util.Arrays.asList;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.Map;
 
 public class FriendRegistry {
 
-    private Map<Long, List<Long>> friendList = new HashMap<Long, List<Long>>();
+    private Map<Long, List<Long>> friendList = new HashMap<>();
     private static FriendRegistry friendRegistry = null;
          
     public static FriendRegistry getInstance() {
@@ -17,12 +19,21 @@ public class FriendRegistry {
     	return friendRegistry;
     }
     
-    public void addFriends(long ownerPhoneNumber, List<Long> friendsPhoneNumbers) {
+    public static void setInstance() {
+    	friendRegistry = null;
+    }
+    
+    public void setFriends(long ownerPhoneNumber, List<Long> friendsPhoneNumbers) {
     	friendList.put(ownerPhoneNumber, friendsPhoneNumbers);
     }
 
-    public void addAFriend(long ownerPhoneNumber, long friendPhoneNumbers) {
-    	friendList.get(ownerPhoneNumber).add(friendPhoneNumbers);
+    public void addFriend(long ownerPhoneNumber, long friendPhoneNumbers) {
+    	if(getFriends(ownerPhoneNumber)==null) {
+			setFriends(ownerPhoneNumber, asList(friendPhoneNumbers));
+		}
+		else {
+			getFriends(ownerPhoneNumber).add(friendPhoneNumbers);
+		}
     } 
 
     public List<Long> getFriends(long ownerPhoneNumber) {
@@ -40,13 +51,17 @@ public class FriendRegistry {
 	public String getStringFriends(long ownerPhoneNumber){
 		String result = "";
 		List<Long> friends= getFriends(ownerPhoneNumber);
-		for(int i = 0; i < friends.size(); i++) {
-			result += (friends.get(i).toString()) + (i == friends.size() -1 ? "" : ",");
+		if(friends==null) 
+			result = "No tiene numeros amigos";
+		else {
+			for(int i = 0; i < friends.size(); i++) {
+				result += (friends.get(i).toString()) + (i == friends.size() -1 ? "" : ",");
+			}
 		}
 		return result;
 	}
 	
-	public List<Long> getFriendsFromString(String friends) {
+	public void setFriendsFromString(String ownerPhoneNumber,String friends) {
 		List<Long> friendsList = new ArrayList<Long>();
 		if(friends.length() > 0) {
 			friends = friends.substring(1, friends.length() - 1);
@@ -55,7 +70,7 @@ public class FriendRegistry {
 		    	friendsList.add(Long.valueOf(text));
 		     }
 		}
-		return friendsList;
+		setFriends(Long.valueOf(ownerPhoneNumber),friendsList);
 	}
 }
 

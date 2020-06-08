@@ -10,15 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.entities.Client;
+import main.entities.FriendRegistry;
 
 public class ClientSqlRepository extends SqlRepository<Client>{
+
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
+
 
 	public void setStatement(PreparedStatement preparedStatement, Client t) {	
 		try {
 			preparedStatement.setLong(1, t.getPhoneNumber());
 			preparedStatement.setString(2, t.getFullName());
 			preparedStatement.setString(3, t.getPlan().getStringPlan());
-			preparedStatement.setString(4, t.getPlan().getStringFriends());
+			preparedStatement.setString(4, friendRegistry.getStringFriends(t.getPhoneNumber()));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
