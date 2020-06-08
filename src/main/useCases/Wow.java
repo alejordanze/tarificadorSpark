@@ -18,7 +18,6 @@ public class Wow extends Plan {
 	
 	public Wow(String friends) {
 		setNormalFare(new NormalFare(0.99));
-		this.friends = getFriendsFromString(friends);
 	}
 	
 	public Wow(double fare) {
@@ -36,10 +35,6 @@ public class Wow extends Plan {
 
 	public List<Long> getFriends() {
 		return friends;
-	}
-
-	public void setFriends(List<Long> friends) {
-		this.friends = friends;
 	}
 	
 	public void addFriend(long phoneNumber) {
@@ -78,31 +73,9 @@ public class Wow extends Plan {
 		return findedFare;
 	}
 	
-	
-	public List<Long> getFriendsFromString(String friends) {
-		List<Long> friendsList = new ArrayList<Long>();
-		if(friends.length() > 0) {
-			friends = friends.substring(1, friends.length() - 1);
-			String[] list = friends.split(",");
-		    for(String text:list) {
-		    	friendsList.add(Long.valueOf(text));
-		     }
-	
-		}
-		return friendsList;
-	}
-	
 	@Override
 	public String getStringPlan() {
 		return "wow";
 	}
-	
-	@Override
-	public String getStringFriends(){
-		String result = "";
-		for(int i = 0; i < friends.size(); i++) {
-			result += (friends.get(i).toString()) + (i == friends.size() -1 ? "" : ",");
-		}
-		return result;
-	}
+
 }

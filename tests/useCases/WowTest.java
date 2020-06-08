@@ -67,13 +67,6 @@ class WowTest {
 		assertThat(plan.getFriends(), is(asList((long)66666666)));
 	}
 	
-	@Test
-	void testSetFriendsList() {
-		plan.setFriends(asList((long)70999948, (long)70209102));
-		assertThat(plan.getFriends(), is(asList((long)70999948, (long)70209102)));
-		assertEquals("70999948,70209102",plan.getStringFriends());
-	}
-	
 	@Test 
 	void testRemoveFare() {
 		plan3.addFare(fareByHour);
