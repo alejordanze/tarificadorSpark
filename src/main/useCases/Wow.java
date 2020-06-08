@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.entities.CDR;
+import main.entities.FriendRegistry;
 
 
 public class Wow extends Plan {
@@ -45,16 +46,14 @@ public class Wow extends Plan {
 		int index = this.friends.indexOf(phoneNumber);
 		this.friends.remove(index);
 	}
-	
-	public boolean isNumberFriend(long phoneNumber) {
-		return this.friends.contains(phoneNumber);
-	}
+
 
 	@Override
 	public double getFare(CDR cdr) {
+		FriendRegistry friendRegistry = FriendRegistry.getInstance();
 		List<Double> findedFares = new ArrayList<>();
 		double findedFare = 0;
-		if(!isNumberFriend(cdr.getDestinationPhoneNumber())) {
+		if(!friendRegistry.isNumberFriend(cdr.getOriginPhoneNumber(),cdr.getDestinationPhoneNumber())) {
 			
 			for( Fare fare: this.fareList) {
 				MatchFare matcher = fare.createMatch();
