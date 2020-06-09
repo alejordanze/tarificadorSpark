@@ -10,8 +10,6 @@ import main.entities.FriendRegistry;
 
 public class Wow extends Plan {
 
-	private List<Long> friends = new ArrayList<Long>();
-	
 	public Wow() {
 		setNormalFare(new NormalFare(0.99));
 	}
@@ -35,7 +33,7 @@ public class Wow extends Plan {
 		List<Double> findedFares = new ArrayList<>();
 		double findedFare = 0;
 		if(!friendRegistry.isNumberFriend(cdr.getOriginPhoneNumber(),cdr.getDestinationPhoneNumber())) {
-			
+
 			for( Fare fare: this.fareList) {
 				MatchFare matcher = fare.createMatch();
 				findedFare = matcher.getMatchingFare(cdr, fare); 

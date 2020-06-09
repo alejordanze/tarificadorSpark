@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import main.*;
 import main.entities.CDR;
+import main.entities.FriendRegistry;
 import main.useCases.Fare;
 import main.useCases.FareByHour;
 import main.useCases.NormalFare;
@@ -32,7 +33,8 @@ class WowTest {
 	Wow plan4 = new Wow();
 	CDR llamada = new CDR(70209102, 66666666, 2, 1830, new Date(25-04-2020));
 	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130, new Date(25-04-2020));
-	
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
+
 	@Test
 	void testFirstConstructor() {
 		List<Fare> fareList = plan.getFareList();
@@ -69,6 +71,7 @@ class WowTest {
 	
 	@Test 
 	void secondConstructorWithoutParametersTest() {
+		friendRegistry.setFriends(70209102, asList((long)66666666));
 		assertEquals(0.99,plan4.getFare(llamada),0.99);
 	}
 }
