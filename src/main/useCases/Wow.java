@@ -34,10 +34,6 @@ public class Wow extends Plan {
 		setNormalFare(fare);
 	}
 	
-	public void addFriend(long phoneNumber) {
-		this.friends.add(phoneNumber);
-	}
-	
 	@Override
 	public double getFare(CDR cdr) {
 		FriendRegistry friendRegistry = FriendRegistry.getInstance();

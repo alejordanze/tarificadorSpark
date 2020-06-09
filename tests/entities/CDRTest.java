@@ -32,6 +32,7 @@ class CDRTest {
 	
 	Wow plan = new Wow(new NormalFare(3), asList( new FareByHour(5, 1500, 1759), new FareByHour(4, 1800, 2200)));
 	
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
 	
 	@Test
 	void isSameOriginPhoneNumberTest() {
@@ -41,7 +42,7 @@ class CDRTest {
 
 	@Test
 	void testFirstCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -52,7 +53,7 @@ class CDRTest {
 	
 	@Test
 	void testSecondCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -63,7 +64,7 @@ class CDRTest {
 	
 	@Test
 	void testThirdCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -74,7 +75,7 @@ class CDRTest {
 	
 	@Test
 	void testFourthCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -85,7 +86,7 @@ class CDRTest {
 	
 	@Test
 	void testFifthCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);

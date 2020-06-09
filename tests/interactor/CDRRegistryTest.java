@@ -21,6 +21,7 @@ import main.dataAccess.SqlRepository;
 import main.entities.CDR;
 import main.entities.Client;
 import main.entities.ClientRegistry;
+import main.entities.FriendRegistry;
 import main.interactor.CDRRegistry;
 import main.useCases.FareByHour;
 import main.useCases.NormalFare;
@@ -47,6 +48,7 @@ public class CDRRegistryTest {
 	private Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 	private Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
 
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
 	@Test
 	public void testAddingCalls() throws IOException {
 		clientsRegister.addClient(cliente);
@@ -93,7 +95,7 @@ public class CDRRegistryTest {
 	
 	@Test
 	void principalTest() throws IOException {
-		wow.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
@@ -115,7 +117,7 @@ public class CDRRegistryTest {
 	
 	@Test
 	void testSqlSave() throws IOException {
-		wow.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
@@ -137,7 +139,7 @@ public class CDRRegistryTest {
 	
 	@Test
 	void testSqlSaveConstructor() throws IOException {
-		wow.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
@@ -160,7 +162,7 @@ public class CDRRegistryTest {
 	
 	@Test
 	void getAndSetRepositoryTest() throws IOException {
-		wow.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
 		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
 		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
