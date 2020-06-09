@@ -38,7 +38,8 @@ public class ClientSqlRepository extends SqlRepository<Client>{
 			    String fullName = rs.getString("fullName");
 			    String plan = rs.getString("plan");
 			    String friends = "["+ rs.getString("friends") + "]";
-			    clientList.add(new Client(number, fullName, plan, friends));
+			    clientList.add(new Client(number, fullName, plan));
+			    friendRegistry.setFriendsFromString(number.toString(), friends);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,7 +59,8 @@ public class ClientSqlRepository extends SqlRepository<Client>{
 			    String fullName = rs.getString("fullName");
 			    String plan = rs.getString("plan");
 			    String friends = "["+ rs.getString("friends") + "]";
-			    clientList.add(new Client(pnumber, fullName, plan, friends));
+			    clientList.add(new Client(pnumber, fullName, plan));
+			    friendRegistry.setFriendsFromString(pnumber.toString(), friends);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

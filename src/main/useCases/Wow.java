@@ -15,12 +15,7 @@ public class Wow extends Plan {
 	public Wow() {
 		setNormalFare(new NormalFare(0.99));
 	}
-	
-	
-	public Wow(String friends) {
-		setNormalFare(new NormalFare(0.99));
-	}
-	
+		
 	public Wow(double fare) {
 		setNormalFare(new NormalFare(fare));
 	}

@@ -1,10 +1,12 @@
 package entities;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static java.util.Arrays.*;
 
 import org.junit.jupiter.api.Test;
 
 import main.entities.Client;
+import main.entities.FriendRegistry;
 import main.useCases.Plan;
 import main.useCases.Prepaid;
 
@@ -12,6 +14,7 @@ class ClientTest {
 
 	Plan plan = new Prepaid(5);
 	Client client = new Client();
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
 
 	@Test
 	void setClientTest() {
@@ -46,7 +49,7 @@ class ClientTest {
 	
 	@Test
 	void setClientPrepaidTest() {
-		Client client3 = new Client(77777777, "Ivy Rocabado", "prepago","");
+		Client client3 = new Client(77777777, "Ivy Rocabado", "prepago");
 		client.setPhoneNumber(77777777);
 		client.setFullName("Ivy Rocabado");
 		assertEquals(client3.getPhoneNumber(), client.getPhoneNumber());
@@ -55,7 +58,7 @@ class ClientTest {
 	
 	@Test
 	void setClientPostPaidTest() {
-		Client client3 = new Client(77777777, "Ivy Rocabado", "postpago","");
+		Client client3 = new Client(77777777, "Ivy Rocabado", "postpago");
 		client.setPhoneNumber(77777777);
 		client.setFullName("Ivy Rocabado");
 		assertEquals(client3.getPhoneNumber(), client.getPhoneNumber());
@@ -64,9 +67,10 @@ class ClientTest {
 	
 	@Test
 	void setClientWowWithFriendsTest() {
-		Client client3 = new Client(77777777, "Ivy Rocabado", "wow","99999999,88888888");
+		Client client3 = new Client(77777777, "Ivy Rocabado", "wow");
 		client.setPhoneNumber(77777777);
 		client.setFullName("Ivy Rocabado");
+		friendRegistry.setFriends(77777777, asList((long)99999999,(long)88888888));
 		assertEquals(client3.getPhoneNumber(), client.getPhoneNumber());
 		assertEquals(client3.getFullName(), client.getFullName());
 	}
