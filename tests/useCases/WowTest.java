@@ -52,21 +52,7 @@ class WowTest {
 		List<Fare> fareList = plan3.getFareList();
 		assertThat(fareList, is(asList(fareByHour, fareByHour2)));
 	}
-	
-	@Test
-	void testAddFriend() {
-		plan.addFriend(70999948);
-		assertThat(plan.getFriends(), is(asList((long)70999948)));
-	}
-	
-	@Test
-	void testRemoveFriend() {
-		plan.addFriend(66666666);
-		plan.addFriend(70999948);
-		plan.removeFriend(70999948);
-		assertThat(plan.getFriends(), is(asList((long)66666666)));
-	}
-	
+		
 	@Test 
 	void testRemoveFare() {
 		plan3.addFare(fareByHour);

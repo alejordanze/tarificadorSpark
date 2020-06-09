@@ -33,21 +33,11 @@ public class Wow extends Plan {
 		setFareList(fareList);
 		setNormalFare(fare);
 	}
-
-	public List<Long> getFriends() {
-		return friends;
-	}
 	
 	public void addFriend(long phoneNumber) {
 		this.friends.add(phoneNumber);
 	}
 	
-	public void removeFriend(long phoneNumber) {
-		int index = this.friends.indexOf(phoneNumber);
-		this.friends.remove(index);
-	}
-
-
 	@Override
 	public double getFare(CDR cdr) {
 		FriendRegistry friendRegistry = FriendRegistry.getInstance();
