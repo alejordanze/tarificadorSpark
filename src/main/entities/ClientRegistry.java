@@ -51,4 +51,17 @@ public class ClientRegistry{
 	public void saveRegistry(){
 		this.repository.exportRegistry(clients);  
 	}
+		
+	public Repository<Client> getRepository() {
+		return repository;
+	}
+
+	public void setRepository(Repository<Client> repository) {
+		this.repository = repository;
+	}
+	
+	public void getClientsFromRepository()
+	{
+		this.clients = this.repository.getRegistry();
+	}
 }

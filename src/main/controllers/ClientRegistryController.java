@@ -11,6 +11,7 @@ import java.util.TreeMap;
 
 import main.dataAccess.*;
 import main.entities.Client;
+import main.entities.FriendRegistry;
 
 public class ClientRegistryController extends Controller{
 	
@@ -20,7 +21,8 @@ public class ClientRegistryController extends Controller{
 	public static void getMethod() {
 		get("/clientRegistry", (request, response) -> {
 			Map<String, Object> model = new HashMap<>();
-			model.put("clients", repository2.getRegistry());
+			model.put("clients", clientRegister.getClients());
+			model.put("friendList", FriendRegistry.getInstance());
 			return getTemplate(model, "clientRegistry.ftl");
 		});
 		

@@ -34,8 +34,8 @@ public class UploadCDRController extends Controller {
 	public static int uploadRegistry(String file) throws Exception  {
 		
 		FileRepository<CDR> fileRepo = new CDRFileRepository(file);
-		CDRregister.setRegistry(fileRepo.getRegistry(), clientRegister);
-		return CDRregister.getRegistry().size();
+		uploadCDRregister.setRegistry(fileRepo.getRegistry(), clientRegister);
+		return uploadCDRregister.getRegistry().size();
 	}
 	
 	public static List<Client> getSampleClients(){

@@ -1,6 +1,8 @@
 package main.interactor;
 
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,6 @@ public class CDRRegistry {
 	
 	public CDRRegistry(Repository<CDR> repository) {
 		this.repository = repository;
-//		this.registry = repository.getRegistry();
 	}
 	
 	public CDRRegistry() {
@@ -52,5 +53,10 @@ public class CDRRegistry {
 	
 	public void saveRegistry(){
 		this.repository.exportRegistry(registry);  
+	}
+	
+	public void getCDRFromRepository()
+	{
+		this.registry = this.repository.getRegistry();
 	}
 }

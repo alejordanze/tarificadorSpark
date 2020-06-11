@@ -9,10 +9,6 @@ import main.entities.CDR;
 
 public class RegistryController extends Controller{
 	
-	static Repository repository2 = new CDRSqlRepository();
-	static List<CDR> sqlList = repository2.getRegistry();
-	
-	
 	public static Map<Long, List<CDR>> sortByDate(List<CDR> list){
 		Map<Long, List<CDR>> map = new TreeMap<>(Collections.reverseOrder());
 		for(CDR cdr: list) {
@@ -32,13 +28,15 @@ public class RegistryController extends Controller{
 	public static void getMethod() {
 		get("/registry", (request, response) -> {
 			Map<String, Object> model = new HashMap<>();
-			model.put("cdrs", sortByDate(repository2.getRegistry()));
+			CDRregister.getCDRFromRepository();	
+			model.put("cdrs", sortByDate(CDRregister.getRegistry()));
 			return getTemplate(model, "registry.ftl");
 		});
 		
 	}
 	
 	public static void init() {
+		
 		getMethod();
 	}
 }

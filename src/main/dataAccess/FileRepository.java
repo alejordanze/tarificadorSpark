@@ -13,6 +13,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public abstract class FileRepository<T> implements Repository<T> {
@@ -34,16 +36,17 @@ public abstract class FileRepository<T> implements Repository<T> {
 
 	
 	public void exportRegistry(List<T> registry) {
+		Timestamp dateAdded = new Timestamp(new Date().getTime());
+		Writer fw;
 		File file = new File(nameFile() + getTodayDate() + ".csv");
-        FileWriter fw;
+//        FileWriter fw; 
 		try {
-			fw = new FileWriter(file);
+			fw = new FileWriter(this.fileName, true);
+//			fw = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(fw);
-	        bw.write(headboardFile());
-	        bw.newLine();
-	        
+//	        bw.write(headboardFile());
 	        for(T t: registry) {
-	        	bw.write(messageWrite(t));
+	        	bw.append(messageWrite(t) + ", \"" + dateAdded.toString() + "\"");
 	        	bw.newLine();
 	        }
 	        bw.close();

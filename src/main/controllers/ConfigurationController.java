@@ -19,7 +19,7 @@ public class ConfigurationController extends Controller{
 	}
 	
 	public static Map<String, String> getOption(){
-		if(option.equalsIgnoreCase("Archivo")) {
+		if(option.equals("Archivo")) {
 			options.put("file","active");
 			options.put("sql","");
 		}
@@ -31,13 +31,18 @@ public class ConfigurationController extends Controller{
 	}
 	
 	public static void setOption() {
-		if(option == "Archivo") {
+		if(option.equals("Archivo")) {
 			repository = new CDRFileRepository();
+			clientRepository = new ClientFileRepository();
 		}
 		else {
 			repository = new CDRSqlRepository();
+			clientRepository = new ClientSqlRepository();
 		}
 		CDRregister.setRepository(repository);
+		clientRegister.setRepository(clientRepository);
+		clientRegister.getClientsFromRepository();
+		CDRregister.getCDRFromRepository();
 	}
 	
 	public static void getMethod() {

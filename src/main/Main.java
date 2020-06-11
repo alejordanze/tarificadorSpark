@@ -3,12 +3,17 @@ import static spark.Spark.*;
 
 import static java.util.Arrays.asList;
 import java.io.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 
 import freemarker.template.*;
 import main.controllers.*;
+import main.dataAccess.CDRFileRepository;
+import main.dataAccess.ClientFileRepository;
+import main.dataAccess.Repository;
 import main.entities.*;
+import main.interactor.CDRRegistry;
 import main.useCases.Wow;
 
 public class Main {
@@ -49,6 +54,7 @@ public class Main {
 	public static void main(String[] args) throws Exception   {
 
 		staticFiles.location("/resources");
+		Controller.init();
 		HomeController.init();
 		UploadCDRController.init();
 		ConfigurationController.init();
@@ -56,6 +62,5 @@ public class Main {
 		RegistryController.init();
 		UploadClientController.init();
 		ClientRegistryController.init();
-
 	}
 }

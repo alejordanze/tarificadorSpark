@@ -9,19 +9,18 @@ import java.util.Map;
 public class FareController extends Controller {
 
 	private static void export() {
-		CDRregister.saveRegistry();
+		uploadCDRregister.saveRegistry();
 	}
 	
 	private static Map<String, Object> getModel(boolean saved){
 		Map<String, Object> model = new HashMap<>();
-		model.put("cdrs", CDRregister);
+		model.put("cdrs", uploadCDRregister);
 		model.put("option", option);
 		model.put("saved", saved);
 		return model;
 	}
 	public static void getMethod() {
 		get("/fare", (request, response) -> {
-			
 			return getTemplate(getModel(false), "export.ftl");
 		});
 	}
