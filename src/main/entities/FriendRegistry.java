@@ -49,7 +49,7 @@ public class FriendRegistry {
 		return friendList.get(ownerPhoneNumber).contains(friendPhoneNumber);
 	}
 	
-	public String getStringFriends(long ownerPhoneNumber){
+	public String getStringFriends(long ownerPhoneNumber) {
 		String result = "";
 		List<Long> friends= getFriends(ownerPhoneNumber);
 		if(friends==null) 
@@ -62,16 +62,24 @@ public class FriendRegistry {
 		return result;
 	}
 	
+	private String verifyFormat(String friends) {
+		if(!friends.contains("[")) {
+			return friends;
+ 		}
+		return friends.substring(1, friends.length() -1);
+	}
+
+	
 	public void setFriendsFromString(String ownerPhoneNumber,String friends) {
 		List<Long> friendsList = new ArrayList<Long>();
-		if(friends.length() > 0) {
-			friends = friends.substring(1, friends.length() - 1);
+		if(friends.length() > 0 && !friends.equals("No tiene numeros amigos")) {
+			friends = verifyFormat(friends);
 			String[] list = friends.split(",");
 		    for(String text:list) {
 		    	friendsList.add(Long.valueOf(text));
 		     }
+		    setFriends(Long.valueOf(ownerPhoneNumber),friendsList);
 		}
-		setFriends(Long.valueOf(ownerPhoneNumber),friendsList);
 	}
 }
 
