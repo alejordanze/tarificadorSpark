@@ -7,7 +7,7 @@ import java.util.List;
 import main.entities.CDR;
 
 public class CDRFileRepository extends FileRepository<CDR>{
-
+	
 	public CDRFileRepository(String file){
 		this.fileName = file;
 	}
@@ -34,7 +34,7 @@ public class CDRFileRepository extends FileRepository<CDR>{
         double duration = t.getDuration();
         int hour = t.getHour();
         double cost = t.getCost();
-		return originPhoneNumber + ", " + destinationPhoneNumber + ", \"" + date.toString() + "\", " + duration + ", " + hour + ", " + cost;
+		return originPhoneNumber + ", " + destinationPhoneNumber + ", \"" + date.toString() + "\", " + duration + ", " + hour + ", " + cost + ", \"" + this.dateAdded.toString() + "\"";
 	}
 
 	@Override

@@ -58,6 +58,7 @@ public class FriendRegistry {
 			for(int i = 0; i < friends.size(); i++) {
 				result += (friends.get(i).toString()) + (i == friends.size() -1 ? "" : ",");
 			}
+			result = "[" + result + "]";
 		}
 		return result;
 	}

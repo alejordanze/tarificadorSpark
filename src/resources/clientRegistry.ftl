@@ -17,7 +17,7 @@
 	    			<#setting number_format="" />
 	    			<td>${item.getFullName()}</td>
 	    			<td>${item.getPlan().getStringPlan()?capitalize}</td>
-	    			<td>${item.getPlan().getStringFriends()}</td>
+	    			<td>${friendList.getStringFriends(item.getPhoneNumber())}</td>
 	    		</tbody>
 			</#list>	
 		</table>

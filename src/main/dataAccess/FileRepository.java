@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 public abstract class FileRepository<T> implements Repository<T> {
 
 	String fileName;
+	Timestamp dateAdded;
 	
 	 public String getTodayDate() {
 		String today = "MM-dd-yyyy HH.mm.ss";
@@ -36,7 +37,7 @@ public abstract class FileRepository<T> implements Repository<T> {
 
 	
 	public void exportRegistry(List<T> registry) {
-		Timestamp dateAdded = new Timestamp(new Date().getTime());
+		this.dateAdded = new Timestamp(new Date().getTime());
 		Writer fw;
 		File file = new File(nameFile() + getTodayDate() + ".csv");
 //        FileWriter fw; 
@@ -46,7 +47,7 @@ public abstract class FileRepository<T> implements Repository<T> {
 			BufferedWriter bw = new BufferedWriter(fw);
 //	        bw.write(headboardFile());
 	        for(T t: registry) {
-	        	bw.append(messageWrite(t) + ", \"" + dateAdded.toString() + "\"");
+	        	bw.append(messageWrite(t));
 	        	bw.newLine();
 	        }
 	        bw.close();

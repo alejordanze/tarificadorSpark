@@ -21,6 +21,7 @@ public class ClientRegistryController extends Controller{
 	public static void getMethod() {
 		get("/clientRegistry", (request, response) -> {
 			Map<String, Object> model = new HashMap<>();
+			clientRegister.getClientsFromRepository();
 			model.put("clients", clientRegister.getClients());
 			model.put("friendList", FriendRegistry.getInstance());
 			return getTemplate(model, "clientRegistry.ftl");

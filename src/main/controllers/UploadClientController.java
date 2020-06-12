@@ -24,13 +24,13 @@ public class UploadClientController extends Controller {
 		FileRepository<Client> fileRepo = new ClientFileRepository(file);
 		List<Client> clients = new ArrayList<>();
 		for(Client client: fileRepo.getRegistry()) {
-			if(verifyNumber(client.getPhoneNumber())) {
+//			if(verifyNumber(client.getPhoneNumber())) {
 				clients.add(client);
-			}
+//			}
 		}
-		clientRegister.setClientes(clients);
-		clientRepository.exportRegistry(clientRegister.getClients());
-		return clientRegister.getClients().size();
+		uploadclientRegister.setClientes(clients);
+		uploadclientRegister.saveRegistry();
+		return uploadclientRegister.getClients().size();
 	}
 	
 	public static boolean verifyNumber(long number) {
