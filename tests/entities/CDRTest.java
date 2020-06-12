@@ -1,8 +1,10 @@
-package test;
+package entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,8 @@ class CDRTest {
 	CDR cdr4 = new CDR(8888888, 7777777, 5, 1400, new Date(20-04-2020));
 	CDR cdr5 = new CDR(8888888, 7777776, 10, 1630, new Date(20-04-2020));
 	CDR cdr6 = new CDR(8888888, 6666666, 7, 1830, new Date(21-04-2020));
+	CDR cdr7 = new CDR(8888888, 6666666, "21-04-2020", "18:30", "5:10");
+	CDR cdr8 = new CDR(8888888, 6666666, 550, 530, new java.sql.Date(21-04-2020), 15, new Date(30-05-2020));
 	
 	private ClientRegistry reg2 = new ClientRegistry();
 	
@@ -28,6 +32,7 @@ class CDRTest {
 	
 	Wow plan = new Wow(new NormalFare(3), asList( new FareByHour(5, 1500, 1759), new FareByHour(4, 1800, 2200)));
 	
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
 	
 	@Test
 	void isSameOriginPhoneNumberTest() {
@@ -37,7 +42,7 @@ class CDRTest {
 
 	@Test
 	void testFirstCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -48,7 +53,7 @@ class CDRTest {
 	
 	@Test
 	void testSecondCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -59,7 +64,7 @@ class CDRTest {
 	
 	@Test
 	void testThirdCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -70,7 +75,7 @@ class CDRTest {
 	
 	@Test
 	void testFourthCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -81,7 +86,7 @@ class CDRTest {
 	
 	@Test
 	void testFifthCall() {
-		plan.addFriend(6666666);
+		friendRegistry.setFriends(8888888, asList((long)6666666));
 		Client cliente3 = new Client(plan, 8888888, "Saskia Sejas");
 		reg2.addClient(cliente);
 		reg2.addClient(cliente2);
@@ -105,5 +110,29 @@ class CDRTest {
 		assertEquals(6666666, cdr.getOriginPhoneNumber());
 		assertEquals(8888888, cdr.getDestinationPhoneNumber());
 		assertEquals(0, cdr.getCost());
+	}
+	
+	@Test
+	void testSevenCall() throws ParseException {
+		cdr7.setDateAdded(new Date(05-05-2020));
+		assertEquals(8888888, cdr7.getOriginPhoneNumber());
+		assertEquals(6666666, cdr7.getDestinationPhoneNumber());
+		assertEquals(5.17, cdr7.getDuration());
+		assertEquals(1830, cdr7.getHour());
+		assertEquals(new SimpleDateFormat("dd-MM-yyyy").parse("21-04-2020"), cdr7.getDate());
+		assertEquals(new Date(05-05-2020), cdr7.getDateAdded());
+		assertEquals("8888888, 6666666, 21-04-2020, 18:30, 5:10, 0.0",cdr7.join());
+	}
+	
+	@Test
+	void testEightCall() {
+		assertEquals(8888888, cdr8.getOriginPhoneNumber());
+		assertEquals(6666666, cdr8.getDestinationPhoneNumber());
+		assertEquals(550, cdr8.getDuration());
+		assertEquals(530, cdr8.getHour());
+		assertEquals(new java.sql.Date(21-04-2020), cdr8.getDate());
+		assertEquals(15, cdr8.getCost());
+		assertEquals(new Date(30-05-2020), cdr8.getDateAdded());
+		assertEquals("8888888, 6666666, 31-12-1969, 5:30, 55:00, 15.0",cdr8.join());
 	}
 }

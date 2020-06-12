@@ -31,10 +31,11 @@ public class ClientFileRepository extends FileRepository<Client>{
 	public Client getItem(String[] cdrString) {
 		friendRegistry.setFriendsFromString(cdrString[0], cdrString[3]);
 		if(cdrString.length == 4) {
-			return new Client(Long.valueOf(cdrString[0]), cdrString[1], cdrString[2] ,cdrString[3]);
+			friendRegistry.setFriendsFromString(cdrString[0], cdrString[3]);
+			return new Client(Long.valueOf(cdrString[0]), cdrString[1], cdrString[2]);
 		}
 		else {
-			return new Client(Long.valueOf(cdrString[0]), cdrString[1], cdrString[2], "");
+			return new Client(Long.valueOf(cdrString[0]), cdrString[1], cdrString[2]);
 		}
 	}
 }

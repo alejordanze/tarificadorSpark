@@ -1,5 +1,6 @@
-package test;
+package useCases;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.*;
 import java.util.Date;
@@ -27,24 +28,29 @@ class PostpaidTest {
 	@Test
 	void testFirstConstructor() {
 		Postpaid plan = new Postpaid(1.45);
-		assertEquals(plan.getNormalFare().getFare(), 1.45);
+		assertEquals(plan.getNormalFare().getFare(), 1.45, 1.45);
 	}
 
 	@Test
 	void testSecondConstructor() {
 		Postpaid plan = new Postpaid(new NormalFare(1.2));
-		assertEquals(plan.getNormalFare().getFare(), 1.2);
+		assertEquals(plan.getNormalFare().getFare(), 1.2, 1.2);
 	}
 	
 	@Test
 	void testThirdConstructor() {
 		Postpaid plan = new Postpaid(fare, fares);
-		assertEquals(plan.getNormalFare().getFare(), 2);
+		assertEquals(plan.getNormalFare().getFare(), 2, 2);
 	}
 	
 	@Test
 	void testingGetFare() {
 		Postpaid plan = new Postpaid(fare, fares);
-		assertEquals(2, plan.getFare(llamada));
+		assertEquals(2, plan.getFare(llamada), plan.getFare(llamada));
+	}
+	
+	@Test 
+	void getStringPlanTest() {
+		assertEquals("postpago",plan.getStringPlan());
 	}
 }

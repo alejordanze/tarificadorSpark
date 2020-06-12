@@ -5,22 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.entities.CDR;
+import main.entities.FriendRegistry;
 
 
 public class Wow extends Plan {
 
-	private List<Long> friends = new ArrayList<Long>();
-	
 	public Wow() {
 		setNormalFare(new NormalFare(0.99));
 	}
-	
-	
-	public Wow(String friends) {
-		setNormalFare(new NormalFare(0.99));
-		this.friends = getFriendsFromString(friends);
-	}
-	
+		
 	public Wow(double fare) {
 		setNormalFare(new NormalFare(fare));
 	}
@@ -33,34 +26,14 @@ public class Wow extends Plan {
 		setFareList(fareList);
 		setNormalFare(fare);
 	}
-
-	public List<Long> getFriends() {
-		return friends;
-	}
-
-	public void setFriends(List<Long> friends) {
-		this.friends = friends;
-	}
 	
-	public void addFriend(long phoneNumber) {
-		this.friends.add(phoneNumber);
-	}
-	
-	public void removeFriend(long phoneNumber) {
-		int index = this.friends.indexOf(phoneNumber);
-		this.friends.remove(index);
-	}
-	
-	public boolean isNumberFriend(long phoneNumber) {
-		return this.friends.contains(phoneNumber);
-	}
-
 	@Override
 	public double getFare(CDR cdr) {
+		FriendRegistry friendRegistry = FriendRegistry.getInstance();
 		List<Double> findedFares = new ArrayList<>();
 		double findedFare = 0;
-		if(!isNumberFriend(cdr.getDestinationPhoneNumber())) {
-			
+		if(!friendRegistry.isNumberFriend(cdr.getOriginPhoneNumber(),cdr.getDestinationPhoneNumber())) {
+
 			for( Fare fare: this.fareList) {
 				MatchFare matcher = fare.createMatch();
 				findedFare = matcher.getMatchingFare(cdr, fare); 
@@ -78,31 +51,9 @@ public class Wow extends Plan {
 		return findedFare;
 	}
 	
-	
-	public List<Long> getFriendsFromString(String friends) {
-		List<Long> friendsList = new ArrayList<Long>();
-		if(friends.length() > 0) {
-			friends = friends.substring(1, friends.length() - 1);
-			String[] list = friends.split(",");
-		    for(String text:list) {
-		    	friendsList.add(Long.valueOf(text));
-		     }
-	
-		}
-		return friendsList;
-	}
-	
 	@Override
 	public String getStringPlan() {
 		return "wow";
 	}
-	
-	@Override
-	public String getStringFriends(){
-		String result = "";
-		for(int i = 0; i < friends.size(); i++) {
-			result += (friends.get(i).toString()) + (i == friends.size() -1 ? "" : ",");
-		}
-		return result;
-	}
+
 }

@@ -1,4 +1,4 @@
-package test;
+package useCases;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import main.*;
 import main.entities.CDR;
+import main.entities.FriendRegistry;
 import main.useCases.Fare;
 import main.useCases.FareByHour;
 import main.useCases.NormalFare;
@@ -29,9 +30,11 @@ class WowTest {
 	Wow plan = new Wow(0.99);
 	Wow plan2 = new Wow(normalFare);
 	Plan plan3 = new Wow(normalFare);
+	Wow plan4 = new Wow();
 	CDR llamada = new CDR(70209102, 66666666, 2, 1830, new Date(25-04-2020));
 	CDR llamada2 = new CDR(76464241, 70999948, 10, 2130, new Date(25-04-2020));
-	
+	FriendRegistry friendRegistry = FriendRegistry.getInstance();
+
 	@Test
 	void testFirstConstructor() {
 		List<Fare> fareList = plan.getFareList();
@@ -51,27 +54,7 @@ class WowTest {
 		List<Fare> fareList = plan3.getFareList();
 		assertThat(fareList, is(asList(fareByHour, fareByHour2)));
 	}
-	
-	@Test
-	void testAddFriend() {
-		plan.addFriend(70999948);
-		assertThat(plan.getFriends(), is(asList((long)70999948)));
-	}
-	
-	@Test
-	void testRemoveFriend() {
-		plan.addFriend(66666666);
-		plan.addFriend(70999948);
-		plan.removeFriend(70999948);
-		assertThat(plan.getFriends(), is(asList((long)66666666)));
-	}
-	
-	@Test
-	void testSetFriendsList() {
-		plan.setFriends(asList((long)70999948, (long)70209102));
-		assertThat(plan.getFriends(), is(asList((long)70999948, (long)70209102)));
-	}
-	
+		
 	@Test 
 	void testRemoveFare() {
 		plan3.addFare(fareByHour);
@@ -81,4 +64,14 @@ class WowTest {
 	}
 	
 
+	@Test 
+	void getStringPlanTest() {
+		assertEquals("wow",plan.getStringPlan());
+	}
+	
+	@Test 
+	void secondConstructorWithoutParametersTest() {
+		friendRegistry.setFriends(70209102, asList((long)66666666));
+		assertEquals(0.99,plan4.getFare(llamada),0.99);
+	}
 }

@@ -13,29 +13,23 @@ public class Client{
 	
 	public Client(){
 	}
-	
-	
-	public Client(Plan plan, long phoneNumber){
-		this.plan = plan;
-		this.phoneNumber = phoneNumber;
-	}
-	
+		
 	public Client(Plan plan, long phoneNumber, String fullName){
 		this.plan = plan;
 		this.phoneNumber = phoneNumber;
 		this.fullName = fullName;
 	}
 	
-	public Client(Long phoneNumber, String fullName, String plan, String friends){
-		this.plan = getPlanFromString(plan, friends);
+	public Client(long phoneNumber, String fullName, String plan){
+		this.plan = getPlanFromString(plan);
 		this.phoneNumber = phoneNumber;
 		this.fullName = fullName;
 	}
 	
-	private Plan getPlanFromString(String stringPlan, String friends){
+	private Plan getPlanFromString(String stringPlan){
 		Plan plan = null;
 		if(stringPlan.equalsIgnoreCase("wow")) {
-			plan = new Wow(friends);
+			plan = new Wow();
 		}
 		if(stringPlan.equalsIgnoreCase("postpago")) {
 			plan = new Postpaid();
