@@ -3,10 +3,18 @@ package main.interactor;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HomeInteractor {
+public class HomeInteractor implements HomeBoundaryInputPort{
 
-	public Map<String, Object> getHome() {
+	HomeBoundaryOutputPort homeBoundaryOutputPort;
+	
+	public HomeInteractor(HomeBoundaryOutputPort homeBoundaryOutputPort) {
+		this.homeBoundaryOutputPort=homeBoundaryOutputPort;
+	}
+	
+	@Override
+	public Map<String, Object> execute() {
 		Map<String, Object> model = new HashMap<>();
-		return model;
+		Map<String, Object> responseHomeBoundaryOutputPort = homeBoundaryOutputPort.presentHome(model);
+		return responseHomeBoundaryOutputPort;
 	}
 }

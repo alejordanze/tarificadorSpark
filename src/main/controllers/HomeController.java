@@ -2,19 +2,19 @@ package main.controllers;
 
 import static spark.Spark.get;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import main.interactor.HomeBoundaryInputPort;
+import main.interactor.HomeBoundaryOutputPort;
 import main.interactor.HomeInteractor;
+import main.services.HomePresenter;
 
 public class HomeController extends Controller {
 
-	HomeInteractor homeService = new HomeInteractor();
-	
+	static HomeBoundaryOutputPort homeBoundaryOutputPort = new HomePresenter();
+	static HomeBoundaryInputPort homeBoundaryInputPort = new HomeInteractor(homeBoundaryOutputPort);
+
 	public static void getMethod() {
 		get("/", (req, res) -> {
-			Map<String, Object> model = new HashMap<>();
-			return getTemplate(model, "index.ftl");
+			return getTemplate(homeBoundaryInputPort.execute(), "index.ftl");
 		});
 	}
 	
