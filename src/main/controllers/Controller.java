@@ -16,15 +16,17 @@ import main.Main;
 import main.dataAccess.*;
 import main.entities.*;
 import main.interactor.CDRRegistry;
+import main.interactor.GetCDRFromRepositoryBoundaryInputPort;
+import main.interactor.GetCDRFromRepositoryInteractor;
 import main.interactor.GetClientsFromRepositoryBoundaryInputPort;
 import main.interactor.GetClientsFromRepositoryInteractor;
 
 public abstract class Controller {
-//	2	
+//	3	
 //	static Repository<CDR> repository = new CDRFileRepository();
 //	2
 //	static Repository<Client> clientRepository = new ClientFileRepository();
-//	1
+//	2
 //	static CDRRegistry CDRregister = new CDRRegistry(repository);
 //	2
 //	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
@@ -37,6 +39,7 @@ public abstract class Controller {
 	final static Configuration conf = new Configuration(new Version(2, 3, 0));
 	
 	static GetClientsFromRepositoryBoundaryInputPort getClientsFromRepositoryBoundaryInputPort = new GetClientsFromRepositoryInteractor();
+	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor();
 	
 	public static StringWriter getTemplate(Map<String, Object> model, String template) {
 		conf.setClassForTemplateLoading(Main.class, "/");
@@ -59,7 +62,7 @@ public abstract class Controller {
 	
 	public static void init() {
 		getClientsFromRepositoryBoundaryInputPort.execute();
-		CDRregister.getCDRFromRepository();	
+		getCDRFromRepositoryBoundaryInputPort.execute();
 	}
 
 }
