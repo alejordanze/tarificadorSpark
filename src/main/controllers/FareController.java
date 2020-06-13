@@ -9,10 +9,8 @@ import java.util.Map;
 import main.interactor.FareBoundaryInputPort;
 import main.interactor.FareBoundaryOutputPort;
 import main.interactor.FareExportBoundaryInputPort;
-import main.interactor.FareExportBoundaryOutputPort;
 import main.interactor.FareExportInteractor;
 import main.interactor.FareInteractor;
-import main.services.FareExportPresenter;
 import main.services.FarePresenter;
 
 public class FareController extends Controller {
@@ -20,8 +18,7 @@ public class FareController extends Controller {
 	static FareBoundaryOutputPort fareBoundaryOutputPort = new FarePresenter();
 	static FareBoundaryInputPort fareBoundaryInputPort = new FareInteractor(fareBoundaryOutputPort);
 
-	static FareExportBoundaryOutputPort fareExportBoundaryOutputPort = new FareExportPresenter();
-	static FareExportBoundaryInputPort fareExportBoundaryInputPort = new FareExportInteractor(fareExportBoundaryOutputPort);
+	static FareExportBoundaryInputPort fareExportBoundaryInputPort = new FareExportInteractor();
 
 	private static void export() {
 		fareExportBoundaryInputPort.execute();
