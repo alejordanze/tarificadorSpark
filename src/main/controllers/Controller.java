@@ -16,15 +16,17 @@ import main.Main;
 import main.dataAccess.*;
 import main.entities.*;
 import main.interactor.CDRRegistry;
+import main.interactor.GetClientsFromRepositoryBoundaryInputPort;
+import main.interactor.GetClientsFromRepositoryInteractor;
 
 public abstract class Controller {
 //	2	
 //	static Repository<CDR> repository = new CDRFileRepository();
-//	1
+//	2
 //	static Repository<Client> clientRepository = new ClientFileRepository();
 //	1
 //	static CDRRegistry CDRregister = new CDRRegistry(repository);
-// 1
+//	2
 //	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
 //	2
 //	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
@@ -33,6 +35,8 @@ public abstract class Controller {
 //	static String option = "Archivo";
 	static int numberCdr;
 	final static Configuration conf = new Configuration(new Version(2, 3, 0));
+	
+	static GetClientsFromRepositoryBoundaryInputPort getClientsFromRepositoryBoundaryInputPort = new GetClientsFromRepositoryInteractor();
 	
 	public static StringWriter getTemplate(Map<String, Object> model, String template) {
 		conf.setClassForTemplateLoading(Main.class, "/");
@@ -54,7 +58,7 @@ public abstract class Controller {
 	public static void postMethod() {}
 	
 	public static void init() {
-		clientRegister.getClientsFromRepository();
+		getClientsFromRepositoryBoundaryInputPort.execute();
 		CDRregister.getCDRFromRepository();	
 	}
 
