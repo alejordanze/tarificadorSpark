@@ -20,9 +20,11 @@ import main.interactor.CDRRegistry;
 public abstract class Controller {
 	
 	static Repository<CDR> repository = new CDRFileRepository();
-	static Repository<Client> clientRepository = new ClientFileRepository();
+//	1
+//	static Repository<Client> clientRepository = new ClientFileRepository();
 	static CDRRegistry CDRregister = new CDRRegistry(repository);
-	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
+// 1
+//	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
 	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
 	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
 	static String option = "Archivo";

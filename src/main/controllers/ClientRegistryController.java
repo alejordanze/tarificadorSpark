@@ -12,19 +12,20 @@ import java.util.TreeMap;
 import main.dataAccess.*;
 import main.entities.Client;
 import main.entities.FriendRegistry;
+import main.interactor.ClientRegistryBoundaryInputPort;
+import main.interactor.ClientRegistryBoundaryOutputPort;
+import main.interactor.ClientRegistryInteractor;
+import main.services.ClientRegistryPresenter;
 
 public class ClientRegistryController extends Controller{
 	
 	static Repository<Client> repository2 = new ClientSqlRepository();
 	static List<Client> sqlList = repository2.getRegistry();
-	
+	static ClientRegistryBoundaryOutputPort clientRegistryBoudaryOutputPort = new ClientRegistryPresenter();
+	static ClientRegistryBoundaryInputPort clientRegistryBoudaryInputPort = new ClientRegistryInteractor(clientRegistryBoudaryOutputPort);
 	public static void getMethod() {
 		get("/clientRegistry", (request, response) -> {
-			Map<String, Object> model = new HashMap<>();
-			clientRegister.getClientsFromRepository();
-			model.put("clients", clientRegister.getClients());
-			model.put("friendList", FriendRegistry.getInstance());
-			return getTemplate(model, "clientRegistry.ftl");
+			return getTemplate(clientRegistryBoudaryInputPort.execute(), "clientRegistry.ftl");
 		});
 		
 	}
