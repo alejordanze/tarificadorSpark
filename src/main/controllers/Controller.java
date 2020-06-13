@@ -18,16 +18,19 @@ import main.entities.*;
 import main.interactor.CDRRegistry;
 
 public abstract class Controller {
-	
-	static Repository<CDR> repository = new CDRFileRepository();
+//	2	
+//	static Repository<CDR> repository = new CDRFileRepository();
 //	1
 //	static Repository<Client> clientRepository = new ClientFileRepository();
-	static CDRRegistry CDRregister = new CDRRegistry(repository);
+//	1
+//	static CDRRegistry CDRregister = new CDRRegistry(repository);
 // 1
 //	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
-	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
+//	2
+//	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
 	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
-	static String option = "Archivo";
+//	1
+//	static String option = "Archivo";
 	static int numberCdr;
 	final static Configuration conf = new Configuration(new Version(2, 3, 0));
 	
@@ -51,7 +54,6 @@ public abstract class Controller {
 	public static void postMethod() {}
 	
 	public static void init() {
-
 		clientRegister.getClientsFromRepository();
 		CDRregister.getCDRFromRepository();	
 	}

@@ -6,19 +6,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import main.interactor.FareBoundaryInputPort;
+import main.interactor.FareBoundaryOutputPort;
+import main.interactor.FareExportBoundaryInputPort;
+import main.interactor.FareExportBoundaryOutputPort;
+import main.interactor.FareExportInteractor;
+import main.interactor.FareInteractor;
+import main.services.FareExportPresenter;
+import main.services.FarePresenter;
+
 public class FareController extends Controller {
 
+	static FareBoundaryOutputPort fareBoundaryOutputPort = new FarePresenter();
+	static FareBoundaryInputPort fareBoundaryInputPort = new FareInteractor(fareBoundaryOutputPort);
+
+	static FareExportBoundaryOutputPort fareExportBoundaryOutputPort = new FareExportPresenter();
+	static FareExportBoundaryInputPort fareExportBoundaryInputPort = new FareExportInteractor(fareExportBoundaryOutputPort);
+
 	private static void export() {
-		uploadCDRregister.saveRegistry();
+		fareExportBoundaryInputPort.execute();
 	}
 	
 	private static Map<String, Object> getModel(boolean saved){
-		Map<String, Object> model = new HashMap<>();
-		model.put("cdrs", uploadCDRregister);
-		model.put("option", option);
-		model.put("saved", saved);
-		return model;
+		return fareBoundaryInputPort.execute(saved);
 	}
+	
 	public static void getMethod() {
 		get("/fare", (request, response) -> {
 			return getTemplate(getModel(false), "export.ftl");
