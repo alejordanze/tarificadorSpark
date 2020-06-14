@@ -1,4 +1,4 @@
-package main.controllers;
+package main.services.controllers;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
