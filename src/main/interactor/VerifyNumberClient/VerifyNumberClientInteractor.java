@@ -1,7 +1,7 @@
 package main.interactor.VerifyNumberClient;
 
-import domain.Client;
 import main.dataAccess.*;
+import main.domain.Client;
  
 public class VerifyNumberClientInteractor implements VerifyNumberClientBoundaryInputPort{
 	

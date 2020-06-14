@@ -8,12 +8,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import domain.CDR;
-import domain.Fare;
-import domain.FareByHour;
-import domain.NormalFare;
-import domain.Postpaid;
 import main.*;
+import main.domain.CDR;
+import main.domain.Fare;
+import main.domain.FareByHour;
+import main.domain.NormalFare;
+import main.domain.Postpaid;
 
 class PostpaidTest {
 	

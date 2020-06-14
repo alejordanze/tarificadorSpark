@@ -2,7 +2,7 @@ package main.services.presenters;
 
 import java.util.List;
 
-import domain.CDR;
+import main.domain.CDR;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
 
 public class UploadCDRRegistryFileRepositoryPresenter implements UploadCDRRegistryFileRepositoryBoundaryOutputPort{

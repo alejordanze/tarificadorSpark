@@ -3,10 +3,10 @@ package main.interactor.Fare;
 import java.util.HashMap;
 import java.util.Map;
 
-import domain.CDR;
-import domain.CDRRegistry;
 import main.dataAccess.CDRFileRepository;
 import main.dataAccess.Repository;
+import main.domain.CDR;
+import main.domain.CDRRegistry;
 
 public class FareInteractor implements FareBoundaryInputPort{
 

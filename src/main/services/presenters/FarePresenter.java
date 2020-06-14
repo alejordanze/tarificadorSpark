@@ -3,7 +3,7 @@ package main.services.presenters;
 import java.util.HashMap;
 import java.util.Map;
 
-import domain.CDRRegistry;
+import main.domain.CDRRegistry;
 import main.interactor.Fare.FareBoundaryOutputPort;
 
 public class FarePresenter implements FareBoundaryOutputPort{

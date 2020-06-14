@@ -1,4 +1,4 @@
-package domain;
+package main.domain;
 
 import static java.util.Arrays.asList;
 

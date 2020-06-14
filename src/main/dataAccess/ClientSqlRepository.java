@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Client;
-import domain.FriendRegistry;
+import main.domain.Client;
+import main.domain.FriendRegistry;
 
 public class ClientSqlRepository extends SqlRepository<Client>{
 

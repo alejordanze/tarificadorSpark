@@ -8,14 +8,14 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import domain.CDR;
-import domain.Client;
-import domain.ClientRegistry;
-import domain.Fare;
-import domain.FareByHour;
-import domain.NormalFare;
-import domain.Prepaid;
 import main.*;
+import main.domain.CDR;
+import main.domain.Client;
+import main.domain.ClientRegistry;
+import main.domain.Fare;
+import main.domain.FareByHour;
+import main.domain.NormalFare;
+import main.domain.Prepaid;
 
 class PrepaidTest {
 

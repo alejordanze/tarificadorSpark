@@ -9,8 +9,18 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import domain.*;
+import main.domain.*;
+
 import main.*;
+import main.domain.CDR;
+import main.domain.Client;
+import main.domain.ClientRegistry;
+import main.domain.FareByHour;
+import main.domain.FriendRegistry;
+import main.domain.NormalFare;
+import main.domain.Postpaid;
+import main.domain.Prepaid;
+import main.domain.Wow;
 
 class CDRTest {
 

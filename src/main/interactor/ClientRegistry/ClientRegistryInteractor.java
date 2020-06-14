@@ -3,11 +3,11 @@ package main.interactor.ClientRegistry;
 import java.util.HashMap;
 import java.util.Map;
 
-import domain.Client;
-import domain.ClientRegistry;
-import domain.FriendRegistry;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.Repository;
+import main.domain.Client;
+import main.domain.ClientRegistry;
+import main.domain.FriendRegistry;
 
 public class ClientRegistryInteractor implements ClientRegistryBoundaryInputPort{
 

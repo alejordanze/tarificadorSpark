@@ -5,7 +5,7 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-import domain.*;
+import main.domain.*;
 
 //import org.json.JSONObject;
 //
@@ -16,6 +16,10 @@ import freemarker.template.Template;
 import freemarker.template.Version;
 import main.Main;
 import main.dataAccess.*;
+import main.domain.CDR;
+import main.domain.CDRRegistry;
+import main.domain.Client;
+import main.domain.ClientRegistry;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 import main.interactor.GetClients.GetClientsFromRepositoryBoundaryInputPort;

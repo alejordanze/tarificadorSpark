@@ -6,11 +6,11 @@ import java.util.Map;
 
 import javax.servlet.http.Part;
 
-import domain.Client;
-import domain.ClientRegistry;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
+import main.domain.Client;
+import main.domain.ClientRegistry;
 import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
 import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 

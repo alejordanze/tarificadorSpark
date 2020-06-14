@@ -6,11 +6,12 @@ import java.io.*;
 import java.sql.Timestamp;
 import java.util.*;
 
-import domain.*;
+import main.domain.*;
 import freemarker.template.*;
 import main.dataAccess.CDRFileRepository;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.Repository;
+import main.domain.CDR;
 import main.services.controllers.*;
 
 public class Main {

@@ -3,7 +3,7 @@ package main.dataAccess;
 
 import java.util.*;
 
-import domain.*;
+import main.domain.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -9,13 +9,13 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import domain.Client;
-import domain.ClientRegistry;
-import domain.Prepaid;
 import main.*;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.ClientSqlRepository;
 import main.dataAccess.Repository;
+import main.domain.Client;
+import main.domain.ClientRegistry;
+import main.domain.Prepaid;
 
 class ClientRegistryTest {
 

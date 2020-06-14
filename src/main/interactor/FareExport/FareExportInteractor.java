@@ -1,9 +1,9 @@
 package main.interactor.FareExport;
 
-import domain.CDR;
-import domain.CDRRegistry;
 import main.dataAccess.CDRFileRepository;
 import main.dataAccess.Repository;
+import main.domain.CDR;
+import main.domain.CDRRegistry;
 
 public class FareExportInteractor implements FareExportBoundaryInputPort{
 

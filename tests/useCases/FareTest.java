@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import domain.Fare;
-import domain.NormalFare;
+import main.domain.Fare;
+import main.domain.NormalFare;
 
 class FareTest {
 

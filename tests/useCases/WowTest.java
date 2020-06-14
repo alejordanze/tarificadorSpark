@@ -12,14 +12,14 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import domain.CDR;
-import domain.Fare;
-import domain.FareByHour;
-import domain.FriendRegistry;
-import domain.NormalFare;
-import domain.Plan;
-import domain.Wow;
 import main.*;
+import main.domain.CDR;
+import main.domain.Fare;
+import main.domain.FareByHour;
+import main.domain.FriendRegistry;
+import main.domain.NormalFare;
+import main.domain.Plan;
+import main.domain.Wow;
 
 class WowTest {
 
