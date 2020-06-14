@@ -20,7 +20,7 @@ import main.services.HomePresenter;
 public class RegistryController extends Controller{
 		
 	static GetCDRRegistryBoundaryOutputPort getCDRRegistryBoundaryOutputPort = new GetCDRRegistryPresenter();
-	static GetCDRRegistryBoundaryInputPort getCDRRegistryBoundaryInputPort = new GetCDRRegistryInteractor(getCDRRegistryBoundaryOutputPort);
+	static GetCDRRegistryBoundaryInputPort getCDRRegistryBoundaryInputPort = new GetCDRRegistryInteractor(getCDRRegistryBoundaryOutputPort,CDRregister);
 
 	public static Map<Long, List<CDR>> sortByDate(List<CDR> list){
 		Map<Long, List<CDR>> map = new TreeMap<>(Collections.reverseOrder());

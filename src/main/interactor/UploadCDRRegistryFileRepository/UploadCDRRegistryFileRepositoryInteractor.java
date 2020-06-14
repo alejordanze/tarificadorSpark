@@ -11,14 +11,14 @@ import main.interactor.CDRRegistry;
 
 public class UploadCDRRegistryFileRepositoryInteractor implements UploadCDRRegistryFileRepositoryBoundaryInputPort{
 
-	static Repository<CDR> repository = new CDRFileRepository();
-	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
-	static Repository<Client> clientRepository = new ClientFileRepository();
-	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
-
+	CDRRegistry uploadCDRregister;
+	ClientRegistry clientRegister;
+	
 	UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort;
-	public UploadCDRRegistryFileRepositoryInteractor(	UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort) {
+	public UploadCDRRegistryFileRepositoryInteractor(UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort, CDRRegistry uploadCDRregister,ClientRegistry clientRegister) {
 		this.uploadCDRRegistryFileRepositoryBoundaryOutputPort = uploadCDRRegistryFileRepositoryBoundaryOutputPort;
+		this.uploadCDRregister = uploadCDRregister;
+		this.clientRegister = clientRegister;
 	}
 	
 	@Override

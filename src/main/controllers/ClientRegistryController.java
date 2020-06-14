@@ -22,7 +22,7 @@ public class ClientRegistryController extends Controller{
 	static Repository<Client> repository2 = new ClientSqlRepository();
 	static List<Client> sqlList = repository2.getRegistry();
 	static ClientRegistryBoundaryOutputPort clientRegistryBoudaryOutputPort = new ClientRegistryPresenter();
-	static ClientRegistryBoundaryInputPort clientRegistryBoudaryInputPort = new ClientRegistryInteractor(clientRegistryBoudaryOutputPort);
+	static ClientRegistryBoundaryInputPort clientRegistryBoudaryInputPort = new ClientRegistryInteractor(clientRegistryBoudaryOutputPort,clientRegister);
 	public static void getMethod() {
 		get("/clientRegistry", (request, response) -> {
 			return getTemplate(clientRegistryBoudaryInputPort.execute(), "clientRegistry.ftl");

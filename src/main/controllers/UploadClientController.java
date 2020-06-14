@@ -25,7 +25,7 @@ import spark.utils.IOUtils;
 public class UploadClientController extends Controller {
 	
 	static UploadClientBoundaryOutputPort uploadClientBoundaryOuputPort = new UploadClientPresenter();
-	static UploadClientBoundaryInputPort uploadClientBoundaryInputPort = new UploadClientInteractor(uploadClientBoundaryOuputPort);
+	static UploadClientBoundaryInputPort uploadClientBoundaryInputPort = new UploadClientInteractor(uploadClientBoundaryOuputPort,numberCdr,clientRepository,uploadclientRegister);
 		
 	public static void getMethod() {
 		get("/uploadClient", (req,res) -> {

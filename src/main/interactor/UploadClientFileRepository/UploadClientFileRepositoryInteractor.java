@@ -16,16 +16,16 @@ import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 
 public class UploadClientFileRepositoryInteractor implements UploadClientFileRepositoryBoundaryInputPort{
 
-	static Repository<Client> clientRepository = new ClientFileRepository();
-	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
-
+	ClientRegistry uploadclientRegister;
+	
 	UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort;
 	
 	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort;
 	
-	public UploadClientFileRepositoryInteractor(UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort, 	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort) {
+	public UploadClientFileRepositoryInteractor(UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort, 	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort, ClientRegistry uploadclientRegister) {
 		this.uploadClientFileRepositoryBoundaryOutputPort = uploadClientFileRepositoryBoundaryOutputPort;
 		this.verifyNumberClientBoundaryInputPort = verifyNumberClientBoundaryInputPort;
+		this.uploadclientRegister = uploadclientRegister;
 	}
 	
 	@Override

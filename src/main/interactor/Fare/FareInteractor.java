@@ -10,13 +10,14 @@ import main.interactor.CDRRegistry;
 
 public class FareInteractor implements FareBoundaryInputPort{
 
-	static Repository<CDR> repository = new CDRFileRepository();
-	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
-	static String option = "Archivo";
-
 	FareBoundaryOutputPort fareBoundaryOutputPort;
-	public FareInteractor(FareBoundaryOutputPort fareBoundaryOutputPort) {
+	CDRRegistry uploadCDRregister;
+	String option;
+	
+	public FareInteractor(FareBoundaryOutputPort fareBoundaryOutputPort, CDRRegistry uploadCDRregister,String option) {
 		this.fareBoundaryOutputPort=fareBoundaryOutputPort;
+		this.uploadCDRregister = uploadCDRregister;
+		this.option = option;
 	}
 	
 	@Override

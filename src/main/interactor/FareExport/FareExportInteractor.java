@@ -7,10 +7,10 @@ import main.interactor.CDRRegistry;
 
 public class FareExportInteractor implements FareExportBoundaryInputPort{
 
-	static Repository<CDR> repository = new CDRFileRepository();
-	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
-
-	public FareExportInteractor() {
+	CDRRegistry uploadCDRregister;
+	
+	public FareExportInteractor(CDRRegistry uploadCDRregister) {
+		this.uploadCDRregister = uploadCDRregister;
 	}
 	
 	@Override

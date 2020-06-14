@@ -41,16 +41,18 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 	UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort = new UploadClientFileRepositoryPresenter();
 	
 	VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort = new VerifyNumberClientPresenter();
-	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort = new VerifyNumberClientInteractor(verifyNumberClientBoundaryOutputPort);
+	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort;
+	UploadClientFileRepositoryBoundaryInputPort uploadClientFileRepositoryBoundaryInputPort;
 	
-	UploadClientFileRepositoryBoundaryInputPort uploadClientFileRepositoryBoundaryInputPort  = new UploadClientFileRepositoryInteractor(uploadClientFileRepositoryBoundaryOutputPort,verifyNumberClientBoundaryInputPort);
-	
-	static int numberCdr;
-	static Repository<Client> clientRepository = new ClientFileRepository();
-	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
+	int numberCdr;
+	Repository<Client> clientRepository;
 
-	public UploadClientInteractor(UploadClientBoundaryOutputPort uploadClientBoundaryOutputPort) {
+	public UploadClientInteractor(UploadClientBoundaryOutputPort uploadClientBoundaryOutputPort, int numberCdr, Repository<Client> clientRepository, ClientRegistry uploadclientRegister) {
 		this.uploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort;
+		this.numberCdr= numberCdr;
+		this.clientRepository = clientRepository;
+		this.verifyNumberClientBoundaryInputPort = new VerifyNumberClientInteractor(verifyNumberClientBoundaryOutputPort,clientRepository);
+		this.uploadClientFileRepositoryBoundaryInputPort   = new UploadClientFileRepositoryInteractor(uploadClientFileRepositoryBoundaryOutputPort,verifyNumberClientBoundaryInputPort,uploadclientRegister);
 	}
 	
 	@Override

@@ -12,13 +12,12 @@ import main.entities.FriendRegistry;
 public class ClientRegistryInteractor implements ClientRegistryBoundaryInputPort{
 
 	
-	static Repository<Client> clientRepository = new ClientFileRepository();
-	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
-
 	ClientRegistryBoundaryOutputPort clientRegistryOutputport;
-
-	public ClientRegistryInteractor(ClientRegistryBoundaryOutputPort clientRegistryOutputport) {
+	ClientRegistry clientRegister;
+	
+	public ClientRegistryInteractor(ClientRegistryBoundaryOutputPort clientRegistryOutputport, ClientRegistry clientRegister) {
 		this.clientRegistryOutputport = clientRegistryOutputport;
+		this.clientRegister = clientRegister;
 	}
 	
 	@Override

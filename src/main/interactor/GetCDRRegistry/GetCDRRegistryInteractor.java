@@ -11,15 +11,14 @@ import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 
 public class GetCDRRegistryInteractor implements GetCDRRegistryBoundaryInputPort{
 
-	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor();
-
-	static Repository<CDR> repository = new CDRFileRepository();
-	static CDRRegistry CDRregister = new CDRRegistry(repository);
-
+	GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort;
 	GetCDRRegistryBoundaryOutputPort getCDRRegistryBoundaryOutputPort;
+	CDRRegistry CDRregister;
 	
-	public GetCDRRegistryInteractor(GetCDRRegistryBoundaryOutputPort getCDRRegistryBoundaryOutputPort) {
+	public GetCDRRegistryInteractor(GetCDRRegistryBoundaryOutputPort getCDRRegistryBoundaryOutputPort, CDRRegistry CDRregister) {
 		this.getCDRRegistryBoundaryOutputPort=getCDRRegistryBoundaryOutputPort;
+		this.CDRregister = CDRregister;
+		this.getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor(CDRregister);
 	}
 	
 	@Override

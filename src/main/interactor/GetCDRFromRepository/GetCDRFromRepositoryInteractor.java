@@ -6,10 +6,12 @@ import main.entities.CDR;
 import main.interactor.CDRRegistry;
 
 public class GetCDRFromRepositoryInteractor implements GetCDRFromRepositoryBoundaryInputPort{
-	
-	static Repository<CDR> repository = new CDRFileRepository();
-	static CDRRegistry CDRregister = new CDRRegistry(repository);
+		
+	CDRRegistry CDRregister;
 
+	public GetCDRFromRepositoryInteractor(CDRRegistry CDRregister) {
+		this.CDRregister = CDRregister;
+	}
 	@Override
 	public void execute() {
 		CDRregister.getCDRFromRepository();		

@@ -4,17 +4,18 @@ import main.dataAccess.*;
 import main.entities.Client;
  
 public class VerifyNumberClientInteractor implements VerifyNumberClientBoundaryInputPort{
-
-	static Repository<Client> clientRepository = new ClientFileRepository();
+	
+	Repository<Client> clientRepository;
 	
 	VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort;
 	
-	public VerifyNumberClientInteractor(VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort) {
+	public VerifyNumberClientInteractor(VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort, Repository<Client> clientRepository) {
 		this.verifyNumberClientBoundaryOutputPort = verifyNumberClientBoundaryOutputPort;
+		this.clientRepository = clientRepository;
 	}
 	
 	@Override
 	public boolean execute(long number) {
 		return verifyNumberClientBoundaryOutputPort.present(((ClientSqlRepository) clientRepository).isPhoneAvailable(number));
-	}}
-
+	}
+}

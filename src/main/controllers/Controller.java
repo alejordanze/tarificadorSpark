@@ -23,25 +23,25 @@ import main.interactor.GetClients.GetClientsFromRepositoryInteractor;
 
 public abstract class Controller {
 //	5
-//	static Repository<CDR> repository = new CDRFileRepository();
+	static Repository<CDR> repository = new CDRFileRepository();
 //	6
-//	static Repository<Client> clientRepository = new ClientFileRepository();
+	static Repository<Client> clientRepository = new ClientFileRepository();
 //	3
-//	static CDRRegistry CDRregister = new CDRRegistry(repository);
+	static CDRRegistry CDRregister = new CDRRegistry(repository);
 //	3
-//	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
+	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
 //	3
-//	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
+	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
 // 	2
-//	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
+	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
 //	1
-//	static String option = "Archivo";
+	static String option = "Archivo";
 //	2
-//	static int numberCdr;
+	static int numberCdr;
 	final static Configuration conf = new Configuration(new Version(2, 3, 0));
 	
-	static GetClientsFromRepositoryBoundaryInputPort getClientsFromRepositoryBoundaryInputPort = new GetClientsFromRepositoryInteractor();
-	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor();
+	static GetClientsFromRepositoryBoundaryInputPort getClientsFromRepositoryBoundaryInputPort = new GetClientsFromRepositoryInteractor(clientRegister);
+	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor(CDRregister);
 	
 	public static StringWriter getTemplate(Map<String, Object> model, String template) {
 		conf.setClassForTemplateLoading(Main.class, "/");

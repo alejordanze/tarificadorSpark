@@ -10,6 +10,8 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import main.entities.ClientRegistry;
+import main.interactor.CDRRegistry;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryInputPort;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryInteractor;
@@ -19,13 +21,15 @@ import spark.utils.IOUtils;
 public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
 
 	UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort = new UploadCDRRegistryFileRepositoryPresenter();
-	UploadCDRRegistryFileRepositoryBoundaryInputPort uploadCDRRegistryFileRepositoryBoundaryInputPort = new UploadCDRRegistryFileRepositoryInteractor(uploadCDRRegistryFileRepositoryBoundaryOutputPort);
+	UploadCDRRegistryFileRepositoryBoundaryInputPort uploadCDRRegistryFileRepositoryBoundaryInputPort;
 	
 	UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort;
-	static int numberCdr;
+	int numberCdr;
 	
-	public UploadCDRInteractor(UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort) {
+	public UploadCDRInteractor(UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort, int numberCdr,CDRRegistry uploadCDRregister,ClientRegistry clientRegister) {
 		this.uploadCDRBoundaryOutputPort = uploadCDRBoundaryOutputPort;
+		this.numberCdr = numberCdr;
+		this.uploadCDRRegistryFileRepositoryBoundaryInputPort = new UploadCDRRegistryFileRepositoryInteractor(uploadCDRRegistryFileRepositoryBoundaryOutputPort,uploadCDRregister,clientRegister);
 	}
 	@Override
 	public Map<String, Object> execute(Part filePart) {

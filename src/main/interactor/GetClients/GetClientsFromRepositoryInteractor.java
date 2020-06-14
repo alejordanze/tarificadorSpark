@@ -7,10 +7,10 @@ import main.entities.ClientRegistry;
 
 public class GetClientsFromRepositoryInteractor implements GetClientsFromRepositoryBoundaryInputPort{
 
-	static Repository<Client> clientRepository = new ClientFileRepository();
-	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
-
-	public GetClientsFromRepositoryInteractor() {}
+	ClientRegistry clientRegister;
+	public GetClientsFromRepositoryInteractor(ClientRegistry clientRegister) {
+		this.clientRegister =clientRegister;
+	}
 	@Override
 	public void execute() {
 		clientRegister.getClientsFromRepository();		

@@ -16,9 +16,9 @@ import main.services.FarePresenter;
 public class FareController extends Controller {
 
 	static FareBoundaryOutputPort fareBoundaryOutputPort = new FarePresenter();
-	static FareBoundaryInputPort fareBoundaryInputPort = new FareInteractor(fareBoundaryOutputPort);
+	static FareBoundaryInputPort fareBoundaryInputPort = new FareInteractor(fareBoundaryOutputPort,uploadCDRregister,option);
 
-	static FareExportBoundaryInputPort fareExportBoundaryInputPort = new FareExportInteractor();
+	static FareExportBoundaryInputPort fareExportBoundaryInputPort = new FareExportInteractor(uploadCDRregister);
 
 	private static void export() {
 		fareExportBoundaryInputPort.execute();
