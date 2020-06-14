@@ -6,12 +6,21 @@ import java.util.*;
 
 import main.dataAccess.*;
 import main.entities.CDR;
-import main.interactor.GetCDRFromRepositoryBoundaryInputPort;
-import main.interactor.GetCDRFromRepositoryInteractor;
+import main.interactor.HomeBoundaryInputPort;
+import main.interactor.HomeBoundaryOutputPort;
+import main.interactor.HomeInteractor;
+import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
+import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
+import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryInputPort;
+import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
+import main.interactor.GetCDRRegistry.GetCDRRegistryInteractor;
+import main.services.GetCDRRegistryPresenter;
+import main.services.HomePresenter;
 
 public class RegistryController extends Controller{
-	
-	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor();
+		
+	static GetCDRRegistryBoundaryOutputPort getCDRRegistryBoundaryOutputPort = new GetCDRRegistryPresenter();
+	static GetCDRRegistryBoundaryInputPort getCDRRegistryBoundaryInputPort = new GetCDRRegistryInteractor(getCDRRegistryBoundaryOutputPort);
 
 	public static Map<Long, List<CDR>> sortByDate(List<CDR> list){
 		Map<Long, List<CDR>> map = new TreeMap<>(Collections.reverseOrder());
@@ -30,11 +39,16 @@ public class RegistryController extends Controller{
 	}
 	
 	public static void getMethod() {
+//		get("/registry", (request, response) -> {
+//			Map<String, Object> model = new HashMap<>();
+//			getCDRFromRepositoryBoundaryInputPort.execute();
+//			model.put("cdrs", getCDRRegistryBoundaryInputPort.execute());
+//			return getTemplate(model, "registry.ftl");
+//		});
+		
+		
 		get("/registry", (request, response) -> {
-			Map<String, Object> model = new HashMap<>();
-			getCDRFromRepositoryBoundaryInputPort.execute();
-			model.put("cdrs", sortByDate(CDRregister.getRegistry()));
-			return getTemplate(model, "registry.ftl");
+			return getTemplate(getCDRRegistryBoundaryInputPort.execute(), "registry.ftl");
 		});
 		
 	}

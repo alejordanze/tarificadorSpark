@@ -16,17 +16,17 @@ import main.Main;
 import main.dataAccess.*;
 import main.entities.*;
 import main.interactor.CDRRegistry;
-import main.interactor.GetCDRFromRepositoryBoundaryInputPort;
-import main.interactor.GetCDRFromRepositoryInteractor;
 import main.interactor.GetClientsFromRepositoryBoundaryInputPort;
 import main.interactor.GetClientsFromRepositoryInteractor;
+import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
+import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 
 public abstract class Controller {
-//	3	
+//	4	
 //	static Repository<CDR> repository = new CDRFileRepository();
 //	5
 //	static Repository<Client> clientRepository = new ClientFileRepository();
-//	2
+//	3
 //	static CDRRegistry CDRregister = new CDRRegistry(repository);
 //	2
 //	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
