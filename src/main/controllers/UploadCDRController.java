@@ -21,6 +21,10 @@ import main.dataAccess.*;
 import main.entities.CDR;
 import main.entities.Client;
 import main.entities.ClientRegistry;
+import main.interactor.UploadCDR.UploadCDRBoundaryInputPort;
+import main.interactor.UploadCDR.UploadCDRBoundaryOutputPort;
+import main.interactor.UploadCDR.UploadCDRInteractor;
+import main.services.UploadCDRPresenter;
 import main.useCases.FareByHour;
 import main.useCases.NormalFare;
 import main.useCases.Plan;
@@ -31,13 +35,9 @@ import spark.utils.IOUtils;
 
 public class UploadCDRController extends Controller {
 
-	public static int uploadRegistry(String file) throws Exception  {
+	static UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort = new UploadCDRPresenter();
+	static UploadCDRBoundaryInputPort uploadCDRBoundaryInputPort = new UploadCDRInteractor();
 		
-		FileRepository<CDR> fileRepo = new CDRFileRepository(file);
-		uploadCDRregister.setRegistry(fileRepo.getRegistry(), clientRegister);
-		return uploadCDRregister.getRegistry().size();
-	}
-	
 	public static List<Client> getSampleClients(){
 		Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 		Plan postpago = new Postpaid(1);
@@ -59,23 +59,10 @@ public class UploadCDRController extends Controller {
 
 	public static void postMethod() {
 		post("/upload", (req, response) -> {
-			Map<String, Object> model = new HashMap<>();
-			int size = 0;
 			String path = "/Users/miguelalejandrojordan/";
 			req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement(path));
-            Part filePart = req.raw().getPart("myfile");
-
-            try (InputStream inputStream = filePart.getInputStream()) {
-            	String fileName = path + filePart.getSubmittedFileName();
-                OutputStream outputStream = new FileOutputStream(fileName);
-                IOUtils.copy(inputStream, outputStream);
-                outputStream.close();
-                numberCdr = uploadRegistry(fileName);
-            }
-            model.put("quantity", numberCdr);
-            model.put("type", "CDR's");
-            model.put("redirect", "upload");
-            return getTemplate(model, "uploadConfirm.ftl");
+	        Part filePart = req.raw().getPart("myfile");
+            return getTemplate(uploadCDRBoundaryInputPort.execute(filePart), "uploadConfirm.ftl");
         });
 	}
 

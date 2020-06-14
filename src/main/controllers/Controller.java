@@ -22,21 +22,21 @@ import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPor
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 
 public abstract class Controller {
-//	4	
-//	static Repository<CDR> repository = new CDRFileRepository();
 //	5
+//	static Repository<CDR> repository = new CDRFileRepository();
+//	6
 //	static Repository<Client> clientRepository = new ClientFileRepository();
 //	3
 //	static CDRRegistry CDRregister = new CDRRegistry(repository);
-//	2
+//	3
 //	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
-//	2
+//	3
 //	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
 // 	2
 //	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
 //	1
 //	static String option = "Archivo";
-//	1
+//	2
 //	static int numberCdr;
 	final static Configuration conf = new Configuration(new Version(2, 3, 0));
 	
