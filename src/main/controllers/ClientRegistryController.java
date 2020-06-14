@@ -15,7 +15,7 @@ import main.dataAccess.*;
 import main.interactor.ClientRegistry.ClientRegistryBoundaryInputPort;
 import main.interactor.ClientRegistry.ClientRegistryBoundaryOutputPort;
 import main.interactor.ClientRegistry.ClientRegistryInteractor;
-import main.services.ClientRegistryPresenter;
+import main.services.presenters.ClientRegistryPresenter;
 
 public class ClientRegistryController extends Controller{
 	

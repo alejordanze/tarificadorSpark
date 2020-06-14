@@ -5,7 +5,7 @@ import static spark.Spark.get;
 import main.interactor.Home.HomeBoundaryInputPort;
 import main.interactor.Home.HomeBoundaryOutputPort;
 import main.interactor.Home.HomeInteractor;
-import main.services.HomePresenter;
+import main.services.presenters.HomePresenter;
 
 public class HomeController extends Controller {
 

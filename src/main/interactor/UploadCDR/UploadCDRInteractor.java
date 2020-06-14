@@ -15,7 +15,7 @@ import domain.ClientRegistry;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryInputPort;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
 import main.interactor.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryInteractor;
-import main.services.UploadCDRRegistryFileRepositoryPresenter;
+import main.services.presenters.UploadCDRRegistryFileRepositoryPresenter;
 import spark.utils.IOUtils;
 
 public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{

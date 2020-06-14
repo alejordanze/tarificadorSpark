@@ -19,7 +19,7 @@ import main.dataAccess.*;
 import main.interactor.UploadClient.UploadClientBoundaryInputPort;
 import main.interactor.UploadClient.UploadClientBoundaryOutputPort;
 import main.interactor.UploadClient.UploadClientInteractor;
-import main.services.UploadClientPresenter;
+import main.services.presenters.UploadClientPresenter;
 import spark.utils.IOUtils;
 
 public class UploadClientController extends Controller {

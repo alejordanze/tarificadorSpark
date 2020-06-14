@@ -24,8 +24,8 @@ import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryInte
 import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
 import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 import main.interactor.VerifyNumberClient.VerifyNumberClientInteractor;
-import main.services.UploadClientFileRepositoryPresenter;
-import main.services.VerifyNumberClientPresenter;
+import main.services.presenters.UploadClientFileRepositoryPresenter;
+import main.services.presenters.VerifyNumberClientPresenter;
 import spark.utils.IOUtils;
 
 import javax.servlet.http.Part;

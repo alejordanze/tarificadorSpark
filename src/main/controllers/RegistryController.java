@@ -14,8 +14,8 @@ import main.interactor.GetCDRRegistry.GetCDRRegistryInteractor;
 import main.interactor.Home.HomeBoundaryInputPort;
 import main.interactor.Home.HomeBoundaryOutputPort;
 import main.interactor.Home.HomeInteractor;
-import main.services.GetCDRRegistryPresenter;
-import main.services.HomePresenter;
+import main.services.presenters.GetCDRRegistryPresenter;
+import main.services.presenters.HomePresenter;
 
 public class RegistryController extends Controller{
 		

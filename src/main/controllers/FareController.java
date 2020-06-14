@@ -11,7 +11,7 @@ import main.interactor.Fare.FareBoundaryOutputPort;
 import main.interactor.Fare.FareInteractor;
 import main.interactor.FareExport.FareExportBoundaryInputPort;
 import main.interactor.FareExport.FareExportInteractor;
-import main.services.FarePresenter;
+import main.services.presenters.FarePresenter;
 
 public class FareController extends Controller {
 
