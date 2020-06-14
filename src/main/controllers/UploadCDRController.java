@@ -36,7 +36,7 @@ import spark.utils.IOUtils;
 public class UploadCDRController extends Controller {
 
 	static UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort = new UploadCDRPresenter();
-	static UploadCDRBoundaryInputPort uploadCDRBoundaryInputPort = new UploadCDRInteractor();
+	static UploadCDRBoundaryInputPort uploadCDRBoundaryInputPort = new UploadCDRInteractor(uploadCDRBoundaryOutputPort);
 		
 	public static List<Client> getSampleClients(){
 		Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));

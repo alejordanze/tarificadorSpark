@@ -21,12 +21,14 @@ public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
 	UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort = new UploadCDRRegistryFileRepositoryPresenter();
 	UploadCDRRegistryFileRepositoryBoundaryInputPort uploadCDRRegistryFileRepositoryBoundaryInputPort = new UploadCDRRegistryFileRepositoryInteractor(uploadCDRRegistryFileRepositoryBoundaryOutputPort);
 	
+	UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort;
 	static int numberCdr;
 	
+	public UploadCDRInteractor(UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort) {
+		this.uploadCDRBoundaryOutputPort = uploadCDRBoundaryOutputPort;
+	}
 	@Override
 	public Map<String, Object> execute(Part filePart) {
-		Map<String, Object> model = new HashMap<>();
-		int size = 0;
 		String path = "/Users/miguelalejandrojordan/";
         try (InputStream inputStream = filePart.getInputStream()) {
         	String fileName = path + filePart.getSubmittedFileName();
@@ -41,10 +43,7 @@ public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        model.put("quantity", numberCdr);
-        model.put("type", "CDR's");
-        model.put("redirect", "upload");
-        return model;
+        return uploadCDRBoundaryOutputPort.present(numberCdr);
 	}
 
 }
