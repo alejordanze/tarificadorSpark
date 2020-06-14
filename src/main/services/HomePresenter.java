@@ -2,7 +2,7 @@ package main.services;
 
 import java.util.Map;
 
-import main.interactor.HomeBoundaryOutputPort;
+import main.interactor.Home.HomeBoundaryOutputPort;
 
 public class HomePresenter implements HomeBoundaryOutputPort{
 

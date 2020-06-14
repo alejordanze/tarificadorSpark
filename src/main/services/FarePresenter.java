@@ -2,7 +2,7 @@ package main.services;
 
 import java.util.Map;
 
-import main.interactor.FareBoundaryOutputPort;
+import main.interactor.Fare.FareBoundaryOutputPort;
 
 public class FarePresenter implements FareBoundaryOutputPort{
 

@@ -1,4 +1,4 @@
-package main.interactor;
+package main.interactor.Home;
 
 import java.util.HashMap;
 import java.util.Map;

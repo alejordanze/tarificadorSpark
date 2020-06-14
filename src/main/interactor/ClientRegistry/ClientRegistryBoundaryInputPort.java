@@ -1,4 +1,4 @@
-package main.interactor;
+package main.interactor.ClientRegistry;
 
 import java.util.Map;
 

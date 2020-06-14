@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.interactor.FareBoundaryInputPort;
-import main.interactor.FareBoundaryOutputPort;
-import main.interactor.FareExportBoundaryInputPort;
-import main.interactor.FareExportInteractor;
-import main.interactor.FareInteractor;
+import main.interactor.Fare.FareBoundaryInputPort;
+import main.interactor.Fare.FareBoundaryOutputPort;
+import main.interactor.Fare.FareInteractor;
+import main.interactor.FareExport.FareExportBoundaryInputPort;
+import main.interactor.FareExport.FareExportInteractor;
 import main.services.FarePresenter;
 
 public class FareController extends Controller {

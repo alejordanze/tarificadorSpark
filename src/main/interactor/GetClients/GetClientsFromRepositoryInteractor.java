@@ -1,4 +1,4 @@
-package main.interactor;
+package main.interactor.GetClients;
 
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.Repository;

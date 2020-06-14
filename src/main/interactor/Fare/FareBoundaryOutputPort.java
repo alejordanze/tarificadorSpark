@@ -1,4 +1,4 @@
-package main.interactor;
+package main.interactor.Fare;
 
 import java.util.Map;
 

@@ -2,9 +2,9 @@ package main.controllers;
 
 import static spark.Spark.get;
 
-import main.interactor.HomeBoundaryInputPort;
-import main.interactor.HomeBoundaryOutputPort;
-import main.interactor.HomeInteractor;
+import main.interactor.Home.HomeBoundaryInputPort;
+import main.interactor.Home.HomeBoundaryOutputPort;
+import main.interactor.Home.HomeInteractor;
 import main.services.HomePresenter;
 
 public class HomeController extends Controller {

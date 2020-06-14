@@ -2,7 +2,7 @@ package main.services;
 
 import java.util.Map;
 
-import main.interactor.ClientRegistryBoundaryOutputPort;
+import main.interactor.ClientRegistry.ClientRegistryBoundaryOutputPort;
 
 public class ClientRegistryPresenter implements ClientRegistryBoundaryOutputPort{
 

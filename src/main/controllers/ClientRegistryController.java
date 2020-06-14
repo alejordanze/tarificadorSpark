@@ -12,9 +12,9 @@ import java.util.TreeMap;
 import main.dataAccess.*;
 import main.entities.Client;
 import main.entities.FriendRegistry;
-import main.interactor.ClientRegistryBoundaryInputPort;
-import main.interactor.ClientRegistryBoundaryOutputPort;
-import main.interactor.ClientRegistryInteractor;
+import main.interactor.ClientRegistry.ClientRegistryBoundaryInputPort;
+import main.interactor.ClientRegistry.ClientRegistryBoundaryOutputPort;
+import main.interactor.ClientRegistry.ClientRegistryInteractor;
 import main.services.ClientRegistryPresenter;
 
 public class ClientRegistryController extends Controller{

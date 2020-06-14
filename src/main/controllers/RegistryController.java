@@ -6,14 +6,14 @@ import java.util.*;
 
 import main.dataAccess.*;
 import main.entities.CDR;
-import main.interactor.HomeBoundaryInputPort;
-import main.interactor.HomeBoundaryOutputPort;
-import main.interactor.HomeInteractor;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryInputPort;
 import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
 import main.interactor.GetCDRRegistry.GetCDRRegistryInteractor;
+import main.interactor.Home.HomeBoundaryInputPort;
+import main.interactor.Home.HomeBoundaryOutputPort;
+import main.interactor.Home.HomeInteractor;
 import main.services.GetCDRRegistryPresenter;
 import main.services.HomePresenter;
 

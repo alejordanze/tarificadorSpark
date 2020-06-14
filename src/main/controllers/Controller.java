@@ -16,10 +16,10 @@ import main.Main;
 import main.dataAccess.*;
 import main.entities.*;
 import main.interactor.CDRRegistry;
-import main.interactor.GetClientsFromRepositoryBoundaryInputPort;
-import main.interactor.GetClientsFromRepositoryInteractor;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
+import main.interactor.GetClients.GetClientsFromRepositoryBoundaryInputPort;
+import main.interactor.GetClients.GetClientsFromRepositoryInteractor;
 
 public abstract class Controller {
 //	5
