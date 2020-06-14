@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import domain.Client;
+import domain.FriendRegistry;
 import main.dataAccess.*;
-import main.entities.Client;
-import main.entities.FriendRegistry;
 import main.interactor.ClientRegistry.ClientRegistryBoundaryInputPort;
 import main.interactor.ClientRegistry.ClientRegistryBoundaryOutputPort;
 import main.interactor.ClientRegistry.ClientRegistryInteractor;

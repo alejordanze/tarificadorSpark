@@ -2,10 +2,10 @@ package main.interactor.GetCDRRegistry;
 
 import java.util.Map;
 
+import domain.CDR;
+import domain.CDRRegistry;
 import main.dataAccess.CDRFileRepository;
 import main.dataAccess.Repository;
-import main.entities.CDR;
-import main.interactor.CDRRegistry;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 

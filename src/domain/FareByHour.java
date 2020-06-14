@@ -1,6 +1,4 @@
-package main.useCases;
-
-import main.FareNames;
+package domain;
 
 public class FareByHour extends Fare {
 		

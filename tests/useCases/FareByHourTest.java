@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.FareNames;
-import main.useCases.Fare;
-import main.useCases.FareByHour;
+import domain.Fare;
+import domain.FareByHour;
+import domain.FareNames;
 
 class FareByHourTest {
 

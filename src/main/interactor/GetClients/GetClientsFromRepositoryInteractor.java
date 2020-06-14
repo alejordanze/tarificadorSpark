@@ -1,9 +1,9 @@
 package main.interactor.GetClients;
 
+import domain.Client;
+import domain.ClientRegistry;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.Repository;
-import main.entities.Client;
-import main.entities.ClientRegistry;
 
 public class GetClientsFromRepositoryInteractor implements GetClientsFromRepositoryBoundaryInputPort{
 

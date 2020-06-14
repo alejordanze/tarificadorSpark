@@ -1,9 +1,7 @@
-package main.useCases;
+package domain;
 
 
 import java.util.List;
-
-import main.FareNames;
 
 public abstract class Fare {
 	

@@ -12,23 +12,23 @@ import java.util.*;
 import org.junit.*;
 import org.junit.jupiter.api.Test;
 
+import domain.CDR;
+import domain.CDRRegistry;
+import domain.Client;
+import domain.ClientRegistry;
+import domain.FareByHour;
+import domain.FriendRegistry;
+import domain.NormalFare;
+import domain.Plan;
+import domain.Postpaid;
+import domain.Prepaid;
+import domain.Wow;
 import main.*;
 import main.dataAccess.CDRFileRepository;
 import main.dataAccess.CDRSqlRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.dataAccess.SqlRepository;
-import main.entities.CDR;
-import main.entities.Client;
-import main.entities.ClientRegistry;
-import main.entities.FriendRegistry;
-import main.interactor.CDRRegistry;
-import main.useCases.FareByHour;
-import main.useCases.NormalFare;
-import main.useCases.Plan;
-import main.useCases.Postpaid;
-import main.useCases.Prepaid;
-import main.useCases.Wow;
 
 public class CDRRegistryTest {
 

@@ -12,12 +12,12 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import domain.Client;
+import domain.ClientRegistry;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.ClientSqlRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
-import main.entities.Client;
-import main.entities.ClientRegistry;
 import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
 import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryInteractor;

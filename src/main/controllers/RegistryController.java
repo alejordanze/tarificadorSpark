@@ -4,8 +4,8 @@ import static spark.Spark.get;
 
 import java.util.*;
 
+import domain.CDR;
 import main.dataAccess.*;
-import main.entities.CDR;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryInputPort;

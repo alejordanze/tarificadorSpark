@@ -3,7 +3,7 @@ package main.dataAccess;
 
 import java.util.*;
 
-import main.entities.CDR;
+import domain.CDR;
 
 public interface Repository<T> {
 

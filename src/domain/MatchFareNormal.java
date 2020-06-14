@@ -1,7 +1,4 @@
-package main.useCases;
-
-import main.FareNames;
-import main.entities.CDR;
+package domain;
 
 public class MatchFareNormal implements MatchFare {
 

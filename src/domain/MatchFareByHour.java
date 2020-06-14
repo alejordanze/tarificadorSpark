@@ -1,7 +1,4 @@
-package main.useCases;
-
-import main.entities.CDR;
-import main.FareNames;
+package domain;
 
 public class MatchFareByHour implements MatchFare {
 	

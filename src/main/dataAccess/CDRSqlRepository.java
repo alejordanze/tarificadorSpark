@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.entities.CDR;
+import domain.CDR;
 
 public class CDRSqlRepository extends SqlRepository<CDR>{
 

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import main.entities.CDR;
+import domain.CDR;
 import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
 
 public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort{

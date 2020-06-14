@@ -2,9 +2,9 @@ package main.dataAccess;
 
 import java.util.List;
 
-import main.entities.CDR;
-import main.entities.Client;
-import main.entities.FriendRegistry;
+import domain.CDR;
+import domain.Client;
+import domain.FriendRegistry;
 
 public class ClientFileRepository extends FileRepository<Client>{
 	FriendRegistry friendRegistry = FriendRegistry.getInstance();

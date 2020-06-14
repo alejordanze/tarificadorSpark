@@ -1,11 +1,8 @@
-package main.useCases;
+package domain;
 
 
 import java.util.ArrayList;
 import java.util.List;
-
-import main.entities.CDR;
-import main.entities.FriendRegistry;
 
 
 public class Wow extends Plan {

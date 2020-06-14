@@ -1,4 +1,4 @@
-package main;
+package domain;
 
 public enum FareNames {
     FARE_BY_HOUR,

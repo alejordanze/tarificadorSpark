@@ -1,9 +1,7 @@
-package main.useCases;
+package domain;
 
 
 import java.util.List;
-
-import main.entities.CDR;
 
 public interface MatchFare {
 	

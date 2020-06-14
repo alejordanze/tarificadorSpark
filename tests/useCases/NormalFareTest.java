@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.FareNames;
-import main.useCases.Fare;
-import main.useCases.NormalFare;
+import domain.Fare;
+import domain.FareNames;
+import domain.NormalFare;
 
 class NormalFareTest {
 

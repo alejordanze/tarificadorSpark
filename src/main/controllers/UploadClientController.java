@@ -14,8 +14,8 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import domain.*;
 import main.dataAccess.*;
-import main.entities.*;
 import main.interactor.UploadClient.UploadClientBoundaryInputPort;
 import main.interactor.UploadClient.UploadClientBoundaryOutputPort;
 import main.interactor.UploadClient.UploadClientInteractor;

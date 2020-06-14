@@ -1,4 +1,4 @@
-package main.interactor;
+package domain;
 
 
 import java.math.BigDecimal;
@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.dataAccess.Repository;
-import main.entities.CDR;
-import main.entities.ClientRegistry;
 
 public class CDRRegistry {
 

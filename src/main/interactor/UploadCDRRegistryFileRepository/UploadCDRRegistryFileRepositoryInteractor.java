@@ -1,13 +1,13 @@
 package main.interactor.UploadCDRRegistryFileRepository;
 
+import domain.CDR;
+import domain.CDRRegistry;
+import domain.Client;
+import domain.ClientRegistry;
 import main.dataAccess.CDRFileRepository;
 import main.dataAccess.ClientFileRepository;
 import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
-import main.entities.CDR;
-import main.entities.Client;
-import main.entities.ClientRegistry;
-import main.interactor.CDRRegistry;
 
 public class UploadCDRRegistryFileRepositoryInteractor implements UploadCDRRegistryFileRepositoryBoundaryInputPort{
 

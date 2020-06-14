@@ -1,9 +1,7 @@
-package main.useCases;
+package domain;
 
 
 import java.util.*;
-
-import main.entities.CDR;
 
 public abstract class Plan{
 	

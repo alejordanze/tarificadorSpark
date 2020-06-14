@@ -3,8 +3,7 @@ package main.dataAccess;
 
 import java.util.*;
 
-import main.entities.*;
-import main.interactor.CDRRegistry;
+import domain.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

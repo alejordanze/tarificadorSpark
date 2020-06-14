@@ -17,20 +17,20 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import domain.CDR;
+import domain.Client;
+import domain.ClientRegistry;
+import domain.FareByHour;
+import domain.NormalFare;
+import domain.Plan;
+import domain.Postpaid;
+import domain.Prepaid;
+import domain.Wow;
 import main.dataAccess.*;
-import main.entities.CDR;
-import main.entities.Client;
-import main.entities.ClientRegistry;
 import main.interactor.UploadCDR.UploadCDRBoundaryInputPort;
 import main.interactor.UploadCDR.UploadCDRBoundaryOutputPort;
 import main.interactor.UploadCDR.UploadCDRInteractor;
 import main.services.UploadCDRPresenter;
-import main.useCases.FareByHour;
-import main.useCases.NormalFare;
-import main.useCases.Plan;
-import main.useCases.Postpaid;
-import main.useCases.Prepaid;
-import main.useCases.Wow;
 import spark.utils.IOUtils;
 
 public class UploadCDRController extends Controller {

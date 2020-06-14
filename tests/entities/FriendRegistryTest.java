@@ -9,7 +9,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.entities.FriendRegistry;
+import domain.FriendRegistry;
 
 class FriendRegistryTest {
 	FriendRegistry friendRegistry;

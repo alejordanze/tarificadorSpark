@@ -1,9 +1,7 @@
-package main.entities;
+package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import main.useCases.*;
 
 public class Client{
 

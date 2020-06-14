@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.entities.Client;
-import main.entities.FriendRegistry;
+import domain.Client;
+import domain.FriendRegistry;
 import main.interactor.ClientRegistry.ClientRegistryBoundaryOutputPort;
 
 public class ClientRegistryPresenter implements ClientRegistryBoundaryOutputPort{

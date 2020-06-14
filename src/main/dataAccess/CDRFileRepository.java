@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-import main.entities.CDR;
+import domain.CDR;
 
 public class CDRFileRepository extends FileRepository<CDR>{
 	
