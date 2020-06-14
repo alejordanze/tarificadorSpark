@@ -3,7 +3,7 @@ package main.services.presenters;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.interactor.UploadCDR.UploadCDRBoundaryOutputPort;
+import main.application.interactors.UploadCDR.UploadCDRBoundaryOutputPort;
 
 public class UploadCDRPresenter implements UploadCDRBoundaryOutputPort{
 

@@ -17,6 +17,9 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
+import main.application.interactors.UploadCDR.UploadCDRBoundaryInputPort;
+import main.application.interactors.UploadCDR.UploadCDRBoundaryOutputPort;
+import main.application.interactors.UploadCDR.UploadCDRInteractor;
 import main.dataAccess.*;
 import main.domain.CDR;
 import main.domain.Client;
@@ -27,9 +30,6 @@ import main.domain.Plan;
 import main.domain.Postpaid;
 import main.domain.Prepaid;
 import main.domain.Wow;
-import main.interactor.UploadCDR.UploadCDRBoundaryInputPort;
-import main.interactor.UploadCDR.UploadCDRBoundaryOutputPort;
-import main.interactor.UploadCDR.UploadCDRInteractor;
 import main.services.presenters.UploadCDRPresenter;
 import spark.utils.IOUtils;
 

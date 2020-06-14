@@ -1,6 +1,6 @@
 package main.services.presenters;
 
-import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
+import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 
 public class VerifyNumberClientPresenter implements VerifyNumberClientBoundaryOutputPort{
 

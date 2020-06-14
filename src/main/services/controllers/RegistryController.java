@@ -4,16 +4,16 @@ import static spark.Spark.get;
 
 import java.util.*;
 
+import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
+import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
+import main.application.interactors.GetCDRRegistry.GetCDRRegistryBoundaryInputPort;
+import main.application.interactors.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
+import main.application.interactors.GetCDRRegistry.GetCDRRegistryInteractor;
+import main.application.interactors.Home.HomeBoundaryInputPort;
+import main.application.interactors.Home.HomeBoundaryOutputPort;
+import main.application.interactors.Home.HomeInteractor;
 import main.dataAccess.*;
 import main.domain.CDR;
-import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
-import main.interactor.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
-import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryInputPort;
-import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
-import main.interactor.GetCDRRegistry.GetCDRRegistryInteractor;
-import main.interactor.Home.HomeBoundaryInputPort;
-import main.interactor.Home.HomeBoundaryOutputPort;
-import main.interactor.Home.HomeInteractor;
 import main.services.presenters.GetCDRRegistryPresenter;
 import main.services.presenters.HomePresenter;
 

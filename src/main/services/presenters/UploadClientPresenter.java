@@ -3,7 +3,7 @@ package main.services.presenters;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.interactor.UploadClient.UploadClientBoundaryOutputPort;
+import main.application.interactors.UploadClient.UploadClientBoundaryOutputPort;
 
 public class UploadClientPresenter implements UploadClientBoundaryOutputPort{
 

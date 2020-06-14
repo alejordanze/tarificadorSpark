@@ -15,10 +15,10 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
 import main.domain.*;
+import main.application.interactors.UploadClient.UploadClientBoundaryInputPort;
+import main.application.interactors.UploadClient.UploadClientBoundaryOutputPort;
+import main.application.interactors.UploadClient.UploadClientInteractor;
 import main.dataAccess.*;
-import main.interactor.UploadClient.UploadClientBoundaryInputPort;
-import main.interactor.UploadClient.UploadClientBoundaryOutputPort;
-import main.interactor.UploadClient.UploadClientInteractor;
 import main.services.presenters.UploadClientPresenter;
 import spark.utils.IOUtils;
 

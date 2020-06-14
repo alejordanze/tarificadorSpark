@@ -2,8 +2,8 @@ package main.services.presenters;
 
 import java.util.List;
 
+import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.domain.Client;
-import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 
 public class UploadClientFileRepositoryPresenter implements UploadClientFileRepositoryBoundaryOutputPort{
 

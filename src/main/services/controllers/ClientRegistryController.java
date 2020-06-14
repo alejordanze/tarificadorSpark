@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import main.application.interactors.ClientRegistry.ClientRegistryBoundaryInputPort;
+import main.application.interactors.ClientRegistry.ClientRegistryBoundaryOutputPort;
+import main.application.interactors.ClientRegistry.ClientRegistryInteractor;
 import main.dataAccess.*;
 import main.domain.Client;
 import main.domain.FriendRegistry;
-import main.interactor.ClientRegistry.ClientRegistryBoundaryInputPort;
-import main.interactor.ClientRegistry.ClientRegistryBoundaryOutputPort;
-import main.interactor.ClientRegistry.ClientRegistryInteractor;
 import main.services.presenters.ClientRegistryPresenter;
 
 public class ClientRegistryController extends Controller{

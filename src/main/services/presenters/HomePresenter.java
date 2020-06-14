@@ -3,7 +3,7 @@ package main.services.presenters;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.interactor.Home.HomeBoundaryOutputPort;
+import main.application.interactors.Home.HomeBoundaryOutputPort;
 
 public class HomePresenter implements HomeBoundaryOutputPort{
 
