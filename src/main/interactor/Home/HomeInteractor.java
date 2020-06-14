@@ -13,8 +13,7 @@ public class HomeInteractor implements HomeBoundaryInputPort{
 	
 	@Override
 	public Map<String, Object> execute() {
-		Map<String, Object> model = new HashMap<>();
-		Map<String, Object> responseHomeBoundaryOutputPort = homeBoundaryOutputPort.present(model);
+		Map<String, Object> responseHomeBoundaryOutputPort = homeBoundaryOutputPort.present();
 		return responseHomeBoundaryOutputPort;
 	}
 }
