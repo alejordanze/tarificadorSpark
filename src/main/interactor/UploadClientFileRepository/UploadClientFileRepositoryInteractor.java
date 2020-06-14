@@ -39,7 +39,7 @@ public class UploadClientFileRepositoryInteractor implements UploadClientFileRep
 		}
 		uploadclientRegister.setClientes(clients);
 		uploadclientRegister.saveRegistry();
-		return uploadClientFileRepositoryBoundaryOutputPort.present(uploadclientRegister.getClients().size());
+		return uploadClientFileRepositoryBoundaryOutputPort.present(uploadclientRegister.getClients());
 	}
 
 }
