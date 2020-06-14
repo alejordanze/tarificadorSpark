@@ -1,6 +1,9 @@
 package main.interactor.UploadCDRRegistryFileRepository;
 
-public interface UploadCDRRegistryFileRepositoryBoundaryOutputPort {
-	public int present(int size);
+import java.util.List;
 
+import main.entities.CDR;
+
+public interface UploadCDRRegistryFileRepositoryBoundaryOutputPort {
+	public int present(List<CDR> registry);
 }

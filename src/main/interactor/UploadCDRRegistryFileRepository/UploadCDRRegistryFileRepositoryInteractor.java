@@ -25,7 +25,7 @@ public class UploadCDRRegistryFileRepositoryInteractor implements UploadCDRRegis
 	public int execute(String file) {
 		FileRepository<CDR> fileRepo = new CDRFileRepository(file);
 		uploadCDRregister.setRegistry(fileRepo.getRegistry(), clientRegister);
-		return uploadCDRRegistryFileRepositoryBoundaryOutputPort.present(uploadCDRregister.getRegistry().size());
+		return uploadCDRRegistryFileRepositoryBoundaryOutputPort.present(uploadCDRregister.getRegistry());
 	}
 
 }
