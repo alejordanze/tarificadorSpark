@@ -1,6 +1,6 @@
 package main.application.interactors.VerifyNumberClient;
 
-import main.application.gateway.Repository;
+import main.application.gateways.Repository;
 import main.dataAccess.*;
 import main.dataAccess.SQLRepository.ClientSqlRepository;
 import main.domain.Client;

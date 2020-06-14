@@ -1,6 +1,6 @@
 package main.application.interactors.FareExport;
 
-import main.application.gateway.Repository;
+import main.application.gateways.Repository;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;

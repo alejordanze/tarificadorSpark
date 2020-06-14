@@ -1,6 +1,6 @@
 package main.application.interactors.GetClients;
 
-import main.application.gateway.Repository;
+import main.application.gateways.Repository;
 import main.dataAccess.FileRepository.ClientFileRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;

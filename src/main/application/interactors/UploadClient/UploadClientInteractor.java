@@ -12,7 +12,7 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
-import main.application.gateway.Repository;
+import main.application.gateways.Repository;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryInteractor;

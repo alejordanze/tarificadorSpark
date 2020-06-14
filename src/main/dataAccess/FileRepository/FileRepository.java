@@ -3,7 +3,7 @@ package main.dataAccess.FileRepository;
 
 import java.util.*;
 
-import main.application.gateway.Repository;
+import main.application.gateways.Repository;
 import main.domain.*;
 
 import java.io.BufferedReader;

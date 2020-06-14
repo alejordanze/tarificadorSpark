@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.application.gateway.Repository;
+import main.application.gateways.Repository;
 
 
 public abstract class SqlRepository<T> implements Repository<T>{
