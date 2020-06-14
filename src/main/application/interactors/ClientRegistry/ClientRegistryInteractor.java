@@ -3,7 +3,7 @@ package main.application.interactors.ClientRegistry;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.dataAccess.FileRepository.ClientFileRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;

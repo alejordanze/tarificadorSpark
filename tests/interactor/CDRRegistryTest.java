@@ -13,7 +13,7 @@ import org.junit.*;
 import org.junit.jupiter.api.Test;
 
 import main.*;
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.dataAccess.FileRepository.FileRepository;
 import main.dataAccess.SQLRepository.CDRSqlRepository;

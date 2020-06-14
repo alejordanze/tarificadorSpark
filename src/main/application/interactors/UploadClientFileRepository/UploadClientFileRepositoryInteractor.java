@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.Part;
 
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 import main.dataAccess.FileRepository.ClientFileRepository;

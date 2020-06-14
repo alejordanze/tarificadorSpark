@@ -3,7 +3,7 @@ package main.application.interactors.Fare;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;

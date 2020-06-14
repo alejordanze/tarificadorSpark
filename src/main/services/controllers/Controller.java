@@ -15,7 +15,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.Version;
 import main.Main;
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 import main.application.interactors.GetClients.GetClientsFromRepositoryBoundaryInputPort;

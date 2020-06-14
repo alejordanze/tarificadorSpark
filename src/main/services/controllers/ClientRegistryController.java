@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.application.interactors.ClientRegistry.ClientRegistryBoundaryInputPort;
 import main.application.interactors.ClientRegistry.ClientRegistryBoundaryOutputPort;
 import main.application.interactors.ClientRegistry.ClientRegistryInteractor;

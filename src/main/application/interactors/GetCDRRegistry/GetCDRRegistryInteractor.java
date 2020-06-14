@@ -2,7 +2,7 @@ package main.application.interactors.GetCDRRegistry;
 
 import java.util.Map;
 
-import main.application.external.Repository;
+import main.application.gateway.Repository;
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 import main.dataAccess.FileRepository.CDRFileRepository;

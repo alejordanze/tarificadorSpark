@@ -1,4 +1,4 @@
-package main.application.external;
+package main.application.gateway;
 
 
 import java.util.*;
