@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.dataAccess.Repository;
+import main.application.external.Repository;
 
 public class ClientRegistry{
 

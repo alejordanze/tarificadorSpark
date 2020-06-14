@@ -1,9 +1,9 @@
 package main.application.interactors.UploadCDRRegistryFileRepository;
 
-import main.dataAccess.CDRFileRepository;
-import main.dataAccess.ClientFileRepository;
-import main.dataAccess.FileRepository;
-import main.dataAccess.Repository;
+import main.application.external.Repository;
+import main.dataAccess.FileRepository.CDRFileRepository;
+import main.dataAccess.FileRepository.ClientFileRepository;
+import main.dataAccess.FileRepository.FileRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;
 import main.domain.Client;

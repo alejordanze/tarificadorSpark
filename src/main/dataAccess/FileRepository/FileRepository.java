@@ -1,8 +1,9 @@
-package main.dataAccess;
+package main.dataAccess.FileRepository;
 
 
 import java.util.*;
 
+import main.application.external.Repository;
 import main.domain.*;
 
 import java.io.BufferedReader;

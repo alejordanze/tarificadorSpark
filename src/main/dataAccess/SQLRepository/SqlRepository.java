@@ -1,8 +1,10 @@
-package main.dataAccess;
+package main.dataAccess.SQLRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import main.application.external.Repository;
 
 
 public abstract class SqlRepository<T> implements Repository<T>{

@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.dataAccess.Repository;
+import main.application.external.Repository;
 
 public class CDRRegistry {
 

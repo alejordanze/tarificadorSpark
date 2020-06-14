@@ -13,11 +13,11 @@ import org.junit.*;
 import org.junit.jupiter.api.Test;
 
 import main.*;
-import main.dataAccess.CDRFileRepository;
-import main.dataAccess.CDRSqlRepository;
-import main.dataAccess.FileRepository;
-import main.dataAccess.Repository;
-import main.dataAccess.SqlRepository;
+import main.application.external.Repository;
+import main.dataAccess.FileRepository.CDRFileRepository;
+import main.dataAccess.FileRepository.FileRepository;
+import main.dataAccess.SQLRepository.CDRSqlRepository;
+import main.dataAccess.SQLRepository.SqlRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;
 import main.domain.Client;

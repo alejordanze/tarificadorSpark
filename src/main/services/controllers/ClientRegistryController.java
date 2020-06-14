@@ -9,10 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import main.application.external.Repository;
 import main.application.interactors.ClientRegistry.ClientRegistryBoundaryInputPort;
 import main.application.interactors.ClientRegistry.ClientRegistryBoundaryOutputPort;
 import main.application.interactors.ClientRegistry.ClientRegistryInteractor;
 import main.dataAccess.*;
+import main.dataAccess.SQLRepository.ClientSqlRepository;
 import main.domain.Client;
 import main.domain.FriendRegistry;
 import main.services.presenters.ClientRegistryPresenter;

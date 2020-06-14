@@ -10,9 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import main.*;
-import main.dataAccess.ClientFileRepository;
-import main.dataAccess.ClientSqlRepository;
-import main.dataAccess.Repository;
+import main.application.external.Repository;
+import main.dataAccess.FileRepository.ClientFileRepository;
+import main.dataAccess.SQLRepository.ClientSqlRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;
 import main.domain.Prepaid;

@@ -3,8 +3,8 @@ package main.application.interactors.ClientRegistry;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.dataAccess.ClientFileRepository;
-import main.dataAccess.Repository;
+import main.application.external.Repository;
+import main.dataAccess.FileRepository.ClientFileRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;
 import main.domain.FriendRegistry;

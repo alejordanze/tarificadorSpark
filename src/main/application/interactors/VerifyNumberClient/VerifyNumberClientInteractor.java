@@ -1,6 +1,8 @@
 package main.application.interactors.VerifyNumberClient;
 
+import main.application.external.Repository;
 import main.dataAccess.*;
+import main.dataAccess.SQLRepository.ClientSqlRepository;
 import main.domain.Client;
  
 public class VerifyNumberClientInteractor implements VerifyNumberClientBoundaryInputPort{

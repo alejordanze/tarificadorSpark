@@ -8,9 +8,9 @@ import java.util.*;
 
 import main.domain.*;
 import freemarker.template.*;
-import main.dataAccess.CDRFileRepository;
-import main.dataAccess.ClientFileRepository;
-import main.dataAccess.Repository;
+import main.application.external.Repository;
+import main.dataAccess.FileRepository.CDRFileRepository;
+import main.dataAccess.FileRepository.ClientFileRepository;
 import main.domain.CDR;
 import main.services.controllers.*;
 

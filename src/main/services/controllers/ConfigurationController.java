@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.dataAccess.*;
+import main.dataAccess.FileRepository.CDRFileRepository;
+import main.dataAccess.FileRepository.ClientFileRepository;
+import main.dataAccess.SQLRepository.CDRSqlRepository;
+import main.dataAccess.SQLRepository.ClientSqlRepository;
 
 public class ConfigurationController extends Controller{
 

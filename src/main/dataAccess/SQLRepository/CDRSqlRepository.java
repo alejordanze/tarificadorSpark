@@ -1,4 +1,4 @@
-package main.dataAccess;
+package main.dataAccess.SQLRepository;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;

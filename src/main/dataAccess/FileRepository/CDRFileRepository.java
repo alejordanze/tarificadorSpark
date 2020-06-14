@@ -1,4 +1,4 @@
-package main.dataAccess;
+package main.dataAccess.FileRepository;
 
 import java.sql.Timestamp;
 import java.util.Date;
