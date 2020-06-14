@@ -21,11 +21,7 @@ public class FareInteractor implements FareBoundaryInputPort{
 	
 	@Override
 	public Map<String, Object> execute(boolean saved) {
-		Map<String, Object> model = new HashMap<>();
-		model.put("cdrs", uploadCDRregister);
-		model.put("option", option);
-		model.put("saved", saved);
-		Map<String, Object> responseFareBoundaryOutputPort = fareBoundaryOutputPort.present(model);
+		Map<String, Object> responseFareBoundaryOutputPort = fareBoundaryOutputPort.present(uploadCDRregister,option,saved );
 		return responseFareBoundaryOutputPort;
 	}
 }
