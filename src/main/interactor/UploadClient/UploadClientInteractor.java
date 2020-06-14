@@ -56,7 +56,6 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 	@Override
 	public Map<String, Object> execute(Part filePart) {
 		String path = "/Users/miguelalejandrojordan/";
-		Map<String, Object> model = new HashMap<>();
         try (InputStream inputStream = filePart.getInputStream()) {
         	String fileName = path + filePart.getSubmittedFileName();
             OutputStream outputStream = new FileOutputStream(fileName);
@@ -70,10 +69,7 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        model.put("quantity", numberCdr);
-        model.put("type", "Clientes");
-        model.put("redirect", "uploadClient");
-        Map<String, Object> responseUploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort.present(model);
+        Map<String, Object> responseUploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort.present(numberCdr);
         return responseUploadClientBoundaryOutputPort;
 	}
 }
