@@ -1,4 +1,4 @@
-package interactor;
+package entities;
 
 import static org.junit.Assert.*;
 import static java.util.Arrays.*;

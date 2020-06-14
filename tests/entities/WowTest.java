@@ -1,4 +1,4 @@
-package useCases;
+package entities;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;

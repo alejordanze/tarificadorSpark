@@ -1,4 +1,4 @@
-package useCases;
+package entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.*;
