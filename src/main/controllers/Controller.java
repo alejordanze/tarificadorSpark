@@ -24,7 +24,7 @@ import main.interactor.GetClientsFromRepositoryInteractor;
 public abstract class Controller {
 //	3	
 //	static Repository<CDR> repository = new CDRFileRepository();
-//	4
+//	5
 //	static Repository<Client> clientRepository = new ClientFileRepository();
 //	2
 //	static CDRRegistry CDRregister = new CDRRegistry(repository);

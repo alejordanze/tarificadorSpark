@@ -11,6 +11,8 @@ import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.entities.Client;
 import main.entities.ClientRegistry;
+import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
+import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 
 public class UploadClientFileRepositoryInteractor implements UploadClientFileRepositoryBoundaryInputPort{
 
@@ -19,8 +21,11 @@ public class UploadClientFileRepositoryInteractor implements UploadClientFileRep
 
 	UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort;
 	
-	public UploadClientFileRepositoryInteractor(UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort) {
+	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort;
+	
+	public UploadClientFileRepositoryInteractor(UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort, 	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort) {
 		this.uploadClientFileRepositoryBoundaryOutputPort = uploadClientFileRepositoryBoundaryOutputPort;
+		this.verifyNumberClientBoundaryInputPort = verifyNumberClientBoundaryInputPort;
 	}
 	
 	@Override
@@ -28,7 +33,7 @@ public class UploadClientFileRepositoryInteractor implements UploadClientFileRep
 		FileRepository<Client> fileRepo = new ClientFileRepository(file);
 		List<Client> clients = new ArrayList<>();
 		for(Client client: fileRepo.getRegistry()) {
-//			if(verifyNumber(client.getPhoneNumber())) {
+//			if(verifyNumberClientBoundaryInputPort.execute(client.getPhoneNumber())) {
 				clients.add(client);
 //			}
 		}

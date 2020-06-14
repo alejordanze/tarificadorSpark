@@ -21,7 +21,11 @@ import main.entities.ClientRegistry;
 import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
 import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryInteractor;
+import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
+import main.interactor.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
+import main.interactor.VerifyNumberClient.VerifyNumberClientInteractor;
 import main.services.UploadClientFileRepositoryPresenter;
+import main.services.VerifyNumberClientPresenter;
 import spark.utils.IOUtils;
 
 import javax.servlet.http.Part;
@@ -35,7 +39,11 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 	UploadClientBoundaryOutputPort uploadClientBoundaryOutputPort;
 	
 	UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort = new UploadClientFileRepositoryPresenter();
-	UploadClientFileRepositoryBoundaryInputPort uploadClientFileRepositoryBoundaryInputPort  = new UploadClientFileRepositoryInteractor(uploadClientFileRepositoryBoundaryOutputPort);
+	
+	VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort = new VerifyNumberClientPresenter();
+	VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort = new VerifyNumberClientInteractor(verifyNumberClientBoundaryOutputPort);
+	
+	UploadClientFileRepositoryBoundaryInputPort uploadClientFileRepositoryBoundaryInputPort  = new UploadClientFileRepositoryInteractor(uploadClientFileRepositoryBoundaryOutputPort,verifyNumberClientBoundaryInputPort);
 	
 	static int numberCdr;
 	static Repository<Client> clientRepository = new ClientFileRepository();
@@ -43,11 +51,6 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 
 	public UploadClientInteractor(UploadClientBoundaryOutputPort uploadClientBoundaryOutputPort) {
 		this.uploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort;
-	}
-
-	
-	public static boolean verifyNumber(long number) {
-		return ((ClientSqlRepository) clientRepository).isPhoneAvailable(number);
 	}
 	
 	@Override
