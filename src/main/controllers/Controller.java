@@ -24,7 +24,7 @@ import main.interactor.GetClientsFromRepositoryInteractor;
 public abstract class Controller {
 //	3	
 //	static Repository<CDR> repository = new CDRFileRepository();
-//	3
+//	4
 //	static Repository<Client> clientRepository = new ClientFileRepository();
 //	2
 //	static CDRRegistry CDRregister = new CDRRegistry(repository);
@@ -32,7 +32,7 @@ public abstract class Controller {
 //	static ClientRegistry clientRegister = new ClientRegistry(clientRepository);
 //	2
 //	static CDRRegistry uploadCDRregister = new CDRRegistry(repository);
-// 	1
+// 	2
 //	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
 //	1
 //	static String option = "Archivo";

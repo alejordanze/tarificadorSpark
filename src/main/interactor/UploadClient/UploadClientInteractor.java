@@ -18,6 +18,10 @@ import main.dataAccess.FileRepository;
 import main.dataAccess.Repository;
 import main.entities.Client;
 import main.entities.ClientRegistry;
+import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
+import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
+import main.interactor.UploadClientFileRepository.UploadClientFileRepositoryInteractor;
+import main.services.UploadClientFileRepositoryPresenter;
 import spark.utils.IOUtils;
 
 import javax.servlet.http.Part;
@@ -29,6 +33,10 @@ import java.io.OutputStream;
 public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 
 	UploadClientBoundaryOutputPort uploadClientBoundaryOutputPort;
+	
+	UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort = new UploadClientFileRepositoryPresenter();
+	UploadClientFileRepositoryBoundaryInputPort uploadClientFileRepositoryBoundaryInputPort  = new UploadClientFileRepositoryInteractor(uploadClientFileRepositoryBoundaryOutputPort);
+	
 	static int numberCdr;
 	static Repository<Client> clientRepository = new ClientFileRepository();
 	static ClientRegistry uploadclientRegister = new ClientRegistry(clientRepository);
@@ -36,19 +44,7 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 	public UploadClientInteractor(UploadClientBoundaryOutputPort uploadClientBoundaryOutputPort) {
 		this.uploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort;
 	}
-	
-	public static int uploadRegistry(String file) throws Exception  {
-		FileRepository<Client> fileRepo = new ClientFileRepository(file);
-		List<Client> clients = new ArrayList<>();
-		for(Client client: fileRepo.getRegistry()) {
-//			if(verifyNumber(client.getPhoneNumber())) {
-				clients.add(client);
-//			}
-		}
-		uploadclientRegister.setClientes(clients);
-		uploadclientRegister.saveRegistry();
-		return uploadclientRegister.getClients().size();
-	}
+
 	
 	public static boolean verifyNumber(long number) {
 		return ((ClientSqlRepository) clientRepository).isPhoneAvailable(number);
@@ -63,7 +59,7 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
             OutputStream outputStream = new FileOutputStream(fileName);
             IOUtils.copy(inputStream, outputStream);
             outputStream.close();
-            numberCdr = uploadRegistry(fileName);
+            numberCdr = uploadClientFileRepositoryBoundaryInputPort.execute(fileName);
         } catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
