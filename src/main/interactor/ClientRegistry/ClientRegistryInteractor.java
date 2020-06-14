@@ -23,11 +23,8 @@ public class ClientRegistryInteractor implements ClientRegistryBoundaryInputPort
 	
 	@Override
 	public Map<String, Object> execute() {
-		Map<String, Object> model = new HashMap<>();
 		clientRegister.getClientsFromRepository();
-		model.put("clients", clientRegister.getClients());
-		model.put("friendList", FriendRegistry.getInstance());
-		Map<String, Object> responseClientRegistryOutputport = clientRegistryOutputport.present(model);
+		Map<String, Object> responseClientRegistryOutputport = clientRegistryOutputport.present(clientRegister.getClients(),FriendRegistry.getInstance());
 		return responseClientRegistryOutputport;
 	}
 

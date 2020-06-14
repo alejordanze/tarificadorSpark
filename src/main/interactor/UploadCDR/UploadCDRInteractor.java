@@ -44,7 +44,7 @@ public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
         model.put("quantity", numberCdr);
         model.put("type", "CDR's");
         model.put("redirect", "upload");
-        return null;
+        return model;
 	}
 
 }
