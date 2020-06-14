@@ -1,7 +1,5 @@
 package main.interactor.GetCDRRegistry;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import main.dataAccess.CDRFileRepository;
@@ -26,11 +24,8 @@ public class GetCDRRegistryInteractor implements GetCDRRegistryBoundaryInputPort
 	
 	@Override
 	public Map<String, Object> execute() {
-				
-		Map<String, Object> model = new HashMap<>();
 		getCDRFromRepositoryBoundaryInputPort.execute();
-		model.put("cdrs", getCDRRegistryBoundaryOutputPort.present(CDRregister.getRegistry()));
-		return model;
+		return getCDRRegistryBoundaryOutputPort.present(CDRregister.getRegistry());
 	}
 
 }

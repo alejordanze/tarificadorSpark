@@ -6,7 +6,7 @@ import java.util.Map;
 import main.entities.CDR;
 
 public interface GetCDRRegistryBoundaryOutputPort {
-	public Map<Long, List<CDR>> present(List<CDR> list);
+	public Map<String, Object> present(List<CDR> list);
 
 
 }

@@ -2,6 +2,7 @@ package main.services;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -12,7 +13,8 @@ import main.interactor.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
 public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort{
 
 	@Override
-	public Map<Long, List<CDR>> present(List<CDR> list) {
+	public Map<String, Object> present(List<CDR> list) {
+		Map<String, Object> model = new HashMap<>();
 		Map<Long, List<CDR>> map = new TreeMap<>(Collections.reverseOrder());
 		for(CDR cdr: list) {
 			List<CDR> auxList = new ArrayList<>();
@@ -25,7 +27,8 @@ public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort
 			}
 			map.put(date.getTime(), auxList);
 		}
-		return map;
+		model.put("cdrs", map);
+		return model;
 	}
 
 }
