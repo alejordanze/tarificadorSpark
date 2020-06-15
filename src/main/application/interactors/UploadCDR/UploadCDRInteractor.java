@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.domain.CDRRegistry;
 import main.domain.ClientRegistry;
 import main.services.presenters.UploadCDRRegistryFileRepositoryPresenter;
@@ -32,7 +33,7 @@ public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
 		this.uploadCDRRegistryFileRepositoryBoundaryInputPort = new UploadCDRRegistryFileRepositoryInteractor(uploadCDRRegistryFileRepositoryBoundaryOutputPort,uploadCDRregister,clientRegister);
 	}
 	@Override
-	public Map<String, Object> execute(Part filePart) {
+	public ResponseModel execute(Part filePart) {
 		String path = "/Users/miguelalejandrojordan/";
         try (InputStream inputStream = filePart.getInputStream()) {
         	String fileName = path + filePart.getSubmittedFileName();

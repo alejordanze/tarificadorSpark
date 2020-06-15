@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.application.gateways.Repository;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.FileRepository.ClientFileRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;
@@ -21,9 +22,9 @@ public class ClientRegistryInteractor implements ClientRegistryBoundaryInputPort
 	}
 	
 	@Override
-	public Map<String, Object> execute() {
+	public ResponseModel execute() {
 		clientRegister.getClientsFromRepository();
-		Map<String, Object> responseClientRegistryOutputport = clientRegistryOutputport.present(clientRegister.getClients(),FriendRegistry.getInstance());
+		ResponseModel responseClientRegistryOutputport = clientRegistryOutputport.present(clientRegister.getClients(),FriendRegistry.getInstance());
 		return responseClientRegistryOutputport;
 	}
 

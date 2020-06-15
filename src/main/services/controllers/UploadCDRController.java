@@ -20,6 +20,7 @@ import javax.servlet.http.Part;
 import main.application.interactors.UploadCDR.UploadCDRBoundaryInputPort;
 import main.application.interactors.UploadCDR.UploadCDRBoundaryOutputPort;
 import main.application.interactors.UploadCDR.UploadCDRInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.*;
 import main.domain.CDR;
 import main.domain.Client;
@@ -52,7 +53,7 @@ public class UploadCDRController extends Controller {
 	
 	public static void getMethod() {
 		get("/upload", (req,res) -> {
-			Map<String, Object> model = new HashMap<>();
+			ResponseModel model = new ResponseModel();
 			return getTemplate(model, "upload.ftl");
 		});
 	}

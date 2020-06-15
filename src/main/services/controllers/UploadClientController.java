@@ -18,6 +18,7 @@ import main.domain.*;
 import main.application.interactors.UploadClient.UploadClientBoundaryInputPort;
 import main.application.interactors.UploadClient.UploadClientBoundaryOutputPort;
 import main.application.interactors.UploadClient.UploadClientInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.*;
 import main.services.presenters.UploadClientPresenter;
 import spark.utils.IOUtils;
@@ -29,7 +30,7 @@ public class UploadClientController extends Controller {
 		
 	public static void getMethod() {
 		get("/uploadClient", (req,res) -> {
-			Map<String, Object> model = new HashMap<>();
+			ResponseModel model = new ResponseModel();
 			return getTemplate(model, "uploadClient.ftl");
 		});
 	}

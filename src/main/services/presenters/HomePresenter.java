@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.application.interactors.Home.HomeBoundaryOutputPort;
+import main.application.models.responseModel.ResponseModel;
 
 public class HomePresenter implements HomeBoundaryOutputPort{
 
 	@Override
-	public Map<String, Object> present() {
-		Map<String, Object> model = new HashMap<>();
+	public ResponseModel present() {
+		ResponseModel model = new ResponseModel();
 		return model;
 	}
 

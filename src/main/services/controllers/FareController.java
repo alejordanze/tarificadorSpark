@@ -11,6 +11,7 @@ import main.application.interactors.Fare.FareBoundaryOutputPort;
 import main.application.interactors.Fare.FareInteractor;
 import main.application.interactors.FareExport.FareExportBoundaryInputPort;
 import main.application.interactors.FareExport.FareExportInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.services.presenters.FarePresenter;
 
 public class FareController extends Controller {
@@ -24,7 +25,7 @@ public class FareController extends Controller {
 		fareExportBoundaryInputPort.execute();
 	}
 	
-	private static Map<String, Object> getModel(boolean saved){
+	private static ResponseModel getModel(boolean saved){
 		return fareBoundaryInputPort.execute(saved);
 	}
 	

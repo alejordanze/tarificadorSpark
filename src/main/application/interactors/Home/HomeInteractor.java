@@ -3,6 +3,8 @@ package main.application.interactors.Home;
 import java.util.HashMap;
 import java.util.Map;
 
+import main.application.models.responseModel.ResponseModel;
+
 public class HomeInteractor implements HomeBoundaryInputPort{
 
 	HomeBoundaryOutputPort homeBoundaryOutputPort;
@@ -12,8 +14,8 @@ public class HomeInteractor implements HomeBoundaryInputPort{
 	}
 	
 	@Override
-	public Map<String, Object> execute() {
-		Map<String, Object> responseHomeBoundaryOutputPort = homeBoundaryOutputPort.present();
+	public ResponseModel execute() {
+		ResponseModel responseHomeBoundaryOutputPort = homeBoundaryOutputPort.present();
 		return responseHomeBoundaryOutputPort;
 	}
 }

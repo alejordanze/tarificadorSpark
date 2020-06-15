@@ -4,15 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.application.interactors.UploadClient.UploadClientBoundaryOutputPort;
+import main.application.models.responseModel.ResponseModel;
 
 public class UploadClientPresenter implements UploadClientBoundaryOutputPort{
 
 	@Override
-	public Map<String, Object> present(int numberCdr) {
-		Map<String, Object> model = new HashMap<>();
-		model.put("quantity", numberCdr);
-        model.put("type", "Clientes");
-        model.put("redirect", "uploadClient");
+	public ResponseModel present(int numberCdr) {
+		ResponseModel model = new ResponseModel();
+		model.addInformation("quantity", numberCdr);
+        model.addInformation("type", "Clientes");
+        model.addInformation("redirect", "uploadClient");
 		return model;
 	}
 

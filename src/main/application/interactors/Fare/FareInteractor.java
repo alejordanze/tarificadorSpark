@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.application.gateways.Repository;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;
@@ -21,8 +22,8 @@ public class FareInteractor implements FareBoundaryInputPort{
 	}
 	
 	@Override
-	public Map<String, Object> execute(boolean saved) {
-		Map<String, Object> responseFareBoundaryOutputPort = fareBoundaryOutputPort.present(uploadCDRregister,option,saved );
+	public ResponseModel execute(boolean saved) {
+		ResponseModel responseFareBoundaryOutputPort = fareBoundaryOutputPort.present(uploadCDRregister,option,saved );
 		return responseFareBoundaryOutputPort;
 	}
 }

@@ -8,13 +8,14 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import main.application.interactors.GetCDRRegistry.GetCDRRegistryBoundaryOutputPort;
+import main.application.models.responseModel.ResponseModel;
 import main.domain.CDR;
 
 public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort{
 
 	@Override
-	public Map<String, Object> present(List<CDR> list) {
-		Map<String, Object> model = new HashMap<>();
+	public ResponseModel present(List<CDR> list) {
+		ResponseModel model = new ResponseModel();
 		Map<Long, List<CDR>> map = new TreeMap<>(Collections.reverseOrder());
 		for(CDR cdr: list) {
 			List<CDR> auxList = new ArrayList<>();
@@ -27,7 +28,7 @@ public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort
 			}
 			map.put(date.getTime(), auxList);
 		}
-		model.put("cdrs", map);
+		model.addInformation("cdrs", map);
 		return model;
 	}
 

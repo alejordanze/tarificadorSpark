@@ -5,6 +5,7 @@ import java.util.Map;
 import main.application.gateways.Repository;
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryBoundaryInputPort;
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;
@@ -22,7 +23,7 @@ public class GetCDRRegistryInteractor implements GetCDRRegistryBoundaryInputPort
 	}
 	
 	@Override
-	public Map<String, Object> execute() {
+	public ResponseModel execute() {
 		getCDRFromRepositoryBoundaryInputPort.execute();
 		return getCDRRegistryBoundaryOutputPort.present(CDRregister.getRegistry());
 	}

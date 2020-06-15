@@ -19,6 +19,7 @@ import main.application.interactors.UploadClientFileRepository.UploadClientFileR
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.FileRepository.ClientFileRepository;
 import main.dataAccess.FileRepository.FileRepository;
 import main.dataAccess.SQLRepository.ClientSqlRepository;
@@ -56,7 +57,7 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 	}
 	
 	@Override
-	public Map<String, Object> execute(Part filePart) {
+	public ResponseModel execute(Part filePart) {
 		String path = "/Users/miguelalejandrojordan/";
         try (InputStream inputStream = filePart.getInputStream()) {
         	String fileName = path + filePart.getSubmittedFileName();
@@ -71,7 +72,7 @@ public class UploadClientInteractor implements UploadClientBoundaryInputPort{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        Map<String, Object> responseUploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort.present(numberCdr);
+        ResponseModel responseUploadClientBoundaryOutputPort = uploadClientBoundaryOutputPort.present(numberCdr);
         return responseUploadClientBoundaryOutputPort;
 	}
 }

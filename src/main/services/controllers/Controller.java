@@ -20,6 +20,7 @@ import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryBou
 import main.application.interactors.GetCDRFromRepository.GetCDRFromRepositoryInteractor;
 import main.application.interactors.GetClients.GetClientsFromRepositoryBoundaryInputPort;
 import main.application.interactors.GetClients.GetClientsFromRepositoryInteractor;
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.*;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.dataAccess.FileRepository.ClientFileRepository;
@@ -42,7 +43,7 @@ public abstract class Controller {
 	static GetClientsFromRepositoryBoundaryInputPort getClientsFromRepositoryBoundaryInputPort = new GetClientsFromRepositoryInteractor(clientRegister);
 	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor(CDRregister);
 	
-	public static StringWriter getTemplate(Map<String, Object> model, String template) {
+	public static StringWriter getTemplate(ResponseModel model, String template) {
 		conf.setClassForTemplateLoading(Main.class, "/");
 		
 		StringWriter writer = new StringWriter();

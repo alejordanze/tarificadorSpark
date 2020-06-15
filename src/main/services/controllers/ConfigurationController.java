@@ -6,6 +6,7 @@ import static spark.Spark.post;
 import java.util.HashMap;
 import java.util.Map;
 
+import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.*;
 import main.dataAccess.FileRepository.CDRFileRepository;
 import main.dataAccess.FileRepository.ClientFileRepository;
@@ -16,9 +17,9 @@ public class ConfigurationController extends Controller{
 
 	static Map<String, String> options = new HashMap<>();
 	
-	public static Map<String, Object> getModel() {
-		Map<String, Object> model = new HashMap<>();
-		model.put("config", getOption());
+	public static ResponseModel getModel() {
+		ResponseModel model = new ResponseModel();
+		model.addInformation("config", getOption());
 		return model;
 	}
 	
