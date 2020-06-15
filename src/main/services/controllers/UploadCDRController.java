@@ -20,6 +20,9 @@ import javax.servlet.http.Part;
 import main.application.interactors.UploadCDR.UploadCDRBoundaryInputPort;
 import main.application.interactors.UploadCDR.UploadCDRBoundaryOutputPort;
 import main.application.interactors.UploadCDR.UploadCDRInteractor;
+import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryInputPort;
+import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
+import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryInteractor;
 import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.*;
 import main.domain.CDR;
@@ -32,13 +35,17 @@ import main.domain.Plan.Postpaid;
 import main.domain.Plan.Prepaid;
 import main.domain.Plan.Wow;
 import main.services.presenters.UploadCDRPresenter;
+import main.services.presenters.UploadCDRRegistryFileRepositoryPresenter;
 import spark.utils.IOUtils;
 
 public class UploadCDRController extends Controller {
 
 	static UploadCDRBoundaryOutputPort uploadCDRBoundaryOutputPort = new UploadCDRPresenter();
-	static UploadCDRBoundaryInputPort uploadCDRBoundaryInputPort = new UploadCDRInteractor(uploadCDRBoundaryOutputPort,numberCdr,uploadCDRregister,clientRegister);
-		
+	static UploadCDRBoundaryInputPort uploadCDRBoundaryInputPort = new UploadCDRInteractor(uploadCDRBoundaryOutputPort);
+	
+	static 	UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort = new UploadCDRRegistryFileRepositoryPresenter();
+	static UploadCDRRegistryFileRepositoryBoundaryInputPort uploadCDRRegistryFileRepositoryBoundaryInputPort  = new UploadCDRRegistryFileRepositoryInteractor(uploadCDRRegistryFileRepositoryBoundaryOutputPort,uploadCDRregister,clientRegister);
+
 	public static List<Client> getSampleClients(){
 		Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 		Plan postpago = new Postpaid(1);
@@ -63,7 +70,14 @@ public class UploadCDRController extends Controller {
 			String path = "/Users/miguelalejandrojordan/";
 			req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement(path));
 	        Part filePart = req.raw().getPart("myfile");
-            return getTemplate(uploadCDRBoundaryInputPort.execute(filePart), "uploadConfirm.ftl");
+	        try (InputStream inputStream = filePart.getInputStream()) {
+	        	String fileName = path + filePart.getSubmittedFileName();
+	            OutputStream outputStream = new FileOutputStream(fileName);
+	            IOUtils.copy(inputStream, outputStream);
+	            outputStream.close();
+	            numberCdr = uploadCDRRegistryFileRepositoryBoundaryInputPort.execute(fileName);
+	        }
+            return getTemplate(uploadCDRBoundaryInputPort.execute(numberCdr), "uploadConfirm.ftl");
         });
 	}
 
