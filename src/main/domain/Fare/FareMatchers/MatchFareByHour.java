@@ -1,5 +1,6 @@
-package main.domain;
+package main.domain.Fare.FareMatchers;
 
+import main.domain.CDR;
 import main.domain.Fare.Fare;
 import main.domain.Fare.FareByHour;
 import main.domain.Fare.FareNames;

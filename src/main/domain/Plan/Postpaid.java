@@ -4,9 +4,9 @@ package main.domain.Plan;
 import java.util.*;
 
 import main.domain.CDR;
-import main.domain.MatchFare;
 import main.domain.Fare.Fare;
 import main.domain.Fare.NormalFare;
+import main.domain.Fare.FareMatchers.MatchFare;
 
 public class Postpaid extends Plan{
 	

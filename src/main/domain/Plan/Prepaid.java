@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.domain.CDR;
-import main.domain.MatchFare;
 import main.domain.Fare.Fare;
 import main.domain.Fare.FareByHour;
 import main.domain.Fare.NormalFare;
+import main.domain.Fare.FareMatchers.MatchFare;
 
 public class Prepaid extends Plan {
 	

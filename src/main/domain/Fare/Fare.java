@@ -3,7 +3,7 @@ package main.domain.Fare;
 
 import java.util.List;
 
-import main.domain.MatchFare;
+import main.domain.Fare.FareMatchers.MatchFare;
 
 public abstract class Fare {
 	

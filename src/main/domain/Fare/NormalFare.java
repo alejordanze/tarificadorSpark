@@ -1,7 +1,7 @@
 package main.domain.Fare;
 
-import main.domain.MatchFare;
-import main.domain.MatchFareNormal;
+import main.domain.Fare.FareMatchers.MatchFare;
+import main.domain.Fare.FareMatchers.MatchFareNormal;
 
 public class NormalFare extends Fare {
 	
