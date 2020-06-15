@@ -1,7 +1,10 @@
-package main.domain;
+package main.domain.Plan;
 
 
 import java.util.*;
+
+import main.domain.CDR;
+import main.domain.Fare.Fare;
 
 public abstract class Plan{
 	

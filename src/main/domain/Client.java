@@ -3,6 +3,11 @@ package main.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.domain.Plan.Plan;
+import main.domain.Plan.Postpaid;
+import main.domain.Plan.Prepaid;
+import main.domain.Plan.Wow;
+
 public class Client{
 
 	public Plan plan;

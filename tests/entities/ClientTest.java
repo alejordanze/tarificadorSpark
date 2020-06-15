@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import main.domain.Client;
 import main.domain.FriendRegistry;
-import main.domain.Plan;
-import main.domain.Prepaid;
+import main.domain.Plan.Plan;
+import main.domain.Plan.Prepaid;
 
 class ClientTest {
 

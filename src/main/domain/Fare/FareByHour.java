@@ -1,4 +1,7 @@
-package main.domain;
+package main.domain.Fare;
+
+import main.domain.MatchFare;
+import main.domain.MatchFareByHour;
 
 public class FareByHour extends Fare {
 		

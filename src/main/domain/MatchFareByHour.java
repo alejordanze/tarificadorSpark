@@ -1,5 +1,9 @@
 package main.domain;
 
+import main.domain.Fare.Fare;
+import main.domain.Fare.FareByHour;
+import main.domain.Fare.FareNames;
+
 public class MatchFareByHour implements MatchFare {
 	
 	public boolean isValidHour(FareByHour fare, int hour) {

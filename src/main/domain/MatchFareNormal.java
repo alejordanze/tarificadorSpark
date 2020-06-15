@@ -1,5 +1,8 @@
 package main.domain;
 
+import main.domain.Fare.Fare;
+import main.domain.Fare.FareNames;
+
 public class MatchFareNormal implements MatchFare {
 
 	@Override

@@ -1,7 +1,9 @@
-package main.domain;
+package main.domain.Fare;
 
 
 import java.util.List;
+
+import main.domain.MatchFare;
 
 public abstract class Fare {
 	

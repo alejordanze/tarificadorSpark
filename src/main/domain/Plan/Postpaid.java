@@ -1,7 +1,12 @@
-package main.domain;
+package main.domain.Plan;
 
 
 import java.util.*;
+
+import main.domain.CDR;
+import main.domain.MatchFare;
+import main.domain.Fare.Fare;
+import main.domain.Fare.NormalFare;
 
 public class Postpaid extends Plan{
 	

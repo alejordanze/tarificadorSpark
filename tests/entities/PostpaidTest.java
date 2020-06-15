@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 
 import main.*;
 import main.domain.CDR;
-import main.domain.Fare;
-import main.domain.FareByHour;
-import main.domain.NormalFare;
-import main.domain.Postpaid;
+import main.domain.Fare.Fare;
+import main.domain.Fare.FareByHour;
+import main.domain.Fare.NormalFare;
+import main.domain.Plan.Postpaid;
 
 class PostpaidTest {
 	

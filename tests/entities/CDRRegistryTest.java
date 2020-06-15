@@ -22,13 +22,13 @@ import main.domain.CDR;
 import main.domain.CDRRegistry;
 import main.domain.Client;
 import main.domain.ClientRegistry;
-import main.domain.FareByHour;
 import main.domain.FriendRegistry;
-import main.domain.NormalFare;
-import main.domain.Plan;
-import main.domain.Postpaid;
-import main.domain.Prepaid;
-import main.domain.Wow;
+import main.domain.Fare.FareByHour;
+import main.domain.Fare.NormalFare;
+import main.domain.Plan.Plan;
+import main.domain.Plan.Postpaid;
+import main.domain.Plan.Prepaid;
+import main.domain.Plan.Wow;
 
 public class CDRRegistryTest {
 

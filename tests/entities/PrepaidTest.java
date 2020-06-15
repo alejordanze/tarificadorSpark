@@ -12,10 +12,10 @@ import main.*;
 import main.domain.CDR;
 import main.domain.Client;
 import main.domain.ClientRegistry;
-import main.domain.Fare;
-import main.domain.FareByHour;
-import main.domain.NormalFare;
-import main.domain.Prepaid;
+import main.domain.Fare.Fare;
+import main.domain.Fare.FareByHour;
+import main.domain.Fare.NormalFare;
+import main.domain.Plan.Prepaid;
 
 class PrepaidTest {
 

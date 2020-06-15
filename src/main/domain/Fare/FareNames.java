@@ -1,4 +1,4 @@
-package main.domain;
+package main.domain.Fare;
 
 public enum FareNames {
     FARE_BY_HOUR,

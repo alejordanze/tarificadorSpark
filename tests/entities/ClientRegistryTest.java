@@ -15,7 +15,7 @@ import main.dataAccess.FileRepository.ClientFileRepository;
 import main.dataAccess.SQLRepository.ClientSqlRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;
-import main.domain.Prepaid;
+import main.domain.Plan.Prepaid;
 
 class ClientRegistryTest {
 
