@@ -13,6 +13,6 @@ public class ResponseModel {
 	
 	
 	public void addInformation(String theKey, Object information) {
-		response.put(theKey, information)
-;	}
+		response.put(theKey, information);
+	}
 }
