@@ -5,10 +5,10 @@ import static java.util.Arrays.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.entities.Client;
-import main.entities.FriendRegistry;
-import main.useCases.Plan;
-import main.useCases.Prepaid;
+import main.domain.Client;
+import main.domain.FriendRegistry;
+import main.domain.Plan.Plan;
+import main.domain.Plan.Prepaid;
 
 class ClientTest {
 

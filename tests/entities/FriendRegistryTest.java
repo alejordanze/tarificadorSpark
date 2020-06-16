@@ -9,7 +9,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.entities.FriendRegistry;
+import main.domain.FriendRegistry;
 
 class FriendRegistryTest {
 	FriendRegistry friendRegistry;
@@ -62,7 +62,7 @@ class FriendRegistryTest {
 	void getStringFriendsTest() {
 		friendRegistry.setFriends(owner, asList(friend1,friend2));
 		String friendsList= friendRegistry.getStringFriends(owner);
-		assertEquals("88888888,99999999",friendsList);
+		assertEquals("[88888888,99999999]",friendsList);
 	}
 	
 	@Test

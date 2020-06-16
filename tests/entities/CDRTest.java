@@ -9,9 +9,13 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
+import main.domain.*;
+import main.domain.Fare.FareByHour;
+import main.domain.Fare.NormalFare;
+import main.domain.Plan.Postpaid;
+import main.domain.Plan.Prepaid;
+import main.domain.Plan.Wow;
 import main.*;
-import main.entities.*;
-import main.useCases.*;
 
 class CDRTest {
 

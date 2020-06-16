@@ -10,12 +10,12 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import main.*;
-import main.dataAccess.ClientFileRepository;
-import main.dataAccess.ClientSqlRepository;
-import main.dataAccess.Repository;
-import main.entities.Client;
-import main.entities.ClientRegistry;
-import main.useCases.Prepaid;
+import main.application.gateways.Repository;
+import main.dataAccess.FileRepository.ClientFileRepository;
+import main.dataAccess.SQLRepository.ClientSqlRepository;
+import main.domain.Client;
+import main.domain.ClientRegistry;
+import main.domain.Plan.Prepaid;
 
 class ClientRegistryTest {
 
