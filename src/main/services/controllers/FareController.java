@@ -2,16 +2,11 @@ package main.services.controllers;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import main.application.interactors.Fare.FareBoundaryInputPort;
 import main.application.interactors.Fare.FareBoundaryOutputPort;
 import main.application.interactors.Fare.FareInteractor;
 import main.application.interactors.FareExport.FareExportBoundaryInputPort;
 import main.application.interactors.FareExport.FareExportInteractor;
-import main.application.models.responseModel.ResponseModel;
 import main.services.presenters.FarePresenter;
 
 public class FareController extends Controller {
@@ -25,20 +20,16 @@ public class FareController extends Controller {
 		fareExportBoundaryInputPort.execute();
 	}
 	
-	private static ResponseModel getModel(boolean saved){
-		return fareBoundaryInputPort.execute(saved);
-	}
-	
 	public static void getMethod() {
 		get("/fare", (request, response) -> {
-			return getTemplate(getModel(false), "export.ftl");
+			return fareBoundaryInputPort.execute(false);
 		});
 	}
 	
 	public static void postMethod() {
 		post("/fare", (request, response) -> {
 			export();
-			return getTemplate(getModel(true), "export.ftl");
+			return fareBoundaryInputPort.execute(true);
 		});
 	}
 	

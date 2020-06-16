@@ -51,7 +51,7 @@ public abstract class Controller {
         try {
             Template formTemplate = conf.getTemplate("resources/" + template);
 
-            formTemplate.process(model, writer);
+            formTemplate.process(model.getResponse(), writer);
         } catch (Exception e) {
             halt(500);
         }
@@ -62,9 +62,17 @@ public abstract class Controller {
 	
 	public static void postMethod() {}
 	
-	public static void init() {
+	public static void run() {
 		getClientsFromRepositoryBoundaryInputPort.execute();
 		getCDRFromRepositoryBoundaryInputPort.execute();
+		HomeController.init();
+		UploadCDRController.init();
+		ConfigurationController.init();
+		FareController.init();
+		RegistryController.init();
+		UploadClientController.init();
+		ClientRegistryController.init();
+		
 	}
 
 }

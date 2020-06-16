@@ -1,5 +1,6 @@
 package main.application.interactors.Fare;
 
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,8 +23,7 @@ public class FareInteractor implements FareBoundaryInputPort{
 	}
 	
 	@Override
-	public ResponseModel execute(boolean saved) {
-		ResponseModel responseFareBoundaryOutputPort = fareBoundaryOutputPort.present(uploadCDRregister,option,saved );
-		return responseFareBoundaryOutputPort;
+	public StringWriter execute(boolean saved) {
+		return fareBoundaryOutputPort.present(uploadCDRregister,option,saved );
 	}
 }

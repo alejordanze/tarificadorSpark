@@ -1,5 +1,6 @@
 package main.application.interactors.GetCDRRegistry;
 
+import java.io.StringWriter;
 import java.util.Map;
 
 import main.application.gateways.Repository;
@@ -23,7 +24,7 @@ public class GetCDRRegistryInteractor implements GetCDRRegistryBoundaryInputPort
 	}
 	
 	@Override
-	public ResponseModel execute() {
+	public StringWriter execute() {
 		getCDRFromRepositoryBoundaryInputPort.execute();
 		return getCDRRegistryBoundaryOutputPort.present(CDRregister.getRegistry());
 	}

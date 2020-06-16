@@ -1,10 +1,6 @@
 package main.application.interactors.Home;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import main.application.models.responseModel.ResponseModel;
-
+import java.io.StringWriter;
 public class HomeInteractor implements HomeBoundaryInputPort{
 
 	HomeBoundaryOutputPort homeBoundaryOutputPort;
@@ -14,8 +10,7 @@ public class HomeInteractor implements HomeBoundaryInputPort{
 	}
 	
 	@Override
-	public ResponseModel execute() {
-		ResponseModel responseHomeBoundaryOutputPort = homeBoundaryOutputPort.present();
-		return responseHomeBoundaryOutputPort;
+	public StringWriter execute() {
+		return homeBoundaryOutputPort.present();
 	}
 }

@@ -1,9 +1,7 @@
 package main.application.interactors.Home;
 
-import java.util.Map;
-
-import main.application.models.responseModel.ResponseModel;
+import java.io.StringWriter;
 
 public interface HomeBoundaryOutputPort {
-	public ResponseModel present();
+	public StringWriter present();
 }

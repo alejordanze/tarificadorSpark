@@ -15,12 +15,12 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
 import main.domain.*;
-import main.application.interactors.UploadClient.UploadClientBoundaryInputPort;
-import main.application.interactors.UploadClient.UploadClientBoundaryOutputPort;
-import main.application.interactors.UploadClient.UploadClientInteractor;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryInteractor;
+import main.application.interactors.UploadConfirm.UploadConfirmBoundaryInputPort;
+import main.application.interactors.UploadConfirm.UploadConfirmBoundaryOutputPort;
+import main.application.interactors.UploadConfirm.UploadConfirmInteractor;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryInputPort;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundaryOutputPort;
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientInteractor;
@@ -33,8 +33,8 @@ import spark.utils.IOUtils;
 
 public class UploadClientController extends Controller {
 	
-	static UploadClientBoundaryOutputPort uploadClientBoundaryOuputPort = new UploadClientPresenter();
-	static UploadClientBoundaryInputPort uploadClientBoundaryInputPort = new UploadClientInteractor(uploadClientBoundaryOuputPort);
+	static UploadConfirmBoundaryOutputPort uploadConfirmBoundaryOuputPort = new UploadClientPresenter();
+	static UploadConfirmBoundaryInputPort uploadConfirmBoundaryInputPort = new UploadConfirmInteractor(uploadConfirmBoundaryOuputPort);
 
 	static VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort = new VerifyNumberClientPresenter();
 	static VerifyNumberClientBoundaryInputPort verifyNumberClientBoundaryInputPort= new VerifyNumberClientInteractor(verifyNumberClientBoundaryOutputPort,clientRepository);
@@ -52,17 +52,8 @@ public class UploadClientController extends Controller {
 	
 	public static void postMethod() {
 		post("/uploadClient", (req, response) -> {
-			String path = "/Users/miguelalejandrojordan/";
-			req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement(path));
-            Part filePart = req.raw().getPart("myfile");
-            try (InputStream inputStream = filePart.getInputStream()) {
-            	String fileName = path + filePart.getSubmittedFileName();
-                OutputStream outputStream = new FileOutputStream(fileName);
-                IOUtils.copy(inputStream, outputStream);
-                outputStream.close();
-                numberCdr = uploadClientFileRepositoryBoundaryInputPort.execute(fileName);
-            }
-            return getTemplate(uploadClientBoundaryInputPort.execute(numberCdr), "uploadConfirm.ftl");
+            numberCdr = uploadClientFileRepositoryBoundaryInputPort.execute(req);
+            return uploadConfirmBoundaryInputPort.execute(numberCdr);
         });
 	}
 	

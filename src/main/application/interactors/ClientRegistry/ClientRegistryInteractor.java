@@ -1,5 +1,6 @@
 package main.application.interactors.ClientRegistry;
 
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,10 +23,9 @@ public class ClientRegistryInteractor implements ClientRegistryBoundaryInputPort
 	}
 	
 	@Override
-	public ResponseModel execute() {
+	public StringWriter execute() {
 		clientRegister.getClientsFromRepository();
-		ResponseModel responseClientRegistryOutputport = clientRegistryOutputport.present(clientRegister.getClients(),FriendRegistry.getInstance());
-		return responseClientRegistryOutputport;
+		return clientRegistryOutputport.present(clientRegister.getClients(),FriendRegistry.getInstance());
 	}
 
 }

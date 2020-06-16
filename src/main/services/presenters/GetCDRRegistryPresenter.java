@@ -1,5 +1,6 @@
 package main.services.presenters;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,10 +12,10 @@ import main.application.interactors.GetCDRRegistry.GetCDRRegistryBoundaryOutputP
 import main.application.models.responseModel.ResponseModel;
 import main.domain.CDR;
 
-public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort{
+public class GetCDRRegistryPresenter extends Presenter implements GetCDRRegistryBoundaryOutputPort{
 
 	@Override
-	public ResponseModel present(List<CDR> list) {
+	public StringWriter present(List<CDR> list) {
 		ResponseModel model = new ResponseModel();
 		Map<Long, List<CDR>> map = new TreeMap<>(Collections.reverseOrder());
 		for(CDR cdr: list) {
@@ -29,7 +30,8 @@ public class GetCDRRegistryPresenter implements GetCDRRegistryBoundaryOutputPort
 			map.put(date.getTime(), auxList);
 		}
 		model.addInformation("cdrs", map);
-		return model;
+		
+		return getTemplate(model, "registry.ftl");
 	}
 
 }

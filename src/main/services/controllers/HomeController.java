@@ -14,7 +14,7 @@ public class HomeController extends Controller {
 
 	public static void getMethod() {
 		get("/", (req, res) -> {
-			return getTemplate(homeBoundaryInputPort.execute(), "index.ftl");
+			return homeBoundaryInputPort.execute();
 		});
 	}
 	

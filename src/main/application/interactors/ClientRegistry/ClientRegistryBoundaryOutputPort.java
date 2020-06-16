@@ -1,5 +1,6 @@
 package main.application.interactors.ClientRegistry;
 
+import java.io.StringWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -8,5 +9,5 @@ import main.domain.Client;
 import main.domain.FriendRegistry;
 
 public interface ClientRegistryBoundaryOutputPort {
-	public ResponseModel present(List<Client> clients , FriendRegistry friendList);
+	public StringWriter present(List<Client> clients , FriendRegistry friendList);
 }

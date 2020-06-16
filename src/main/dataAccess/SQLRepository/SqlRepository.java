@@ -8,7 +8,7 @@ import main.application.gateways.Repository;
 
 
 public abstract class SqlRepository<T> implements Repository<T>{
-	int port = 8809;
+	int port = 8889;
 	String user = "root";
 	String password = "root";
 	String database = "tarificador";

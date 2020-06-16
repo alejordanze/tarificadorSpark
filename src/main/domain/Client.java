@@ -24,29 +24,15 @@ public class Client{
 	}
 	
 	public Client(long phoneNumber, String fullName, String plan){
-		this.plan = getPlanFromString(plan);
+		this.plan = PlanFactory.getPlanFromString(plan);
 		this.phoneNumber = phoneNumber;
 		this.fullName = fullName;
 	}
-	
-	private Plan getPlanFromString(String stringPlan){
-		Plan plan = null;
-		if(stringPlan.equalsIgnoreCase("wow")) {
-			plan = new Wow();
-		}
-		if(stringPlan.equalsIgnoreCase("postpago")) {
-			plan = new Postpaid();
-		}
-		if(stringPlan.equalsIgnoreCase("prepago")) {
-			plan = new Prepaid();
-		}
-		return plan;
-	}
-
 
 	public Plan getPlan() {
 		return plan;
 	}
+	
 	public void setPlan(Plan plan) {
 		this.plan = plan;
 	}

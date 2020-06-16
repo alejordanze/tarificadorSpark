@@ -13,6 +13,7 @@ import main.dataAccess.FileRepository.CDRFileRepository;
 import main.dataAccess.FileRepository.ClientFileRepository;
 import main.domain.CDR;
 import main.services.controllers.*;
+import main.services.presenters.Presenter;
 
 public class Main {
 
@@ -35,30 +36,10 @@ public class Main {
 		new CDR(6666666, 7777777, 9, 2130, new Date()),
 		new CDR(8888888, 7777777, 12, 2330, new Date()) );
 	}
-	
-	public static StringWriter getTemplate(Map<String, Object> model, String template, Configuration cfg) {
-		StringWriter writer = new StringWriter();
-        try {
-            Template formTemplate = cfg.getTemplate("resources/" + template);
-
-            formTemplate.process(model, writer);
-        } catch (Exception e) {
-            halt(500);
-        }
-
-        return writer;
-	}
 
 	public static void main(String[] args) throws Exception   {
-
-		staticFiles.location("/resources");
-		Controller.init();
-		HomeController.init();
-		UploadCDRController.init();
-		ConfigurationController.init();
-		FareController.init();
-		RegistryController.init();
-		UploadClientController.init();
-		ClientRegistryController.init();
+		
+		Presenter.run();
+		Controller.run();
 	}
 }

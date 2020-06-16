@@ -1,5 +1,7 @@
 package main.application.interactors.UploadCDR;
 
+import java.io.StringWriter;
+
 import main.application.models.responseModel.ResponseModel;
 
 public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
@@ -10,7 +12,7 @@ public class UploadCDRInteractor implements UploadCDRBoundaryInputPort{
 		this.uploadCDRBoundaryOutputPort = uploadCDRBoundaryOutputPort;
 	}
 	@Override
-	public ResponseModel execute(int numberCdr) {
+	public StringWriter execute(int numberCdr) {
         return uploadCDRBoundaryOutputPort.present(numberCdr);
 	}
 

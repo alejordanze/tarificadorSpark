@@ -1,10 +1,8 @@
 package main.application.interactors.Home;
 
-import java.util.Map;
-
-import main.application.models.responseModel.ResponseModel;
+import java.io.StringWriter;
 
 public interface HomeBoundaryInputPort {
 	
-	public ResponseModel execute();
+	public StringWriter execute();
 }

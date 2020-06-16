@@ -1,13 +1,12 @@
 package main.application.interactors.UploadCDRRegistryFileRepository;
 
-import main.application.gateways.Repository;
+import main.application.utils.FileUpload;
 import main.dataAccess.FileRepository.CDRFileRepository;
-import main.dataAccess.FileRepository.ClientFileRepository;
 import main.dataAccess.FileRepository.FileRepository;
 import main.domain.CDR;
 import main.domain.CDRRegistry;
-import main.domain.Client;
 import main.domain.ClientRegistry;
+import spark.Request;
 
 public class UploadCDRRegistryFileRepositoryInteractor implements UploadCDRRegistryFileRepositoryBoundaryInputPort{
 
@@ -21,10 +20,15 @@ public class UploadCDRRegistryFileRepositoryInteractor implements UploadCDRRegis
 		this.clientRegister = clientRegister;
 	}
 	
-	@Override
-	public int execute(String file) {
-		FileRepository<CDR> fileRepo = new CDRFileRepository(file);
+	public void upload(Request req) {
+		FileUpload uploadFile = new FileUpload();
+    	FileRepository<CDR> fileRepo = new CDRFileRepository(uploadFile.upload(req));
 		uploadCDRregister.setRegistry(fileRepo.getRegistry(), clientRegister);
+	}
+	
+	@Override
+	public int execute(Request req) {
+		upload(req);
 		return uploadCDRRegistryFileRepositoryBoundaryOutputPort.present(uploadCDRregister.getRegistry());
 	}
 
