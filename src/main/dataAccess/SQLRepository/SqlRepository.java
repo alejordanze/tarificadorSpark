@@ -8,9 +8,9 @@ import main.application.gateways.Repository;
 
 
 public abstract class SqlRepository<T> implements Repository<T>{
-	int port = 3306;
+	int port = 8889;
 	String user = "root";
-	String password = "";
+	String password = "root";
 	String database = "tarificador";
 	Connection connect;
 	
@@ -56,7 +56,7 @@ public abstract class SqlRepository<T> implements Repository<T>{
 			e.printStackTrace();
 		}  
 		try {
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/" + database +"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", user, password);
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/" + database, user, password);
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

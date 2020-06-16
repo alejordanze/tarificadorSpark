@@ -1,4 +1,4 @@
-package main.application.interactors.UploadCDR;
+package main.application.interactors.Upload;
 
 import java.io.StringWriter;
 import java.util.Map;

@@ -15,9 +15,9 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
 import main.domain.*;
-import main.application.interactors.UploadCDR.UploadBoundaryInputPort;
-import main.application.interactors.UploadCDR.UploadBoundaryOutputPort;
-import main.application.interactors.UploadCDR.UploadInteractor;
+import main.application.interactors.Upload.UploadBoundaryInputPort;
+import main.application.interactors.Upload.UploadBoundaryOutputPort;
+import main.application.interactors.Upload.UploadInteractor;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryInteractor;

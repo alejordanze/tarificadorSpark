@@ -37,7 +37,7 @@ public class CDRRegistryTest {
 	private Plan prepago = new Prepaid(new NormalFare(1.45), asList(new FareByHour(0.85, 2130, 2359)));
 	private Plan postpago = new Postpaid(1);
 	private Wow wow = new Wow(0.99);
-	private CDR llamada = new CDR(7777777, 6666666, 2, 1830, new Date());
+	private CDR llamada = new CDR(8888888, 6666666, 2, 1830, new Date());
 	private CDR llamada2 = new CDR(6666666, 7777777, 2, 2130, new Date());
 	private CDR llamada3 = new CDR(8888888, 7777777, 12, 1534, new Date());
 	private CDR llamada4 = new CDR(8888888, 6666666, 34, 1845, new Date());
@@ -188,9 +188,6 @@ public class CDRRegistryTest {
 	@Test
 	void testSqlGet() throws IOException {
 		friendRegistry.setFriends(8888888, asList((long)6666666));
-		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
-		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
-		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
 		Repository<CDR> repository = new CDRSqlRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		CDRregister.getCDRFromRepository();
@@ -224,17 +221,30 @@ public class CDRRegistryTest {
 	@Test
 	void FileRepositoryTest() {
 		friendRegistry.setFriends(8888888, asList((long)6666666));
-		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
-		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
-		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+
+		CDR llamada = new CDR(8888888, 6666666, 5, 2230, new Date());
 		Repository<CDR> repository = new CDRFileRepository();
 		CDRRegistry CDRregister = new CDRRegistry(repository);
 		CDRregister.getCDRFromRepository();
 		List<CDR> list = CDRregister.getRegistry();
-		list.forEach(t -> {System.out.println(t.getOriginPhoneNumber());});
 
 		assertThat(CDRregister.getRegistry(), is(list));
 	}
 	
+//	@Test 
+//	void testClientConsumption() {
+//		Repository<CDR> repository = new CDRFileRepository();
+//		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+//		clientsRegister.addClient(cliente3);
+//		CDRRegistry CDRregister = new CDRRegistry();
+//		CDRregister.addCDR(llamada, clientsRegister);
+//		CDRregister.addCDR(llamada, clientsRegister);
+//		CDRregister.addCDR(llamada, clientsRegister);
+//		CDRregister.addCDR(llamada, clientsRegister);
+//		System.out.println(CDRregister.getClientConsumption((long)8888888).size());
+////		assertTrue(CDRregister.getClientConsumption(8888888).get(0).containsKey("month"));
+//		
+//	}
+//	
 
 }

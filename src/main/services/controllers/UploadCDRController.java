@@ -17,9 +17,9 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
-import main.application.interactors.UploadCDR.UploadBoundaryInputPort;
-import main.application.interactors.UploadCDR.UploadBoundaryOutputPort;
-import main.application.interactors.UploadCDR.UploadInteractor;
+import main.application.interactors.Upload.UploadBoundaryInputPort;
+import main.application.interactors.Upload.UploadBoundaryOutputPort;
+import main.application.interactors.Upload.UploadInteractor;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryInteractor;
@@ -46,6 +46,7 @@ public class UploadCDRController extends Controller {
 
 	static UploadConfirmBoundaryOutputPort uploadConfirmBoundaryOutputPort = new UploadConfirmCDRPresenter();
 	static UploadConfirmBoundaryInputPort uploadConfirmBoundaryInputPort = new UploadConfirmInteractor(uploadConfirmBoundaryOutputPort);
+	
 	static UploadBoundaryOutputPort uploadCDROutputPort = new UploadCDRPresenter();
 	static UploadBoundaryInputPort uploadCDRInputPort = new UploadInteractor(uploadCDROutputPort);
 	

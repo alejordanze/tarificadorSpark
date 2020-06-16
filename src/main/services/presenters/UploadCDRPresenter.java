@@ -3,7 +3,7 @@ package main.services.presenters;
 import java.io.StringWriter;
 import java.util.List;
 
-import main.application.interactors.UploadCDR.UploadBoundaryOutputPort;
+import main.application.interactors.Upload.UploadBoundaryOutputPort;
 import main.application.models.responseModel.ResponseModel;
 import main.domain.CDR;
 
