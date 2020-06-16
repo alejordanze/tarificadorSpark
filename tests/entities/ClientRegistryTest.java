@@ -47,4 +47,12 @@ class ClientRegistryTest {
 		assertThat(clientRegistry.getClients(), is(clients));
 	}
 
+	
+	@Test
+	void setRepositoryTest() {
+		ClientRegistry clientRegistry = new ClientRegistry();
+		Repository<Client> repository = new ClientSqlRepository();
+		clientRegistry.setRepository(repository);
+		assertEquals(repository, clientRegistry.getRepository());
+	}
 }

@@ -2,10 +2,10 @@ package entities;
 
 import static org.junit.Assert.*;
 import static java.util.Arrays.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.CoreMatchers.*;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.*;
 
@@ -183,5 +183,42 @@ public class CDRRegistryTest {
 		assertThat(CDRregister.getRegistry(), is(list));
 		assertThat(CDRregister.getRepository(), is(repository));
 	}
+	
+	
+	@Test
+	void testSqlGet() throws IOException {
+		friendRegistry.setFriends(8888888, asList((long)6666666));
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+		Repository<CDR> repository = new CDRSqlRepository();
+		CDRRegistry CDRregister = new CDRRegistry(repository);
+		CDRregister.getCDRFromRepository();
+		List<CDR> list = CDRregister.getRegistry();
+
+		assertThat(CDRregister.getRegistry(), is(list));
+	}
+	
+	@Test
+	void testSorting() {
+		Date date1 = new Date(Timestamp.valueOf("2020-06-04 03:55:44").getTime());
+		Date date2 = new Date(Timestamp.valueOf("2020-06-05 05:40:32").getTime());
+//		long originPhoneNumber, long destinationPhoneNumber, double duration, int hour, java.sql.Date date, double cost, Date dateAdded
+		CDR llamada = new CDR(7777777, 6666666, 2, 1830, new java.sql.Date(new Date().getTime()), 3.0, new Date(Timestamp.valueOf("2020-06-04 03:55:44").getTime()));
+		CDR llamada2 = new CDR(6666666, 7777777, 2, 2130, new java.sql.Date(new Date().getTime()), 5.0, new Date(Timestamp.valueOf("2020-06-05 05:40:32").getTime()));
+		List<CDR> list = new ArrayList<CDR>();
+		List<CDR> list2 = new ArrayList<CDR>();
+		List<CDR> list3 = new ArrayList<CDR>();
+		list.add(llamada);
+		list2.add(llamada2);
+		list3.add(llamada);
+		list3.add(llamada2);
+		Map<String, List<CDR>> map = new HashMap<>();
+		map.put(date1.toString(), list2);
+		map.put(date2.toString(), list);
+		CDRSqlRepository repository = new CDRSqlRepository();
+		assertTrue(repository.sortByDate(list3).containsValue(list));
+	}
+	
 
 }
