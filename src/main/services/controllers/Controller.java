@@ -43,25 +43,6 @@ public abstract class Controller {
 	static GetClientsFromRepositoryBoundaryInputPort getClientsFromRepositoryBoundaryInputPort = new GetClientsFromRepositoryInteractor(clientRegister);
 	static GetCDRFromRepositoryBoundaryInputPort getCDRFromRepositoryBoundaryInputPort = new GetCDRFromRepositoryInteractor(CDRregister);
 	
-	public static StringWriter getTemplate(ResponseModel model, String template) {
-		conf.setClassForTemplateLoading(Main.class, "/");
-		
-		StringWriter writer = new StringWriter();
-		
-        try {
-            Template formTemplate = conf.getTemplate("resources/" + template);
-
-            formTemplate.process(model.getResponse(), writer);
-        } catch (Exception e) {
-            halt(500);
-        }
-
-        return writer;
-	}
-
-	
-	public static void postMethod() {}
-	
 	public static void run() {
 		getClientsFromRepositoryBoundaryInputPort.execute();
 		getCDRFromRepositoryBoundaryInputPort.execute();
@@ -72,7 +53,7 @@ public abstract class Controller {
 		RegistryController.init();
 		UploadClientController.init();
 		ClientRegistryController.init();
-		
+		BillingController.init();
 	}
 
 }

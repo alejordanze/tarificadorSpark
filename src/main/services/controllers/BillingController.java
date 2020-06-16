@@ -16,8 +16,11 @@ public class BillingController extends Controller{
 	static BillingBoundaryInputPort billingBoundaryInputPort = new BillingInteractor(billingBoundaryOutputPort);	
 	
 	public static void getMethod() {
-		get("/facturar", (request, response) -> {
-			return billingBoundaryInputPort.execute();
+		get("/facturar/:phone", (request, response) -> {
+			response.type("application/json");
+			response.header("Access-Control-Allow-Origin", "*");
+			String phone = request.params(":phone");
+			return billingBoundaryInputPort.execute(CDRregister, phone);
 		});
 		
 	}

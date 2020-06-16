@@ -1,6 +1,9 @@
 package main.application.interactors.Billing;
 
+import org.json.JSONObject;
+
 import main.application.models.responseModel.ResponseModel;
+import main.domain.CDRRegistry;
 
 public class BillingInteractor implements BillingBoundaryInputPort{
 
@@ -10,8 +13,8 @@ public class BillingInteractor implements BillingBoundaryInputPort{
 	}
 	
 	@Override
-	public ResponseModel execute() {
-		return null;		
+	public JSONObject execute(CDRRegistry cdrRegister, String phone) {
+		return this.billingBoundaryOutputPort.present(cdrRegister, phone);		
 	}
 
 }

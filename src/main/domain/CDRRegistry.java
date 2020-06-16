@@ -1,10 +1,12 @@
 package main.domain;
 
-
+import static java.util.Arrays.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import main.application.gateways.Repository;
 
@@ -57,4 +59,32 @@ public class CDRRegistry {
 	{
 		this.registry = this.repository.getRegistry();
 	}
+	
+	@SuppressWarnings("deprecation")
+	public List<Map<String, String>> getClientConsumption(long number) {
+		List<Map<String,String>> listOfMap = new ArrayList<>();
+		List<String> months = asList("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
+		months.forEach((String month) -> {
+			Map<String, String> map = new HashMap<>();
+			double consumption = 0;
+			for(CDR cdr: this.registry){
+				if(cdr.getOriginPhoneNumber() == number && cdr.getDate().getMonth() == Integer.parseInt(month)) {
+					consumption += cdr.getCost();
+				}
+			}
+			if(consumption > 0) {
+				map.put("month", month);
+				map.put("amount", Double.toString(this.round(consumption, 2)));
+				listOfMap.add(map);
+			}
+		});
+		return listOfMap;
+	}
+	
+	private double round(double number, int places) {
+		 BigDecimal bd = new BigDecimal(Double.toString(number));
+		 bd = bd.setScale(places, RoundingMode.HALF_UP);
+		 return bd.doubleValue();
+	 }
+	
 }
