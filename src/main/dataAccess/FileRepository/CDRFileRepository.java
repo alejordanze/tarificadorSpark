@@ -13,7 +13,7 @@ public class CDRFileRepository extends FileRepository<CDR>{
 	}
 	
 	public CDRFileRepository() {
-		this.fileName = "/Users/miguelalejandrojordan/Desktop/CDRRegister.csv";
+		this.fileName = "CDRRegister.csv";
 	}
 
 	@Override

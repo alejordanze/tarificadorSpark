@@ -90,4 +90,20 @@ class ClientRegistryTest {
 		ClientSqlRepository repository = new ClientSqlRepository();
 		assertFalse(repository.isPhoneAvailable(77777777));
 	}
+	
+	
+	@Test
+	void getClientsFromRepositoryTest() {
+		Repository<Client> repository = new ClientFileRepository();		
+		ClientRegistry clientRegistry = new ClientRegistry(repository);	
+		clientRegistry.addClient(new Client(70712345,"Jose Perez","Prepago"));
+		clientRegistry.saveRegistry();
+		clientRegistry.getClientsFromRepository();	
+		List<String> names = new ArrayList<String>();
+		clientRegistry.getClients().forEach((temp) -> {
+			names.add(temp.fullName);
+			System.out.print(temp.fullName);
+        });
+		assertTrue(names.contains("Jose Perez"));
+	}
 }
