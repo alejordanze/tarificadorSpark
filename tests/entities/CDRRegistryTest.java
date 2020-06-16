@@ -220,5 +220,21 @@ public class CDRRegistryTest {
 		assertTrue(repository.sortByDate(list3).containsValue(list));
 	}
 	
+	
+	@Test
+	void FileRepositoryTest() {
+		friendRegistry.setFriends(8888888, asList((long)6666666));
+		Client cliente = new Client(prepago, 7777777, "Ivy Rocabado");
+		Client cliente2 = new Client(postpago, 6666666, "Brayan Sejas");
+		Client cliente3 = new Client(wow, 8888888, "Saskia Sejas");
+		Repository<CDR> repository = new CDRFileRepository();
+		CDRRegistry CDRregister = new CDRRegistry(repository);
+		CDRregister.getCDRFromRepository();
+		List<CDR> list = CDRregister.getRegistry();
+		list.forEach(t -> {System.out.println(t.getOriginPhoneNumber());});
+
+		assertThat(CDRregister.getRegistry(), is(list));
+	}
+	
 
 }
