@@ -17,9 +17,9 @@ import java.util.Map;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
-import main.application.interactors.UploadCDR.UploadCDRBoundaryInputPort;
-import main.application.interactors.UploadCDR.UploadCDRBoundaryOutputPort;
-import main.application.interactors.UploadCDR.UploadCDRInteractor;
+import main.application.interactors.UploadCDR.UploadBoundaryInputPort;
+import main.application.interactors.UploadCDR.UploadBoundaryOutputPort;
+import main.application.interactors.UploadCDR.UploadInteractor;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadCDRRegistryFileRepository.UploadCDRRegistryFileRepositoryInteractor;
@@ -39,20 +39,22 @@ import main.domain.Plan.Prepaid;
 import main.domain.Plan.Wow;
 import main.services.presenters.UploadCDRPresenter;
 import main.services.presenters.UploadCDRRegistryFileRepositoryPresenter;
+import main.services.presenters.UploadConfirmCDRPresenter;
 import spark.utils.IOUtils;
 
 public class UploadCDRController extends Controller {
 
-	static UploadConfirmBoundaryOutputPort uploadConfirmBoundaryOutputPort = new UploadCDRPresenter();
+	static UploadConfirmBoundaryOutputPort uploadConfirmBoundaryOutputPort = new UploadConfirmCDRPresenter();
 	static UploadConfirmBoundaryInputPort uploadConfirmBoundaryInputPort = new UploadConfirmInteractor(uploadConfirmBoundaryOutputPort);
+	static UploadBoundaryOutputPort uploadCDROutputPort = new UploadCDRPresenter();
+	static UploadBoundaryInputPort uploadCDRInputPort = new UploadInteractor(uploadCDROutputPort);
 	
 	static 	UploadCDRRegistryFileRepositoryBoundaryOutputPort uploadCDRRegistryFileRepositoryBoundaryOutputPort = new UploadCDRRegistryFileRepositoryPresenter();
 	static UploadCDRRegistryFileRepositoryBoundaryInputPort uploadCDRRegistryFileRepositoryBoundaryInputPort  = new UploadCDRRegistryFileRepositoryInteractor(uploadCDRRegistryFileRepositoryBoundaryOutputPort,uploadCDRregister,clientRegister);
 
 	public static void getMethod() {
 		get("/upload", (req,res) -> {
-			ResponseModel model = new ResponseModel();
-			return getTemplate(model, "upload.ftl");
+			return uploadCDRInputPort.execute();
 		});
 	}
 

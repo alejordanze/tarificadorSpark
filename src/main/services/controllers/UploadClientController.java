@@ -15,6 +15,9 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.Part;
 
 import main.domain.*;
+import main.application.interactors.UploadCDR.UploadBoundaryInputPort;
+import main.application.interactors.UploadCDR.UploadBoundaryOutputPort;
+import main.application.interactors.UploadCDR.UploadInteractor;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryInputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryBoundaryOutputPort;
 import main.application.interactors.UploadClientFileRepository.UploadClientFileRepositoryInteractor;
@@ -26,14 +29,16 @@ import main.application.interactors.VerifyNumberClient.VerifyNumberClientBoundar
 import main.application.interactors.VerifyNumberClient.VerifyNumberClientInteractor;
 import main.application.models.responseModel.ResponseModel;
 import main.dataAccess.*;
+import main.services.presenters.UploadCDRPresenter;
 import main.services.presenters.UploadClientFileRepositoryPresenter;
 import main.services.presenters.UploadClientPresenter;
+import main.services.presenters.UploadConfirmClientPresenter;
 import main.services.presenters.VerifyNumberClientPresenter;
 import spark.utils.IOUtils;
 
 public class UploadClientController extends Controller {
 	
-	static UploadConfirmBoundaryOutputPort uploadConfirmBoundaryOuputPort = new UploadClientPresenter();
+	static UploadConfirmBoundaryOutputPort uploadConfirmBoundaryOuputPort = new UploadConfirmClientPresenter();
 	static UploadConfirmBoundaryInputPort uploadConfirmBoundaryInputPort = new UploadConfirmInteractor(uploadConfirmBoundaryOuputPort);
 
 	static VerifyNumberClientBoundaryOutputPort verifyNumberClientBoundaryOutputPort = new VerifyNumberClientPresenter();
@@ -42,11 +47,12 @@ public class UploadClientController extends Controller {
 	static UploadClientFileRepositoryBoundaryOutputPort uploadClientFileRepositoryBoundaryOutputPort = new UploadClientFileRepositoryPresenter();
 	static UploadClientFileRepositoryBoundaryInputPort uploadClientFileRepositoryBoundaryInputPort = new UploadClientFileRepositoryInteractor(uploadClientFileRepositoryBoundaryOutputPort,verifyNumberClientBoundaryInputPort,uploadclientRegister);
 
+	static UploadBoundaryOutputPort uploadClientOutputPort = new UploadClientPresenter();
+	static UploadBoundaryInputPort uploadClientInputPort = new UploadInteractor(uploadClientOutputPort);
 	
 	public static void getMethod() {
 		get("/uploadClient", (req,res) -> {
-			ResponseModel model = new ResponseModel();
-			return getTemplate(model, "uploadClient.ftl");
+			return uploadClientInputPort.execute();
 		});
 	}
 	

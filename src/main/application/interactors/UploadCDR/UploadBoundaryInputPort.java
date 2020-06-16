@@ -7,6 +7,6 @@ import javax.servlet.http.Part;
 
 import main.application.models.responseModel.ResponseModel;
 
-public interface UploadCDRBoundaryInputPort {
-	public StringWriter execute(int numberCdr);
+public interface UploadBoundaryInputPort {
+	public StringWriter execute();
 }

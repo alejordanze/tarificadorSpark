@@ -1,21 +1,16 @@
 package main.services.presenters;
 
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Map;
 
-import main.application.interactors.UploadConfirm.UploadConfirmBoundaryOutputPort;
+import main.application.interactors.UploadCDR.UploadBoundaryOutputPort;
 import main.application.models.responseModel.ResponseModel;
 
-public class UploadClientPresenter extends Presenter implements UploadConfirmBoundaryOutputPort{
+public class UploadClientPresenter extends Presenter implements UploadBoundaryOutputPort{
 
 	@Override
-	public StringWriter present(int numberCdr) {
+	public StringWriter present() {
 		ResponseModel model = new ResponseModel();
-		model.addInformation("quantity", numberCdr);
-        model.addInformation("type", "Clientes");
-        model.addInformation("redirect", "uploadClient");
-		return getTemplate(model, "uploadConfirm.ftl");
+		return getTemplate(model, "uploadClient.ftl");
 	}
 
 }

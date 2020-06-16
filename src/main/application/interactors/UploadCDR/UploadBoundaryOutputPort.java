@@ -5,6 +5,6 @@ import java.util.Map;
 
 import main.application.models.responseModel.ResponseModel;
 
-public interface UploadCDRBoundaryOutputPort {
-	public StringWriter present(int numberCdr);
+public interface UploadBoundaryOutputPort {
+	public StringWriter present();
 }
