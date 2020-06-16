@@ -58,7 +58,7 @@ public class ClientSqlRepository extends SqlRepository<Client>{
 			    Long pnumber = rs.getLong("phoneNumber");
 			    String fullName = rs.getString("fullName");
 			    String plan = rs.getString("plan");
-			    String friends = "["+ rs.getString("friends") + "]";
+			    String friends = rs.getString("friends");
 			    clientList.add(new Client(pnumber, fullName, plan));
 			    friendRegistry.setFriendsFromString(pnumber.toString(), friends);
 			}

@@ -55,4 +55,26 @@ class ClientRegistryTest {
 		clientRegistry.setRepository(repository);
 		assertEquals(repository, clientRegistry.getRepository());
 	}
+	
+	@Test
+	void getSqlList() {
+
+		Repository<Client> repository = new ClientSqlRepository();
+		ClientRegistry clientRegistry = new ClientRegistry(repository);
+		clientRegistry.getClientsFromRepository();
+		List<Client> clients = clientRegistry.getClients();
+		assertThat(clientRegistry.getClients(), is(clients));
+	}
+	
+	@Test
+	void getPhoneAvailable() {
+		ClientSqlRepository repository = new ClientSqlRepository();
+		assertTrue(repository.isPhoneAvailable(89898989));
+	}
+	
+	@Test
+	void getPhoneAvailableFalse() {
+		ClientSqlRepository repository = new ClientSqlRepository();
+		assertFalse(repository.isPhoneAvailable(77777777));
+	}
 }
