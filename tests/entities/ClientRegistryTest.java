@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +16,12 @@ import main.dataAccess.FileRepository.ClientFileRepository;
 import main.dataAccess.SQLRepository.ClientSqlRepository;
 import main.domain.Client;
 import main.domain.ClientRegistry;
+import main.domain.FriendRegistry;
 import main.domain.Plan.Prepaid;
 
 class ClientRegistryTest {
+
+	private static final boolean False = false;
 
 	@Test
 	void getClientsFileTest() {
@@ -45,6 +49,15 @@ class ClientRegistryTest {
 		clientRegistry.saveRegistry();
 		assertEquals(clients, clientRegistry.getClients());
 		assertThat(clientRegistry.getClients(), is(clients));
+	}
+	
+	@Test
+	void getAndSetRepositoryTest() {
+		Repository<Client> repository = new ClientFileRepository();
+		ClientRegistry clientRegistry = new ClientRegistry();
+		clientRegistry.setRepository(repository);
+		assertThat(clientRegistry.getRepository(), is(repository));
+
 	}
 
 	
